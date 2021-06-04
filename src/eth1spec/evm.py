@@ -1,9 +1,14 @@
-from eth_types import *
+from dataclasses import dataclass
+from typing import List, Tuple
+
+from .eth_types import U256, Address, Hash32, Log, State, Uint
 
 ADD = "\x01"
 
+
+@dataclass
 class Environment:
-    block_hashes: list[Hash32]
+    block_hashes: List[Hash32]
     origin: Address
     coinbase: Address
     number: Uint
@@ -13,9 +18,11 @@ class Environment:
     difficulty: Uint
     state: State
 
+
+@dataclass
 class Evm:
     pc: Uint
-    stack: list[U256]
+    stack: List[U256]
     memory: bytes
     gas_left: Uint
     current: Address
@@ -25,20 +32,30 @@ class Evm:
     depth: Uint
     env: Environment
 
-def proccess_call(caller: Address, target: Address, data: bytes, value: Uint, gas: Uint, depth: Uint, env: Environment) -> (Uint, list[Log]):
+
+def proccess_call(
+    caller: Address,
+    target: Address,
+    data: bytes,
+    value: Uint,
+    gas: Uint,
+    depth: Uint,
+    env: Environment,
+) -> Tuple[Uint, List[Log]]:
     evm = Evm(
         pc=0,
         stack=[],
+        memory=b"",
         gas_left=gas,
         current=target,
         caller=caller,
         data=data,
         value=value,
         depth=depth,
-        env=env
+        env=env,
     )
 
-    code = get_code(evm.env.state, evm.current)
+    # code = get_code(evm.env.state, evm.current)
 
     return [], evm.gas_left
 
