@@ -34,5 +34,5 @@ main
 
 .. literalinclude:: ../../../../src/eth1spec/main.py
    :language: python
-   :lines: 12-51
+   :lines: 11-50
 
