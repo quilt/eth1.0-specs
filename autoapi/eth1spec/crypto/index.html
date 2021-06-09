@@ -153,7 +153,7 @@
     <span class="n">signature</span><span class="p">[</span><span class="mi">64</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">s_bytes</span><span class="p">)</span> <span class="p">:</span> <span class="mi">64</span><span class="p">]</span> <span class="o">=</span> <span class="n">s_bytes</span>
     <span class="n">signature</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
     <span class="n">public_key</span> <span class="o">=</span> <span class="n">coincurve</span><span class="o">.</span><span class="n">PublicKey</span><span class="o">.</span><span class="n">from_signature_and_message</span><span class="p">(</span>
-        <span class="n">signature</span><span class="p">,</span> <span class="n">msg_hash</span><span class="p">,</span> <span class="n">hasher</span><span class="o">=</span><span class="kc">None</span>
+        <span class="nb">bytes</span><span class="p">(</span><span class="n">signature</span><span class="p">),</span> <span class="n">msg_hash</span><span class="p">,</span> <span class="n">hasher</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">)</span>
     <span class="n">public_key</span> <span class="o">=</span> <span class="n">public_key</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">compressed</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
     <span class="k">return</span> <span class="n">public_key</span>
@@ -189,7 +189,6 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.crypto</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../eth_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../evm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.evm</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../main/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.main</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../number/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.number</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../rlp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.rlp</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../spec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.spec</span></code></a></li>

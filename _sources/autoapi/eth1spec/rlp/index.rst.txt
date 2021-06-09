@@ -116,7 +116,7 @@ R_l
 Encodes `x`, a list of RLP encodable objects, using RLP.
 
 
-.. function:: R_l(x: List[RLP]) -> eth1spec.eth_types.Bytes
+.. function:: R_l(x: Sequence[RLP]) -> eth1spec.eth_types.Bytes
    :noindexentry:
 
 
@@ -133,7 +133,7 @@ s
 Partially encodes `x`, a list of RLP encodable objects, using RLP,
 
 
-.. function:: s(x: List[RLP]) -> eth1spec.eth_types.Bytes
+.. function:: s(x: Sequence[RLP]) -> eth1spec.eth_types.Bytes
    :noindexentry:
 
 
