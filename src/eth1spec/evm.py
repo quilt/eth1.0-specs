@@ -9,13 +9,26 @@ The abstract computer which runs the code stored in an
 from dataclasses import dataclass
 from typing import List, Tuple
 
-from .eth_types import U256, Address, Hash32, Log, State
-from .number import Uint
+from .eth_types import EMPTY_ACCOUNT, U256, Address, Hash32, Log, State, Uint
 
 ADD = b"\x01"
-"""
-Opcode for the addition (`+`) instruction.
-"""
+PUSH1 = b"\x60"
+SSTORE = b"\x55"
+
+ops = {
+    "ADD": ADD,
+    "PUSH1": PUSH1,
+    "SSTORE": SSTORE,
+}
+
+
+VERY_LOW = 3
+
+gas_schedule = {
+    "ADD": VERY_LOW,
+    "PUSH1": VERY_LOW,
+    "SSTORE": 20000,
+}
 
 
 @dataclass
@@ -106,16 +119,33 @@ def process_call(
         depth=depth,
         env=env,
     )
+    account = evm.env.state.get(evm.current, EMPTY_ACCOUNT)
+    code = account.code
 
-    # code = get_code(evm.env.state, evm.current)
+    if evm.value != 0:
+        evm.env.state[evm.caller].balance -= evm.value
+        evm.env.state[evm.current].balance += evm.value
 
-    return (evm.gas_left, [])
+    while evm.pc < len(code):
+        op = bytes([code[evm.pc]])
 
-    #  while(pc < len(code)):
-    #      op = code[pc]
+        if op == ops["ADD"]:
+            evm.gas_left -= gas_schedule["ADD"]
+            x = evm.stack.pop()
+            y = evm.stack.pop()
+            evm.stack.append(x + y)
+        elif op == ops["SSTORE"]:
+            evm.gas_left -= gas_schedule["SSTORE"]
+            k = evm.stack.pop()
+            v = evm.stack.pop()
+            account.storage[k.to_bytes(32, "big")] = v.to_bytes(
+                (2 ** v.bit_length() // 8) or 1, "big"
+            )
+        elif op == ops["PUSH1"]:
+            evm.gas_left -= gas_schedule["PUSH1"]
+            evm.stack.append(U256(code[evm.pc + 1]))
+            evm.pc += 1
 
-    #      switch(op):
-    #          case ADD:
-    #              x = evm.stack.pop()
-    #              y = evm.stack.pop()
-    #              evm.stack.append(x + y)
+        evm.pc += 1
+
+    return evm.gas_left, []

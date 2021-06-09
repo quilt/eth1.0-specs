@@ -35,15 +35,15 @@ class Transaction:
     Atomic operation performed on the block chain.
     """
 
-    nonce: Uint
-    gas_price: Uint
-    gas: Uint
+    nonce: U256
+    gas_price: U256
+    gas: U256
     to: Optional[Address]
-    value: Uint
+    value: U256
     data: Bytes
-    v: Uint
-    r: Uint
-    s: Uint
+    v: U256
+    r: U256
+    s: U256
 
 
 @dataclass
@@ -56,6 +56,14 @@ class Account:
     balance: Uint
     code: bytes
     storage: Storage
+
+
+EMPTY_ACCOUNT = Account(
+    nonce=Uint(0),
+    balance=Uint(0),
+    code=bytearray(),
+    storage={},
+)
 
 
 @dataclass
@@ -75,7 +83,7 @@ class Header:
     number: Uint
     gas_limit: Uint
     gas_used: Uint
-    time: Uint
+    time: U256
     extra: Bytes
     mix_digest: Bytes32
     nonce: Bytes8

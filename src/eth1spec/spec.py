@@ -8,13 +8,12 @@ from typing import List, Tuple
 
 from . import crypto, evm, rlp, trie
 from .eth_types import (
+    EMPTY_ACCOUNT,
     TX_BASE_COST,
     TX_DATA_COST_PER_NON_ZERO,
     TX_DATA_COST_PER_ZERO,
-    Account,
     Address,
     Block,
-    Bytes32,
     Hash32,
     Header,
     Log,
@@ -26,12 +25,6 @@ from .eth_types import (
 )
 
 BLOCK_REWARD = 5 * 10 ** 18
-EMPTY_ACCOUNT = Account(
-    nonce=Uint(0),
-    balance=Uint(0),
-    code=bytearray(),
-    storage={},
-)
 
 
 @dataclass
@@ -55,7 +48,7 @@ def state_transition(chain: BlockChain, block: Block) -> None:
     block : `eth1spec.eth_types.Block`
         Block to apply to `chain`.
     """
-    assert verify_header(block.header)
+    #  assert verify_header(block.header)
     gas_used, receipt_root, state = apply_body(
         chain.state,
         block.header.coinbase,
@@ -66,7 +59,10 @@ def state_transition(chain: BlockChain, block: Block) -> None:
         block.transactions,
         block.ommers,
     )
-    raise NotImplementedError()  # TODO
+
+    assert gas_used == block.header.gas_used
+    assert receipt_root == block.header.receipt_root
+    assert trie.TRIE(trie.y(state)) == block.header.state_root
 
 
 def verify_header(header: Header) -> bool:
@@ -131,6 +127,9 @@ def apply_body(
     gas_available = block_gas_limit
     receipts = []
 
+    if coinbase not in state:
+        state[coinbase] = EMPTY_ACCOUNT
+
     for tx in transactions:
         assert tx.gas <= gas_available
         sender_address = recover_sender(tx)
@@ -153,37 +152,20 @@ def apply_body(
 
         receipts.append(
             Receipt(
-                post_state=Root(
-                    bytes.fromhex(
-                        "00000000000000000000000000000000000000000000000000000"
-                        "00000000000000000000000000000000000000000000000000000"
-                        "0000000000000000000000"
-                    )
-                ),
+                post_state=Root(trie.TRIE(trie.y(state))),
                 cumulative_gas_used=(block_gas_limit - gas_available),
-                bloom=Bytes32(
-                    bytes.fromhex(
-                        "00000000000000000000000000000000000000000000000000000"
-                        "00000000000000000000000000000000000000000000000000000"
-                        "0000000000000000000000"
-                    )
-                ),
-                logs=logs,
+                bloom=b"\x00" * 256,
+                logs=[],
             )
         )
-
-        gas_available -= gas_used
-
-    if coinbase not in state:
-        state[coinbase] = EMPTY_ACCOUNT
 
     state[coinbase].balance += BLOCK_REWARD
 
     receipts_map = {
-        Uint(k).to_big_endian(): v for (k, v) in enumerate(receipts)
+        bytes(rlp.encode(Uint(k))): v for (k, v) in enumerate(receipts)
     }
-    receipts_y = trie.y(receipts_map)
-    return (gas_available), trie.TRIE(receipts_y), state
+    receipts_y = trie.y(receipts_map, secured=False)
+    return (block_gas_limit - gas_available), trie.TRIE(receipts_y), state
 
 
 def process_transaction(
@@ -218,12 +200,20 @@ def process_transaction(
     assert cost <= sender.balance
     sender.balance -= cost
 
+    gas = tx.gas - intrinsic_cost(tx)
+
     if tx.to is None:
         raise NotImplementedError()  # TODO
 
-    return evm.process_call(
-        sender_address, tx.to, tx.data, tx.value, tx.gas, Uint(0), env
+    gas_left, logs = evm.process_call(
+        sender_address, tx.to, tx.data, tx.value, gas, Uint(0), env
     )
+
+    sender.balance += gas_left * tx.gas_price
+    gas_used = tx.gas - gas_left
+    env.state[env.coinbase].balance += gas_used * tx.gas_price
+
+    return (gas_used, logs)
 
 
 def verify_transaction(tx: Transaction) -> bool:
@@ -240,6 +230,24 @@ def verify_transaction(tx: Transaction) -> bool:
     verified : `bool`
         True if the transaction can be executed, or False otherwise.
     """
+    return intrinsic_cost(tx) <= tx.gas
+
+
+def intrinsic_cost(tx: Transaction) -> Uint:
+    """
+    Calculates the intrinsic cost of the transaction that is charged before
+    execution is instantiated.
+
+    Parameters
+    ----------
+    tx : `eth1spec.eth_types.Transaction`
+        Transaction to compute the intrinsic cost of.
+
+    Returns
+    -------
+    verified : `eth1spec.number.Uint`
+        The intrinsic cost of the transaction.
+    """
     data_cost = 0
 
     for byte in tx.data:
@@ -248,7 +256,7 @@ def verify_transaction(tx: Transaction) -> bool:
         else:
             data_cost += TX_DATA_COST_PER_NON_ZERO
 
-    return TX_BASE_COST + data_cost <= tx.gas
+    return Uint(TX_BASE_COST + data_cost)
 
 
 def recover_sender(tx: Transaction) -> Address:
@@ -281,7 +289,7 @@ def recover_sender(tx: Transaction) -> Address:
     # assert 0<s_int and s_int<(secp256k1n//2+1)
 
     public_key = crypto.secp256k1_recover(r, s, v - 27, signing_hash(tx))
-    return Address(public_key[12:])
+    return Address(crypto.keccak256(public_key)[12:32])
 
 
 def signing_hash(tx: Transaction) -> Hash32:
@@ -299,5 +307,38 @@ def signing_hash(tx: Transaction) -> Hash32:
         Hash of the transaction.
     """
     return crypto.keccak256(
-        rlp.encode((tx.nonce, tx.gas_price, tx.gas, tx.to, tx.value, tx.data))
+        rlp.encode(
+            (
+                tx.nonce,
+                tx.gas_price,
+                tx.gas,
+                tx.to,
+                tx.value,
+                tx.data,
+            )
+        )
     )
+
+
+def print_state(state: State) -> None:
+    """
+    Pretty prints the state.
+
+    Parameters
+    ----------
+    state : `eth1spec.eth_types.State`
+        Ethereum state.
+    """
+    nice = {}
+    for (address, account) in state.items():
+        nice[address.hex()] = {
+            "nonce": account.nonce,
+            "balance": account.balance,
+            "code": account.code.hex(),
+            "storage": {},
+        }
+
+        for (k, v) in account.storage.items():
+            nice[address.hex()]["storage"][k.hex()] = v.hex()  # type: ignore
+
+    print(nice)
