@@ -1,0 +1,75 @@
+:mod:`eth1spec.evm.instructions`
+================================
+
+.. py:module:: eth1spec.evm.instructions
+
+EVM Instructions
+----------------------
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   eth1spec.evm.instructions.add
+   eth1spec.evm.instructions.sstore
+   eth1spec.evm.instructions.push1
+
+
+
+Module Details
+---------------
+
+add
+~~~
+
+Adds the top two elements of the stack together, and pushes the result back
+
+
+.. function:: add(evm: eth1spec.evm.Evm) -> None
+   :noindexentry:
+
+
+
+
+.. literalinclude:: /../src/eth1spec/evm/instructions.py
+   :language: python
+   :lines: 13-37
+
+sstore
+~~~~~~
+
+Stores a value at a certain key in the current context's storage.
+
+
+.. function:: sstore(evm: eth1spec.evm.Evm) -> None
+   :noindexentry:
+
+
+
+
+.. literalinclude:: /../src/eth1spec/evm/instructions.py
+   :language: python
+   :lines: 40-61
+
+push1
+~~~~~
+
+Pushes a one-byte immediate onto the stack.
+
+
+.. function:: push1(evm: eth1spec.evm.Evm) -> None
+   :noindexentry:
+
+
+
+
+.. literalinclude:: /../src/eth1spec/evm/instructions.py
+   :language: python
+   :lines: 64-82

@@ -1,0 +1,43 @@
+:mod:`eth1spec.evm.interpreter`
+===============================
+
+.. py:module:: eth1spec.evm.interpreter
+
+EVM Interpreter
+------------------------------
+
+A straightforward interpreter that executes EVM code.
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   eth1spec.evm.interpreter.process_call
+
+
+
+Module Details
+---------------
+
+process_call
+~~~~~~~~~~~~
+
+Executes a call from the `caller` to the `target` in a new EVM instance.
+
+
+.. function:: process_call(caller: eth1spec.eth_types.Address, target: eth1spec.eth_types.Address, data: bytes, value: eth1spec.eth_types.Uint, gas: eth1spec.eth_types.Uint, depth: eth1spec.eth_types.Uint, env: eth1spec.evm.Environment) -> Tuple[eth1spec.eth_types.Uint, List[eth1spec.eth_types.Log]]
+   :noindexentry:
+
+
+
+
+.. literalinclude:: /../src/eth1spec/evm/interpreter.py
+   :language: python
+   :lines: 15-82

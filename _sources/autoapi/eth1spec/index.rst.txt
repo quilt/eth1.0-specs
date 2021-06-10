@@ -9,6 +9,15 @@ Ethereum Specification
 Core specifications for Ethereum clients.
 
 
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   evm/index.rst
+
+
 Submodules
 ----------
 .. toctree::
@@ -17,7 +26,6 @@ Submodules
 
    crypto/index.rst
    eth_types/index.rst
-   evm/index.rst
    number/index.rst
    rlp/index.rst
    spec/index.rst

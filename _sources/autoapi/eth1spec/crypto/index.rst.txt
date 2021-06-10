@@ -38,10 +38,9 @@ Computes the keccak256 hash of the input `buffer`.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/crypto.py
+.. literalinclude:: /../src/eth1spec/crypto.py
    :language: python
    :lines: 13-27
-
 
 keccak512
 ~~~~~~~~~
@@ -55,10 +54,9 @@ Computes the keccak512 hash of the input `buffer`.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/crypto.py
+.. literalinclude:: /../src/eth1spec/crypto.py
    :language: python
    :lines: 30-44
-
 
 secp256k1_recover
 ~~~~~~~~~~~~~~~~~
@@ -72,7 +70,6 @@ Recovers the public key from a given signature.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/crypto.py
+.. literalinclude:: /../src/eth1spec/crypto.py
    :language: python
    :lines: 47-78
-

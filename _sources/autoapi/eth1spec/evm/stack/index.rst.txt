@@ -1,0 +1,58 @@
+:mod:`eth1spec.evm.stack`
+=========================
+
+.. py:module:: eth1spec.evm.stack
+
+EVM Stack Operators
+----------------------
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   eth1spec.evm.stack.pop
+   eth1spec.evm.stack.push
+
+
+
+Module Details
+---------------
+
+pop
+~~~
+
+Pops the top item off of `stack`.
+
+
+.. function:: pop(stack: List[eth1spec.eth_types.U256]) -> eth1spec.eth_types.U256
+   :noindexentry:
+
+
+
+
+.. literalinclude:: /../src/eth1spec/evm/stack.py
+   :language: python
+   :lines: 12-34
+
+push
+~~~~
+
+Pushes `value` onto `stack`.
+
+
+.. function:: push(stack: List[eth1spec.eth_types.U256], value: eth1spec.eth_types.U256) -> None
+   :noindexentry:
+
+
+
+
+.. literalinclude:: /../src/eth1spec/evm/stack.py
+   :language: python
+   :lines: 37-57

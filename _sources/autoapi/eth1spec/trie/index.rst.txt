@@ -65,10 +65,9 @@ Hex prefix encoding.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/trie.py
+.. literalinclude:: /../src/eth1spec/trie.py
    :language: python
    :lines: 18-48
-
 
 f
 ~
@@ -82,10 +81,9 @@ Encodes `t` as a bit flag.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/trie.py
+.. literalinclude:: /../src/eth1spec/trie.py
    :language: python
    :lines: 51-68
-
 
 HP_inverse
 ~~~~~~~~~~
@@ -99,10 +97,9 @@ Hex prefix decoding.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/trie.py
+.. literalinclude:: /../src/eth1spec/trie.py
    :language: python
    :lines: 71-94
-
 .. data:: T
    
 
@@ -121,10 +118,9 @@ TODO
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/trie.py
+.. literalinclude:: /../src/eth1spec/trie.py
    :language: python
    :lines: 100-130
-
 
 TRIE
 ~~~~
@@ -132,16 +128,15 @@ TRIE
 Computes the root hash of the storage trie.
 
 
-.. function:: TRIE(J: Mapping[eth1spec.eth_types.Bytes, Union[eth1spec.eth_types.Account, eth1spec.eth_types.Bytes, eth1spec.eth_types.Receipt]]) -> eth1spec.eth_types.Root
+.. function:: TRIE(J: Mapping[eth1spec.eth_types.Bytes, Union[eth1spec.eth_types.Account, eth1spec.eth_types.Bytes, eth1spec.eth_types.Receipt, eth1spec.eth_types.Uint]]) -> eth1spec.eth_types.Root
    :noindexentry:
 
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/trie.py
+.. literalinclude:: /../src/eth1spec/trie.py
    :language: python
    :lines: 133-149
-
 
 n
 ~
@@ -149,16 +144,15 @@ n
 Node composition function.
 
 
-.. function:: n(J: Mapping[eth1spec.eth_types.Bytes, Union[eth1spec.eth_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt]], i: eth1spec.eth_types.U256) -> eth1spec.eth_types.Bytes
+.. function:: n(J: Mapping[eth1spec.eth_types.Bytes, Union[eth1spec.eth_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.eth_types.Uint]], i: eth1spec.eth_types.U256) -> eth1spec.eth_types.Bytes
    :noindexentry:
 
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/trie.py
+.. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 152-176
-
+   :lines: 152-178
 
 c
 ~
@@ -166,13 +160,12 @@ c
 Structural composition function.
 
 
-.. function:: c(J: Mapping[eth1spec.eth_types.Bytes, Union[eth1spec.eth_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt]], i: eth1spec.eth_types.Uint) -> eth1spec.eth_types.Bytes
+.. function:: c(J: Mapping[eth1spec.eth_types.Bytes, Union[eth1spec.eth_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.eth_types.Uint]], i: eth1spec.eth_types.Uint) -> eth1spec.eth_types.Bytes
    :noindexentry:
 
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/trie.py
+.. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 179-289
-
+   :lines: 181-296

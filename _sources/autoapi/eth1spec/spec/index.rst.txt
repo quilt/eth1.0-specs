@@ -85,10 +85,9 @@ Attempts to apply a block to an existing block chain.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/spec.py
+.. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 40-65
-
+   :lines: 41-66
 
 verify_header
 ~~~~~~~~~~~~~
@@ -102,10 +101,9 @@ Verifies a block header.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/spec.py
+.. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 68-82
-
+   :lines: 69-83
 
 apply_body
 ~~~~~~~~~~
@@ -119,10 +117,9 @@ Executes a block.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/spec.py
+.. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 85-168
-
+   :lines: 86-169
 
 process_transaction
 ~~~~~~~~~~~~~~~~~~~
@@ -136,10 +133,9 @@ Execute a transaction against the provided environment.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/spec.py
+.. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 171-216
-
+   :lines: 172-217
 
 verify_transaction
 ~~~~~~~~~~~~~~~~~~
@@ -153,10 +149,9 @@ Verifies a transaction.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/spec.py
+.. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 219-233
-
+   :lines: 220-234
 
 intrinsic_cost
 ~~~~~~~~~~~~~~
@@ -170,10 +165,9 @@ Calculates the intrinsic cost of the transaction that is charged before
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/spec.py
+.. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 236-259
-
+   :lines: 237-260
 
 recover_sender
 ~~~~~~~~~~~~~~
@@ -187,10 +181,9 @@ Extracts the sender address from a transaction.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/spec.py
+.. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 262-292
-
+   :lines: 263-293
 
 signing_hash
 ~~~~~~~~~~~~
@@ -204,10 +197,9 @@ Compute the hash of a transaction used in the signature.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/spec.py
+.. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 295-317
-
+   :lines: 296-318
 
 print_state
 ~~~~~~~~~~~
@@ -221,7 +213,6 @@ Pretty prints the state.
 
 
 
-.. literalinclude:: ../../../../src/eth1spec/spec.py
+.. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 323-344
-
+   :lines: 324-345

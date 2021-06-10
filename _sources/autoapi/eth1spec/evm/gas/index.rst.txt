@@ -1,0 +1,53 @@
+:mod:`eth1spec.evm.gas`
+=======================
+
+.. py:module:: eth1spec.evm.gas
+
+EVM Gas Constants and Calculators
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   eth1spec.evm.gas.subtract_gas
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   eth1spec.evm.gas.GAS_VERY_LOW
+
+
+Module Details
+---------------
+.. data:: GAS_VERY_LOW
+   
+
+   
+
+
+subtract_gas
+~~~~~~~~~~~~
+
+Subtracts `amount` from `gas_left`.
+
+
+.. function:: subtract_gas(gas_left: eth1spec.eth_types.Uint, amount: eth1spec.eth_types.Uint) -> eth1spec.eth_types.Uint
+   :noindexentry:
+
+
+
+
+.. literalinclude:: /../src/eth1spec/evm/gas.py
+   :language: python
+   :lines: 10-29

@@ -1,0 +1,35 @@
+:mod:`eth1spec.evm.ops`
+=======================
+
+.. py:module:: eth1spec.evm.ops
+
+Instruction Encoding (Opcodes)
+------------------------------
+
+Machine readable representations of EVM instructions, and a mapping to their
+implementations.
+
+
+Module Contents
+---------------
+
+.. data:: ADD
+   :annotation: = 1
+
+   
+
+.. data:: PUSH1
+   :annotation: = 96
+
+   
+
+.. data:: SSTORE
+   :annotation: = 85
+
+   
+
+.. data:: op_implementation
+   
+
+   
+

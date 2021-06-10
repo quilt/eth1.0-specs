@@ -10,8 +10,22 @@ The abstract computer which runs the code stored in an
 `eth1spec.eth_types.Account`.
 
 
-Module Contents
----------------
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   error/index.rst
+   gas/index.rst
+   instructions/index.rst
+   interpreter/index.rst
+   ops/index.rst
+   stack/index.rst
+
+
+Package Contents
+----------------
 
 Classes
 ~~~~~~~
@@ -23,61 +37,9 @@ Classes
 
 
 
-Functions
-~~~~~~~~~
 
-.. autoapisummary::
-   :nosignatures:
-
-   eth1spec.evm.process_call
-
-
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   eth1spec.evm.ADD
-   eth1spec.evm.PUSH1
-   eth1spec.evm.SSTORE
-   eth1spec.evm.ops
-   eth1spec.evm.VERY_LOW
-   eth1spec.evm.gas_schedule
-
-
-Module Details
----------------
-.. data:: ADD
-   :annotation: = b'\x01'
-
-   
-
-.. data:: PUSH1
-   :annotation: = b'`'
-
-   
-
-.. data:: SSTORE
-   :annotation: = b'U'
-
-   
-
-.. data:: ops
-   
-
-   
-
-.. data:: VERY_LOW
-   :annotation: = 3
-
-   
-
-.. data:: gas_schedule
-   
-
-   
-
+Package Details
+----------------
 
 Environment
 ~~~~~~~~~~~
@@ -162,6 +124,11 @@ The internal state of the virtual machine.
 
       
 
+   .. attribute:: code
+      :annotation: :bytes
+
+      
+
    .. attribute:: gas_left
       :annotation: :eth1spec.eth_types.Uint
 
@@ -197,21 +164,4 @@ The internal state of the virtual machine.
 
       
 
-
-
-process_call
-~~~~~~~~~~~~
-
-Executes a call from the `caller` to the `target` in a new EVM instance.
-
-
-.. function:: process_call(caller: eth1spec.eth_types.Address, target: eth1spec.eth_types.Address, data: bytes, value: eth1spec.eth_types.Uint, gas: eth1spec.eth_types.Uint, depth: eth1spec.eth_types.Uint, env: Environment) -> Tuple[eth1spec.eth_types.Uint, List[eth1spec.eth_types.Log]]
-   :noindexentry:
-
-
-
-
-.. literalinclude:: ../../../../src/eth1spec/evm.py
-   :language: python
-   :lines: 68-151
 
