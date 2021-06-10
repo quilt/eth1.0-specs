@@ -17,7 +17,7 @@
     <script src="../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="eth1spec.crypto" href="../../crypto/index.html" />
+    <link rel="next" title="eth1spec.base_types" href="../../base_types/index.html" />
     <link rel="prev" title="eth1spec.evm.ops" href="../ops/index.html" />
    
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
@@ -67,7 +67,7 @@
 <p>Pops the top item off of <cite>stack</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.evm.stack.pop">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.evm.stack.</span></span><span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../eth_types/index.html#eth1spec.eth_types.U256" title="eth1spec.eth_types.U256"><span class="pre">eth1spec.eth_types.U256</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../eth_types/index.html#eth1spec.eth_types.U256" title="eth1spec.eth_types.U256"><span class="pre">eth1spec.eth_types.U256</span></a><a class="headerlink" href="#eth1spec.evm.stack.pop" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.evm.stack.</span></span><span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">eth1spec.eth_types.U256</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.U256</span><a class="headerlink" href="#eth1spec.evm.stack.pop" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="n">stack</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">U256</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">U256</span><span class="p">:</span>
@@ -101,7 +101,7 @@
 <p>Pushes <cite>value</cite> onto <cite>stack</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.evm.stack.push">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.evm.stack.</span></span><span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../eth_types/index.html#eth1spec.eth_types.U256" title="eth1spec.eth_types.U256"><span class="pre">eth1spec.eth_types.U256</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../eth_types/index.html#eth1spec.eth_types.U256" title="eth1spec.eth_types.U256"><span class="pre">eth1spec.eth_types.U256</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#eth1spec.evm.stack.push" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.evm.stack.</span></span><span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">eth1spec.eth_types.U256</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.U256</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#eth1spec.evm.stack.push" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="n">stack</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">U256</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">U256</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -172,7 +172,7 @@
   <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec</span></code></a><ul>
   <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.evm</span></code></a><ul>
       <li>Previous: <a href="../ops/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.evm.ops</span></code></a></li>
-      <li>Next: <a href="../../crypto/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.crypto</span></code></a></li>
+      <li>Next: <a href="../../base_types/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a></li>
   </ul></li>
   </ul></li>
   </ul></li>

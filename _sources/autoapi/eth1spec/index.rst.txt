@@ -24,9 +24,9 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   base_types/index.rst
    crypto/index.rst
    eth_types/index.rst
-   number/index.rst
    rlp/index.rst
    spec/index.rst
    trie/index.rst

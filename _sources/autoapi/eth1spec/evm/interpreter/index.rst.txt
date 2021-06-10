@@ -3,8 +3,8 @@
 
 .. py:module:: eth1spec.evm.interpreter
 
-EVM Interpreter
-------------------------------
+Ethereum Virtual Machine (EVM) Interpreter
+------------------------------------------
 
 A straightforward interpreter that executes EVM code.
 

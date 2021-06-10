@@ -37,8 +37,8 @@
             
   <section id="module-eth1spec.evm.interpreter">
 <span id="eth1spec-evm-interpreter"></span><h1><a class="reference internal" href="#module-eth1spec.evm.interpreter" title="eth1spec.evm.interpreter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.evm.interpreter</span></code></a><a class="headerlink" href="#module-eth1spec.evm.interpreter" title="Permalink to this headline">¶</a></h1>
-<section id="evm-interpreter">
-<h2>EVM Interpreter<a class="headerlink" href="#evm-interpreter" title="Permalink to this headline">¶</a></h2>
+<section id="ethereum-virtual-machine-evm-interpreter">
+<h2>Ethereum Virtual Machine (EVM) Interpreter<a class="headerlink" href="#ethereum-virtual-machine-evm-interpreter" title="Permalink to this headline">¶</a></h2>
 <p>A straightforward interpreter that executes EVM code.</p>
 </section>
 <section id="module-contents">
@@ -91,13 +91,13 @@
 <span class="sd">    data : `bytes`</span>
 <span class="sd">        Array of bytes provided to the code in `target`.</span>
 
-<span class="sd">    value : `eth1spec.number.Uint`</span>
+<span class="sd">    value : `eth1spec.base_types.Uint`</span>
 <span class="sd">        Value to be transferred.</span>
 
-<span class="sd">    gas : `eth1spec.number.Uint`</span>
+<span class="sd">    gas : `eth1spec.base_types.Uint`</span>
 <span class="sd">        Gas provided for the code in `target`.</span>
 
-<span class="sd">    depth : `eth1spec.number.Uint`</span>
+<span class="sd">    depth : `eth1spec.base_types.Uint`</span>
 <span class="sd">        Number of call/contract creation environments on the call stack.</span>
 
 <span class="sd">    env : `Environment`</span>

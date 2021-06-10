@@ -59,7 +59,7 @@ HP
 Hex prefix encoding.
 
 
-.. function:: HP(x: eth1spec.eth_types.Bytes, t: Union[bool, int]) -> bytearray
+.. function:: HP(x: eth1spec.base_types.Bytes, t: Union[bool, int]) -> bytearray
    :noindexentry:
 
 
@@ -67,7 +67,7 @@ Hex prefix encoding.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 18-48
+   :lines: 19-49
 
 f
 ~
@@ -83,7 +83,7 @@ Encodes `t` as a bit flag.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 51-68
+   :lines: 52-69
 
 HP_inverse
 ~~~~~~~~~~
@@ -91,7 +91,7 @@ HP_inverse
 Hex prefix decoding.
 
 
-.. function:: HP_inverse(buffer: eth1spec.eth_types.Bytes) -> Tuple[str, bool]
+.. function:: HP_inverse(buffer: eth1spec.base_types.Bytes) -> Tuple[str, bool]
    :noindexentry:
 
 
@@ -99,7 +99,7 @@ Hex prefix decoding.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 71-94
+   :lines: 72-95
 .. data:: T
    
 
@@ -112,7 +112,7 @@ y
 TODO
 
 
-.. function:: y(J: Mapping[eth1spec.eth_types.Bytes, T], secured: bool = True) -> Mapping[eth1spec.eth_types.Bytes64, T]
+.. function:: y(J: Mapping[eth1spec.base_types.Bytes, T], secured: bool = True) -> Mapping[eth1spec.base_types.Bytes64, T]
    :noindexentry:
 
 
@@ -120,7 +120,7 @@ TODO
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 100-130
+   :lines: 101-131
 
 TRIE
 ~~~~
@@ -128,7 +128,7 @@ TRIE
 Computes the root hash of the storage trie.
 
 
-.. function:: TRIE(J: Mapping[eth1spec.eth_types.Bytes, Union[eth1spec.eth_types.Account, eth1spec.eth_types.Bytes, eth1spec.eth_types.Receipt, eth1spec.eth_types.Uint]]) -> eth1spec.eth_types.Root
+.. function:: TRIE(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.eth_types.Account, eth1spec.base_types.Bytes, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint]]) -> eth1spec.eth_types.Root
    :noindexentry:
 
 
@@ -136,7 +136,7 @@ Computes the root hash of the storage trie.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 133-149
+   :lines: 134-150
 
 n
 ~
@@ -144,7 +144,7 @@ n
 Node composition function.
 
 
-.. function:: n(J: Mapping[eth1spec.eth_types.Bytes, Union[eth1spec.eth_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.eth_types.Uint]], i: eth1spec.eth_types.U256) -> eth1spec.eth_types.Bytes
+.. function:: n(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.base_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint]], i: eth1spec.base_types.U256) -> eth1spec.base_types.Bytes
    :noindexentry:
 
 
@@ -152,7 +152,7 @@ Node composition function.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 152-178
+   :lines: 153-179
 
 c
 ~
@@ -160,7 +160,7 @@ c
 Structural composition function.
 
 
-.. function:: c(J: Mapping[eth1spec.eth_types.Bytes, Union[eth1spec.eth_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.eth_types.Uint]], i: eth1spec.eth_types.Uint) -> eth1spec.eth_types.Bytes
+.. function:: c(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.base_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint]], i: eth1spec.base_types.Uint) -> eth1spec.base_types.Bytes
    :noindexentry:
 
 
@@ -168,4 +168,4 @@ Structural composition function.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 181-296
+   :lines: 182-297

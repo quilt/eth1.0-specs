@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="eth1spec.eth_types" href="../eth_types/index.html" />
-    <link rel="prev" title="eth1spec.evm.stack" href="../evm/stack/index.html" />
+    <link rel="prev" title="eth1spec.base_types" href="../base_types/index.html" />
    
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
   
@@ -70,7 +70,7 @@
 <p>Computes the keccak256 hash of the input <cite>buffer</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.crypto.keccak256">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.crypto.</span></span><span class="sig-name descname"><span class="pre">keccak256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash32" title="eth1spec.eth_types.Hash32"><span class="pre">eth1spec.eth_types.Hash32</span></a><a class="headerlink" href="#eth1spec.crypto.keccak256" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.crypto.</span></span><span class="sig-name descname"><span class="pre">keccak256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash32" title="eth1spec.eth_types.Hash32"><span class="pre">eth1spec.eth_types.Hash32</span></a><a class="headerlink" href="#eth1spec.crypto.keccak256" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">keccak256</span><span class="p">(</span><span class="n">buffer</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash32</span><span class="p">:</span>
@@ -96,7 +96,7 @@
 <p>Computes the keccak512 hash of the input <cite>buffer</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.crypto.keccak512">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.crypto.</span></span><span class="sig-name descname"><span class="pre">keccak512</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash64" title="eth1spec.eth_types.Hash64"><span class="pre">eth1spec.eth_types.Hash64</span></a><a class="headerlink" href="#eth1spec.crypto.keccak512" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.crypto.</span></span><span class="sig-name descname"><span class="pre">keccak512</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash64" title="eth1spec.eth_types.Hash64"><span class="pre">eth1spec.eth_types.Hash64</span></a><a class="headerlink" href="#eth1spec.crypto.keccak512" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">keccak512</span><span class="p">(</span><span class="n">buffer</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash64</span><span class="p">:</span>
@@ -122,7 +122,7 @@
 <p>Recovers the public key from a given signature.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.crypto.secp256k1_recover">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.crypto.</span></span><span class="sig-name descname"><span class="pre">secp256k1_recover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../number/index.html#eth1spec.number.Uint" title="eth1spec.number.Uint"><span class="pre">eth1spec.number.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../number/index.html#eth1spec.number.Uint" title="eth1spec.number.Uint"><span class="pre">eth1spec.number.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../number/index.html#eth1spec.number.Uint" title="eth1spec.number.Uint"><span class="pre">eth1spec.number.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_hash</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash32" title="eth1spec.eth_types.Hash32"><span class="pre">eth1spec.eth_types.Hash32</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a><a class="headerlink" href="#eth1spec.crypto.secp256k1_recover" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.crypto.</span></span><span class="sig-name descname"><span class="pre">secp256k1_recover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_hash</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash32" title="eth1spec.eth_types.Hash32"><span class="pre">eth1spec.eth_types.Hash32</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.crypto.secp256k1_recover" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">secp256k1_recover</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span> <span class="n">msg_hash</span><span class="p">:</span> <span class="n">Hash32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
@@ -131,11 +131,11 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    r : `eth1spec.number.Uint`</span>
+<span class="sd">    r : `eth1spec.base_types.Uint`</span>
 <span class="sd">        TODO</span>
-<span class="sd">    s : `eth1spec.number.Uint`</span>
+<span class="sd">    s : `eth1spec.base_types.Uint`</span>
 <span class="sd">        TODO</span>
-<span class="sd">    v : `eth1spec.number.Uint`</span>
+<span class="sd">    v : `eth1spec.base_types.Uint`</span>
 <span class="sd">        TODO</span>
 <span class="sd">    msg_hash : `eth1spec.eth_types.Hash32`</span>
 <span class="sd">        Hash of the message being recovered.</span>
@@ -145,8 +145,8 @@
 <span class="sd">    public_key : `eth1spec.eth_types.Bytes`</span>
 <span class="sd">        Recovered public key.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">r_bytes</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">to_big_endian</span><span class="p">()</span>
-    <span class="n">s_bytes</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">to_big_endian</span><span class="p">()</span>
+    <span class="n">r_bytes</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
+    <span class="n">s_bytes</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
 
     <span class="n">signature</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">65</span><span class="p">)</span>
     <span class="n">signature</span><span class="p">[</span><span class="mi">32</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">r_bytes</span><span class="p">)</span> <span class="p">:</span> <span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_bytes</span>
@@ -187,9 +187,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../base_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.crypto</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../eth_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../number/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.number</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../rlp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.rlp</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../spec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.spec</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../trie/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.trie</span></code></a></li>
@@ -207,7 +207,7 @@
   <li><a href="../../../index.html">Documentation overview</a><ul>
   <li><a href="../../index.html">API Reference</a><ul>
   <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec</span></code></a><ul>
-      <li>Previous: <a href="../evm/stack/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.evm.stack</span></code></a></li>
+      <li>Previous: <a href="../base_types/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a></li>
       <li>Next: <a href="../eth_types/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a></li>
   </ul></li>
   </ul></li>

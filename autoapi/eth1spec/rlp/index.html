@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="eth1spec.spec" href="../spec/index.html" />
-    <link rel="prev" title="eth1spec.number" href="../number/index.html" />
+    <link rel="prev" title="eth1spec.eth_types" href="../eth_types/index.html" />
    
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
   
@@ -56,23 +56,17 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.R_b" title="eth1spec.rlp.R_b"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_b</span></code></a></p></td>
 <td><p>Encodes <cite>x</cite>, a sequence of bytes, using RLP.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.BE" title="eth1spec.rlp.BE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BE</span></code></a></p></td>
-<td><p>Converts an arbitrarily sized unsigned integer <cite>x</cite> into its big endian</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.R_l" title="eth1spec.rlp.R_l"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_l</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.R_l" title="eth1spec.rlp.R_l"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_l</span></code></a></p></td>
 <td><p>Encodes <cite>x</cite>, a list of RLP encodable objects, using RLP.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.s" title="eth1spec.rlp.s"><code class="xref py py-obj docutils literal notranslate"><span class="pre">s</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.s" title="eth1spec.rlp.s"><code class="xref py py-obj docutils literal notranslate"><span class="pre">s</span></code></a></p></td>
 <td><p>Partially encodes <cite>x</cite>, a list of RLP encodable objects, using RLP,</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.decode" title="eth1spec.rlp.decode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.decode" title="eth1spec.rlp.decode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode</span></code></a></p></td>
 <td><p>Decodes an integer, byte sequence, or list of RLP encodable objects from</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.R_b_inverse" title="eth1spec.rlp.R_b_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_b_inverse</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.R_b_inverse" title="eth1spec.rlp.R_b_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_b_inverse</span></code></a></p></td>
 <td><p>Decodes a byte sequence from the byte sequence <cite>b</cite>, using RLP.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.BE_inverse" title="eth1spec.rlp.BE_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BE_inverse</span></code></a></p></td>
-<td><p>Converts a sequence of bytes into an arbitrarily sized unsigned integer <cite>x</cite></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.R_l_inverse" title="eth1spec.rlp.R_l_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_l_inverse</span></code></a></p></td>
 <td><p>Decodes <cite>b</cite> into a list of RLP encodable objects, using RLP.</p></td>
@@ -129,7 +123,7 @@
 <p>Encodes <cite>x</cite> into a sequence of bytes using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.encode">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.encode" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.encode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">RLP</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
@@ -151,7 +145,7 @@
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">bytearray</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)):</span>
         <span class="k">return</span> <span class="n">R_b</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Uint</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">encode</span><span class="p">(</span><span class="n">BE</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">())</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">R_l</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">],</span> <span class="n">x</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
@@ -164,7 +158,7 @@
 <p>Encodes <cite>x</cite>, a sequence of bytes, using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.R_b">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_b</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.R_b" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_b</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.R_b" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">R_b</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
@@ -189,42 +183,8 @@
     <span class="k">elif</span> <span class="n">len_x</span> <span class="o">&lt;</span> <span class="mi">56</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">128</span> <span class="o">+</span> <span class="n">len_x</span><span class="p">])</span> <span class="o">+</span> <span class="n">x</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">183</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">BE</span><span class="p">(</span><span class="n">len_x</span><span class="p">))])</span> <span class="o">+</span> <span class="n">BE</span><span class="p">(</span><span class="n">len_x</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span>
-</pre></div>
-</div>
-</section>
-<section id="be">
-<h3>BE<a class="headerlink" href="#be" title="Permalink to this headline">¶</a></h3>
-<p>Converts an arbitrarily sized unsigned integer <cite>x</cite> into its big endian</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.rlp.BE">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">BE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../number/index.html#eth1spec.number.Uint" title="eth1spec.number.Uint"><span class="pre">eth1spec.number.Uint</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.BE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">BE</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Uint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Converts an arbitrarily sized unsigned integer `x` into its big endian</span>
-<span class="sd">    representation.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    x : `eth1spec.number.Uint`</span>
-<span class="sd">        Integer to convert.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    big_endian : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        Big endian (most significant bits first) representation of `x`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BE(&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([])</span>
-    <span class="n">big_endian</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">([])</span>
-    <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">big_endian</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">([</span><span class="n">x</span> <span class="o">%</span> <span class="mi">256</span><span class="p">])</span> <span class="o">+</span> <span class="n">big_endian</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">//</span> <span class="mi">256</span>
-    <span class="k">return</span> <span class="n">big_endian</span>
+        <span class="n">big_endian</span> <span class="o">=</span> <span class="n">len_x</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">183</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">big_endian</span><span class="p">)])</span> <span class="o">+</span> <span class="n">big_endian</span> <span class="o">+</span> <span class="n">x</span>
 </pre></div>
 </div>
 </section>
@@ -233,7 +193,7 @@
 <p>Encodes <cite>x</cite>, a list of RLP encodable objects, using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.R_l">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_l</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.R_l" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_l</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.R_l" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">R_l</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
@@ -257,10 +217,8 @@
     <span class="k">if</span> <span class="n">len_partial_x</span> <span class="o">&lt;</span> <span class="mi">56</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">192</span> <span class="o">+</span> <span class="n">len_partial_x</span><span class="p">])</span> <span class="o">+</span> <span class="n">partial_x</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="nb">bytearray</span><span class="p">([</span><span class="mi">247</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">BE</span><span class="p">(</span><span class="n">len_partial_x</span><span class="p">))])</span>
-            <span class="o">+</span> <span class="n">BE</span><span class="p">(</span><span class="n">len_partial_x</span><span class="p">)</span>
-            <span class="o">+</span> <span class="n">partial_x</span>
+        <span class="n">big_endian</span> <span class="o">=</span> <span class="n">len_partial_x</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">247</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">big_endian</span><span class="p">)])</span> <span class="o">+</span> <span class="n">big_endian</span> <span class="o">+</span> <span class="n">partial_x</span>
 </pre></div>
 </div>
 </section>
@@ -269,7 +227,7 @@
 <p>Partially encodes <cite>x</cite>, a list of RLP encodable objects, using RLP,</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.s">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">s</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.s" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">s</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.s" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
@@ -301,7 +259,7 @@
 <p>Decodes an integer, byte sequence, or list of RLP encodable objects from</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.decode">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><a class="headerlink" href="#eth1spec.rlp.decode" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><a class="headerlink" href="#eth1spec.rlp.decode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RLP</span><span class="p">:</span>
@@ -335,7 +293,7 @@
 <p>Decodes a byte sequence from the byte sequence <cite>b</cite>, using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.R_b_inverse">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_b_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.R_b_inverse" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_b_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.R_b_inverse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">R_b_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
@@ -360,41 +318,8 @@
         <span class="k">return</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x80</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">length_len</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">183</span>
-        <span class="n">len_x</span> <span class="o">=</span> <span class="n">BE_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="n">length_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">len_x</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="n">length_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">b</span><span class="p">[</span><span class="n">length_len</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">length_len</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_x</span><span class="p">]</span>
-</pre></div>
-</div>
-</section>
-<section id="be-inverse">
-<h3>BE_inverse<a class="headerlink" href="#be-inverse" title="Permalink to this headline">¶</a></h3>
-<p>Converts a sequence of bytes into an arbitrarily sized unsigned integer <cite>x</cite></p>
-<dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.rlp.BE_inverse">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">BE_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../number/index.html#eth1spec.number.Uint" title="eth1spec.number.Uint"><span class="pre">eth1spec.number.Uint</span></a><a class="headerlink" href="#eth1spec.rlp.BE_inverse" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">BE_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Uint</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Converts a sequence of bytes into an arbitrarily sized unsigned integer `x`</span>
-<span class="sd">    from its big endian representation.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    b : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        Bytes to decode.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    x : `eth1spec.number.Uint`</span>
-<span class="sd">        The byte sequence `b`, interpreted as a big endian unsigned integer.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BE_inverse(&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
-        <span class="c1"># x+=b[n]*2**(len(b)-1-n)</span>
-        <span class="n">x</span> <span class="o">+=</span> <span class="n">b</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">n</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">Uint</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -403,7 +328,7 @@
 <p>Decodes <cite>b</cite> into a list of RLP encodable objects, using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.R_l_inverse">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_l_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.R_l_inverse" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_l_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.R_l_inverse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">R_l_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RLP</span><span class="p">]:</span>
@@ -427,7 +352,7 @@
         <span class="n">partial_x</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_partial_x</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">len_len_partial_x</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">247</span>
-        <span class="n">len_partial_x</span> <span class="o">=</span> <span class="n">BE_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_len_partial_x</span><span class="p">])</span>
+        <span class="n">len_partial_x</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_len_partial_x</span><span class="p">])</span>
         <span class="n">partial_x</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span>
             <span class="mi">1</span> <span class="o">+</span> <span class="n">len_len_partial_x</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_len_partial_x</span> <span class="o">+</span> <span class="n">len_partial_x</span>
         <span class="p">]</span>
@@ -440,7 +365,7 @@
 <p>Decodes <cite>b</cite>, a partially encoded list of RLP encodable objects, excluding</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.s_inverse">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">s_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.s_inverse" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">s_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.s_inverse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">s_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RLP</span><span class="p">]:</span>
@@ -480,7 +405,7 @@
 <p>Decodes the length prefix from the byte sequence <cite>b</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.decode_length">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Bytes" title="eth1spec.eth_types.Bytes"><span class="pre">eth1spec.eth_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../number/index.html#eth1spec.number.Uint" title="eth1spec.number.Uint"><span class="pre">eth1spec.number.Uint</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../number/index.html#eth1spec.number.Uint" title="eth1spec.number.Uint"><span class="pre">eth1spec.number.Uint</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.decode_length" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.decode_length" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_length</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Uint</span><span class="p">,</span> <span class="n">Uint</span><span class="p">]:</span>
@@ -494,9 +419,9 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    rlp_length : `eth1spec.number.Uint`</span>
+<span class="sd">    rlp_length : `eth1spec.base_types.Uint`</span>
 <span class="sd">        TODO</span>
-<span class="sd">    length_length : `eth1spec.number.Uint`</span>
+<span class="sd">    length_length : `eth1spec.base_types.Uint`</span>
 <span class="sd">        TODO</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
@@ -512,12 +437,12 @@
         <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0x80</span>
     <span class="k">elif</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;=</span> <span class="mh">0xBF</span><span class="p">:</span>
         <span class="n">length_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0xB7</span>
-        <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">BE_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">])</span>
+        <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">])</span>
     <span class="k">elif</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;=</span> <span class="mh">0xF7</span><span class="p">:</span>
         <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0xC0</span>
     <span class="k">elif</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;=</span> <span class="mh">0xBF</span><span class="p">:</span>
         <span class="n">length_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0xB7</span>
-        <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">BE_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">])</span>
+        <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">rlp_length</span><span class="p">,</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -549,9 +474,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../base_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../crypto/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.crypto</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../eth_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../number/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.number</span></code></a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.rlp</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../spec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.spec</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../trie/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.trie</span></code></a></li>
@@ -569,7 +494,7 @@
   <li><a href="../../../index.html">Documentation overview</a><ul>
   <li><a href="../../index.html">API Reference</a><ul>
   <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec</span></code></a><ul>
-      <li>Previous: <a href="../number/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.number</span></code></a></li>
+      <li>Previous: <a href="../eth_types/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a></li>
       <li>Next: <a href="../spec/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.spec</span></code></a></li>
   </ul></li>
   </ul></li>

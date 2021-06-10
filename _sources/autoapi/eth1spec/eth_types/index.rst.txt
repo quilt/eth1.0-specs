@@ -32,16 +32,10 @@ Attributes
 
 .. autoapisummary::
 
-   eth1spec.eth_types.Bytes
-   eth1spec.eth_types.Bytes64
-   eth1spec.eth_types.Bytes32
-   eth1spec.eth_types.Bytes20
-   eth1spec.eth_types.Bytes8
-   eth1spec.eth_types.Hash32
-   eth1spec.eth_types.Root
-   eth1spec.eth_types.Hash64
    eth1spec.eth_types.Address
-   eth1spec.eth_types.U256
+   eth1spec.eth_types.Root
+   eth1spec.eth_types.Hash32
+   eth1spec.eth_types.Hash64
    eth1spec.eth_types.Storage
    eth1spec.eth_types.Bloom
    eth1spec.eth_types.TX_BASE_COST
@@ -53,32 +47,7 @@ Attributes
 
 Module Details
 ---------------
-.. data:: Bytes
-   
-
-   
-
-.. data:: Bytes64
-   
-
-   
-
-.. data:: Bytes32
-   
-
-   
-
-.. data:: Bytes20
-   
-
-   
-
-.. data:: Bytes8
-   
-
-   
-
-.. data:: Hash32
+.. data:: Address
    
 
    
@@ -88,17 +57,12 @@ Module Details
 
    
 
+.. data:: Hash32
+   
+
+   
+
 .. data:: Hash64
-   
-
-   
-
-.. data:: Address
-   
-
-   
-
-.. data:: U256
    
 
    
@@ -138,17 +102,17 @@ Atomic operation performed on the block chain.
 .. class:: Transaction
 
    .. attribute:: nonce
-      :annotation: :U256
+      :annotation: :eth1spec.base_types.U256
 
       
 
    .. attribute:: gas_price
-      :annotation: :U256
+      :annotation: :eth1spec.base_types.U256
 
       
 
    .. attribute:: gas
-      :annotation: :U256
+      :annotation: :eth1spec.base_types.U256
 
       
 
@@ -158,27 +122,27 @@ Atomic operation performed on the block chain.
       
 
    .. attribute:: value
-      :annotation: :U256
+      :annotation: :eth1spec.base_types.U256
 
       
 
    .. attribute:: data
-      :annotation: :Bytes
+      :annotation: :eth1spec.base_types.Bytes
 
       
 
    .. attribute:: v
-      :annotation: :U256
+      :annotation: :eth1spec.base_types.U256
 
       
 
    .. attribute:: r
-      :annotation: :U256
+      :annotation: :eth1spec.base_types.U256
 
       
 
    .. attribute:: s
-      :annotation: :U256
+      :annotation: :eth1spec.base_types.U256
 
       
 
@@ -193,12 +157,12 @@ State associated with an address.
 .. class:: Account
 
    .. attribute:: nonce
-      :annotation: :eth1spec.number.Uint
+      :annotation: :eth1spec.base_types.Uint
 
       
 
    .. attribute:: balance
-      :annotation: :eth1spec.number.Uint
+      :annotation: :eth1spec.base_types.Uint
 
       
 
@@ -263,42 +227,42 @@ Header portion of a block on the chain.
       
 
    .. attribute:: difficulty
-      :annotation: :eth1spec.number.Uint
+      :annotation: :eth1spec.base_types.Uint
 
       
 
    .. attribute:: number
-      :annotation: :eth1spec.number.Uint
+      :annotation: :eth1spec.base_types.Uint
 
       
 
    .. attribute:: gas_limit
-      :annotation: :eth1spec.number.Uint
+      :annotation: :eth1spec.base_types.Uint
 
       
 
    .. attribute:: gas_used
-      :annotation: :eth1spec.number.Uint
+      :annotation: :eth1spec.base_types.Uint
 
       
 
    .. attribute:: time
-      :annotation: :U256
+      :annotation: :eth1spec.base_types.U256
 
       
 
    .. attribute:: extra
-      :annotation: :Bytes
+      :annotation: :eth1spec.base_types.Bytes
 
       
 
    .. attribute:: mix_digest
-      :annotation: :Bytes32
+      :annotation: :eth1spec.base_types.Bytes32
 
       
 
    .. attribute:: nonce
-      :annotation: :Bytes8
+      :annotation: :eth1spec.base_types.Bytes8
 
       
 
@@ -368,7 +332,7 @@ Result of a transaction.
       
 
    .. attribute:: cumulative_gas_used
-      :annotation: :eth1spec.number.Uint
+      :annotation: :eth1spec.base_types.Uint
 
       
 

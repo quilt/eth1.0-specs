@@ -1,7 +1,7 @@
-:mod:`eth1spec.number`
-======================
+:mod:`eth1spec.base_types`
+==========================
 
-.. py:module:: eth1spec.number
+.. py:module:: eth1spec.base_types
 
 Numeric Types
 -------------
@@ -15,9 +15,22 @@ Classes
 
 .. autoapisummary::
 
-   eth1spec.number.Uint
+   eth1spec.base_types.Uint
 
 
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   eth1spec.base_types.Bytes
+   eth1spec.base_types.Bytes64
+   eth1spec.base_types.Bytes32
+   eth1spec.base_types.Bytes20
+   eth1spec.base_types.Bytes8
+   eth1spec.base_types.U256
 
 
 Module Details
@@ -38,6 +51,19 @@ Unsigned positive integer.
       :annotation: = []
 
       
+
+   .. method:: from_be_bytes(cls: Type, buffer: Bytes) -> Uint
+      :classmethod:
+
+      Converts a sequence of bytes into an arbitrarily sized unsigned integer
+      from its big endian representation.
+
+      :param buffer: Bytes to decode.
+      :type buffer: `Bytes`
+
+      :returns: **self** -- Unsigned integer decoded from `buffer`.
+      :rtype: `Uint`
+
 
    .. method:: __radd__(self, left: int) -> Uint
 
@@ -127,7 +153,52 @@ Unsigned positive integer.
    .. method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> Uint
 
 
-   .. method:: to_big_endian(self) -> bytes
+   .. method:: to_be_bytes32(self) -> Bytes32
+
+      Converts this arbitrarily sized unsigned integer into its big endian
+      representation with exactly 32 bytes.
+
+      :returns: **big_endian** -- Big endian (most significant bits first) representation.
+      :rtype: `Bytes32`
 
 
+   .. method:: to_be_bytes(self) -> Bytes
+
+      Converts this arbitrarily sized unsigned integer into its big endian
+      representation.
+
+      :returns: **big_endian** -- Big endian (most significant bits first) representation.
+      :rtype: `Bytes`
+
+
+
+.. data:: Bytes
+   
+
+   
+
+.. data:: Bytes64
+   
+
+   
+
+.. data:: Bytes32
+   
+
+   
+
+.. data:: Bytes20
+   
+
+   
+
+.. data:: Bytes8
+   
+
+   
+
+.. data:: U256
+   
+
+   
 
