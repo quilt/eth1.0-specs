@@ -23,6 +23,7 @@ from .eth_types import (
     Transaction,
     Uint,
 )
+from .evm.interpreter import process_call
 
 BLOCK_REWARD = 5 * 10 ** 18
 
@@ -205,7 +206,7 @@ def process_transaction(
     if tx.to is None:
         raise NotImplementedError()  # TODO
 
-    gas_left, logs = evm.process_call(
+    gas_left, logs = process_call(
         sender_address, tx.to, tx.data, tx.value, gas, Uint(0), env
     )
 
