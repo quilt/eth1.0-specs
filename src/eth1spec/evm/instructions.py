@@ -4,7 +4,7 @@ EVM Instructions
 """
 
 
-from ..eth_types import U256, Uint
+from ..base_types import U256
 from . import Evm
 from .gas import GAS_VERY_LOW, subtract_gas
 from .stack import pop, push
@@ -53,12 +53,12 @@ def sstore(evm: Evm) -> None:
     OutOfGasError
         If `evm.gas_left` is less than `20000`.
     """
-    evm.gas_left = subtract_gas(evm.gas_left, Uint(20000))
+    evm.gas_left = subtract_gas(evm.gas_left, U256(20000))
 
     k = pop(evm.stack)
     v = pop(evm.stack)
 
-    evm.env.state[evm.current].storage[k.to_bytes(32, "big")] = v
+    evm.env.state[evm.current].storage[k.to_be_bytes32()] = v
 
 
 def push1(evm: Evm) -> None:
