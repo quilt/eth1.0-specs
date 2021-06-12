@@ -37,8 +37,8 @@
             
   <section id="module-eth1spec.base_types">
 <span id="eth1spec-base-types"></span><h1><a class="reference internal" href="#module-eth1spec.base_types" title="eth1spec.base_types"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a><a class="headerlink" href="#module-eth1spec.base_types" title="Permalink to this headline">¶</a></h1>
-<section id="numeric-types">
-<h2>Numeric Types<a class="headerlink" href="#numeric-types" title="Permalink to this headline">¶</a></h2>
+<section id="numeric-array-types">
+<h2>Numeric &amp; Array Types<a class="headerlink" href="#numeric-array-types" title="Permalink to this headline">¶</a></h2>
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
@@ -53,6 +53,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Uint</span></code></a></p></td>
 <td><p>Unsigned positive integer.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">U256</span></code></a></p></td>
+<td><p>Unsigned positive integer, which can represent <cite>0</cite> to <cite>2 ** 256 - 1</cite>,</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -64,22 +67,22 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.base_types.MAX_VALUE" title="eth1spec.base_types.MAX_VALUE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_VALUE</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.base_types.Bytes64" title="eth1spec.base_types.Bytes64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes64</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.base_types.Bytes32" title="eth1spec.base_types.Bytes32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes32</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.base_types.Bytes64" title="eth1spec.base_types.Bytes64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes64</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.base_types.Bytes20" title="eth1spec.base_types.Bytes20"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes20</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.base_types.Bytes32" title="eth1spec.base_types.Bytes32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes32</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.base_types.Bytes8" title="eth1spec.base_types.Bytes8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes8</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.base_types.Bytes20" title="eth1spec.base_types.Bytes20"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes20</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">U256</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.base_types.Bytes8" title="eth1spec.base_types.Bytes8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes8</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -264,6 +267,234 @@ representation.</p>
 
 </dd></dl>
 
+</section>
+<section id="u256">
+<h3>U256<a class="headerlink" href="#u256" title="Permalink to this headline">¶</a></h3>
+<p>Unsigned positive integer, which can represent <cite>0</cite> to <cite>2 ** 256 - 1</cite>,
+inclusive.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">U256</span></span><a class="headerlink" href="#eth1spec.base_types.U256" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.MAX_VALUE">
+<span class="sig-name descname"><span class="pre">MAX_VALUE</span></span><em class="property"> <span class="pre">:U256</span></em><a class="headerlink" href="#eth1spec.base_types.U256.MAX_VALUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#eth1spec.base_types.U256.__slots__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.from_be_bytes">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_be_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.from_be_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a sequence of bytes into an arbitrarily sized unsigned integer
+from its big endian representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer</strong> (<cite>Bytes</cite>) – Bytes to decode.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong> – Unsigned integer decoded from <cite>buffer</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>U256</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__radd__">
+<span class="sig-name descname"><span class="pre">__radd__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__radd__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return value+self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__add__">
+<span class="sig-name descname"><span class="pre">__add__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self+value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.unchecked_add">
+<span class="sig-name descname"><span class="pre">unchecked_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#eth1spec.base_types.U256.unchecked_add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.wrapping_add">
+<span class="sig-name descname"><span class="pre">wrapping_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.wrapping_add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__iadd__">
+<span class="sig-name descname"><span class="pre">__iadd__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__iadd__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__sub__">
+<span class="sig-name descname"><span class="pre">__sub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__sub__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self-value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.unchecked_sub">
+<span class="sig-name descname"><span class="pre">unchecked_sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#eth1spec.base_types.U256.unchecked_sub" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.wrapping_sub">
+<span class="sig-name descname"><span class="pre">wrapping_sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.wrapping_sub" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__rsub__">
+<span class="sig-name descname"><span class="pre">__rsub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__rsub__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return value-self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__isub__">
+<span class="sig-name descname"><span class="pre">__isub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__isub__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.unchecked_mul">
+<span class="sig-name descname"><span class="pre">unchecked_mul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#eth1spec.base_types.U256.unchecked_mul" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.wrapping_mul">
+<span class="sig-name descname"><span class="pre">wrapping_mul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.wrapping_mul" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__mul__">
+<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self*value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__rmul__">
+<span class="sig-name descname"><span class="pre">__rmul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__rmul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return value*self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__imul__">
+<span class="sig-name descname"><span class="pre">__imul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__imul__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__floordiv__">
+<span class="sig-name descname"><span class="pre">__floordiv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__floordiv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self//value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__rfloordiv__">
+<span class="sig-name descname"><span class="pre">__rfloordiv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__rfloordiv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return value//self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__ifloordiv__">
+<span class="sig-name descname"><span class="pre">__ifloordiv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__ifloordiv__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__mod__">
+<span class="sig-name descname"><span class="pre">__mod__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__mod__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self%value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__rmod__">
+<span class="sig-name descname"><span class="pre">__rmod__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__rmod__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return value%self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__imod__">
+<span class="sig-name descname"><span class="pre">__imod__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__imod__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__divmod__">
+<span class="sig-name descname"><span class="pre">__divmod__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.base_types.U256.__divmod__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return divmod(self, value).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__rdivmod__">
+<span class="sig-name descname"><span class="pre">__rdivmod__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.base_types.U256.__rdivmod__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return divmod(value, self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.unchecked_pow">
+<span class="sig-name descname"><span class="pre">unchecked_pow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modulo</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#eth1spec.base_types.U256.unchecked_pow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.wrapping_pow">
+<span class="sig-name descname"><span class="pre">wrapping_pow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modulo</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.wrapping_pow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__pow__">
+<span class="sig-name descname"><span class="pre">__pow__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modulo</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__pow__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return pow(self, value, mod).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__rpow__">
+<span class="sig-name descname"><span class="pre">__rpow__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modulo</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__rpow__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return pow(value, self, mod).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.__ipow__">
+<span class="sig-name descname"><span class="pre">__ipow__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modulo</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">U256</span></a><a class="headerlink" href="#eth1spec.base_types.U256.__ipow__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.to_be_bytes32">
+<span class="sig-name descname"><span class="pre">to_be_bytes32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.Bytes32" title="eth1spec.base_types.Bytes32"><span class="pre">Bytes32</span></a><a class="headerlink" href="#eth1spec.base_types.U256.to_be_bytes32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts this 256-bit unsigned integer into its big endian
+representation with exactly 32 bytes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>big_endian</strong> – Big endian (most significant bits first) representation.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><cite>Bytes32</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eth1spec.base_types.U256.to_be_bytes">
+<span class="sig-name descname"><span class="pre">to_be_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">Bytes</span></a><a class="headerlink" href="#eth1spec.base_types.U256.to_be_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts this 256-bit unsigned integer into its big endian
+representation, omitting leading zero bytes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>big_endian</strong> – Big endian (most significant bits first) representation.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><cite>Bytes</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="eth1spec.base_types.MAX_VALUE">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">MAX_VALUE</span></span><a class="headerlink" href="#eth1spec.base_types.MAX_VALUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.base_types.Bytes">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes</span></span><a class="headerlink" href="#eth1spec.base_types.Bytes" title="Permalink to this definition">¶</a></dt>
@@ -287,11 +518,6 @@ representation.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.base_types.Bytes8">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes8</span></span><a class="headerlink" href="#eth1spec.base_types.Bytes8" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="eth1spec.base_types.U256">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">U256</span></span><a class="headerlink" href="#eth1spec.base_types.U256" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>

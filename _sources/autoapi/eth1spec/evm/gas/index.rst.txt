@@ -42,7 +42,7 @@ subtract_gas
 Subtracts `amount` from `gas_left`.
 
 
-.. function:: subtract_gas(gas_left: eth1spec.eth_types.Uint, amount: eth1spec.eth_types.Uint) -> eth1spec.eth_types.Uint
+.. function:: subtract_gas(gas_left: eth1spec.base_types.U256, amount: eth1spec.base_types.U256) -> eth1spec.base_types.U256
    :noindexentry:
 
 

@@ -81,18 +81,18 @@
 <p>Subtracts <cite>amount</cite> from <cite>gas_left</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.evm.gas.subtract_gas">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.evm.gas.</span></span><span class="sig-name descname"><span class="pre">subtract_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gas_left</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Uint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Uint</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Uint</span><a class="headerlink" href="#eth1spec.evm.gas.subtract_gas" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.evm.gas.</span></span><span class="sig-name descname"><span class="pre">subtract_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gas_left</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a><a class="headerlink" href="#eth1spec.evm.gas.subtract_gas" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subtract_gas</span><span class="p">(</span><span class="n">gas_left</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="n">Uint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Uint</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subtract_gas</span><span class="p">(</span><span class="n">gas_left</span><span class="p">:</span> <span class="n">U256</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="n">U256</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">U256</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Subtracts `amount` from `gas_left`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    gas_left : `Uint`</span>
+<span class="sd">    gas_left : `eth1spec.base_types.U256`</span>
 <span class="sd">        The amount of gas left in the current frame.</span>
-<span class="sd">    amount : `Uint`</span>
+<span class="sd">    amount : `eth1spec.base_types.U256`</span>
 <span class="sd">        The amount of gas the current operation requires.</span>
 
 <span class="sd">    Raises</span>

@@ -32,7 +32,7 @@ process_call
 Executes a call from the `caller` to the `target` in a new EVM instance.
 
 
-.. function:: process_call(caller: eth1spec.eth_types.Address, target: eth1spec.eth_types.Address, data: bytes, value: eth1spec.eth_types.Uint, gas: eth1spec.eth_types.Uint, depth: eth1spec.eth_types.Uint, env: eth1spec.evm.Environment) -> Tuple[eth1spec.eth_types.Uint, List[eth1spec.eth_types.Log]]
+.. function:: process_call(caller: eth1spec.eth_types.Address, target: eth1spec.eth_types.Address, data: bytes, value: eth1spec.base_types.U256, gas: eth1spec.base_types.U256, depth: eth1spec.base_types.Uint, env: eth1spec.evm.Environment) -> Tuple[eth1spec.base_types.U256, List[eth1spec.eth_types.Log]]
    :noindexentry:
 
 
@@ -40,4 +40,4 @@ Executes a call from the `caller` to the `target` in a new EVM instance.
 
 .. literalinclude:: /../src/eth1spec/evm/interpreter.py
    :language: python
-   :lines: 15-82
+   :lines: 16-83

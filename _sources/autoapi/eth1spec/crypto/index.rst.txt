@@ -64,7 +64,7 @@ secp256k1_recover
 Recovers the public key from a given signature.
 
 
-.. function:: secp256k1_recover(r: eth1spec.base_types.Uint, s: eth1spec.base_types.Uint, v: eth1spec.base_types.Uint, msg_hash: eth1spec.eth_types.Hash32) -> eth1spec.base_types.Bytes
+.. function:: secp256k1_recover(r: eth1spec.base_types.U256, s: eth1spec.base_types.U256, v: eth1spec.base_types.U256, msg_hash: eth1spec.eth_types.Hash32) -> eth1spec.base_types.Bytes
    :noindexentry:
 
 

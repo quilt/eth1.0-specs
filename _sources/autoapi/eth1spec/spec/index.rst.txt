@@ -111,7 +111,7 @@ apply_body
 Executes a block.
 
 
-.. function:: apply_body(state: eth1spec.eth_types.State, coinbase: eth1spec.eth_types.Address, block_number: eth1spec.base_types.Uint, block_gas_limit: eth1spec.base_types.Uint, block_time: eth1spec.base_types.Uint, block_difficulty: eth1spec.base_types.Uint, transactions: List[eth1spec.eth_types.Transaction], ommers: List[eth1spec.eth_types.Header]) -> Tuple[eth1spec.base_types.Uint, eth1spec.eth_types.Root, eth1spec.eth_types.State]
+.. function:: apply_body(state: eth1spec.eth_types.State, coinbase: eth1spec.eth_types.Address, block_number: eth1spec.base_types.Uint, block_gas_limit: eth1spec.base_types.Uint, block_time: eth1spec.base_types.U256, block_difficulty: eth1spec.base_types.Uint, transactions: List[eth1spec.eth_types.Transaction], ommers: List[eth1spec.eth_types.Header]) -> Tuple[eth1spec.base_types.Uint, eth1spec.eth_types.Root, eth1spec.eth_types.State]
    :noindexentry:
 
 
@@ -127,7 +127,7 @@ process_transaction
 Execute a transaction against the provided environment.
 
 
-.. function:: process_transaction(env: eth1spec.evm.Environment, tx: eth1spec.eth_types.Transaction) -> Tuple[eth1spec.base_types.Uint, List[eth1spec.eth_types.Log]]
+.. function:: process_transaction(env: eth1spec.evm.Environment, tx: eth1spec.eth_types.Transaction) -> Tuple[eth1spec.base_types.U256, List[eth1spec.eth_types.Log]]
    :noindexentry:
 
 

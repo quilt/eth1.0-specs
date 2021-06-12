@@ -3,8 +3,8 @@
 
 .. py:module:: eth1spec.base_types
 
-Numeric Types
--------------
+Numeric & Array Types
+---------------------
 
 
 Module Contents
@@ -16,6 +16,7 @@ Classes
 .. autoapisummary::
 
    eth1spec.base_types.Uint
+   eth1spec.base_types.U256
 
 
 
@@ -25,12 +26,12 @@ Attributes
 
 .. autoapisummary::
 
+   eth1spec.base_types.MAX_VALUE
    eth1spec.base_types.Bytes
    eth1spec.base_types.Bytes64
    eth1spec.base_types.Bytes32
    eth1spec.base_types.Bytes20
    eth1spec.base_types.Bytes8
-   eth1spec.base_types.U256
 
 
 Module Details
@@ -172,6 +173,178 @@ Unsigned positive integer.
 
 
 
+
+U256
+~~~~
+
+Unsigned positive integer, which can represent `0` to `2 ** 256 - 1`,
+inclusive.
+
+
+.. class:: U256
+
+
+   Bases: :py:obj:`int`
+
+   .. attribute:: MAX_VALUE
+      :annotation: :U256
+
+      
+
+   .. attribute:: __slots__
+      :annotation: = []
+
+      
+
+   .. method:: from_be_bytes(cls: Type, buffer: Bytes) -> U256
+      :classmethod:
+
+      Converts a sequence of bytes into an arbitrarily sized unsigned integer
+      from its big endian representation.
+
+      :param buffer: Bytes to decode.
+      :type buffer: `Bytes`
+
+      :returns: **self** -- Unsigned integer decoded from `buffer`.
+      :rtype: `U256`
+
+
+   .. method:: __radd__(self, left: int) -> U256
+
+      Return value+self.
+
+
+   .. method:: __add__(self, right: int) -> U256
+
+      Return self+value.
+
+
+   .. method:: unchecked_add(self, right: int) -> int
+
+
+   .. method:: wrapping_add(self, right: int) -> U256
+
+
+   .. method:: __iadd__(self, right: int) -> U256
+
+
+   .. method:: __sub__(self, right: int) -> U256
+
+      Return self-value.
+
+
+   .. method:: unchecked_sub(self, right: int) -> int
+
+
+   .. method:: wrapping_sub(self, right: int) -> U256
+
+
+   .. method:: __rsub__(self, left: int) -> U256
+
+      Return value-self.
+
+
+   .. method:: __isub__(self, right: int) -> U256
+
+
+   .. method:: unchecked_mul(self, right: int) -> int
+
+
+   .. method:: wrapping_mul(self, right: int) -> U256
+
+
+   .. method:: __mul__(self, right: int) -> U256
+
+      Return self*value.
+
+
+   .. method:: __rmul__(self, left: int) -> U256
+
+      Return value*self.
+
+
+   .. method:: __imul__(self, right: int) -> U256
+
+
+   .. method:: __floordiv__(self, right: int) -> U256
+
+      Return self//value.
+
+
+   .. method:: __rfloordiv__(self, left: int) -> U256
+
+      Return value//self.
+
+
+   .. method:: __ifloordiv__(self, right: int) -> U256
+
+
+   .. method:: __mod__(self, right: int) -> U256
+
+      Return self%value.
+
+
+   .. method:: __rmod__(self, left: int) -> U256
+
+      Return value%self.
+
+
+   .. method:: __imod__(self, right: int) -> U256
+
+
+   .. method:: __divmod__(self, right: int) -> Tuple[U256, U256]
+
+      Return divmod(self, value).
+
+
+   .. method:: __rdivmod__(self, left: int) -> Tuple[U256, U256]
+
+      Return divmod(value, self).
+
+
+   .. method:: unchecked_pow(self, right: int, modulo: Optional[int] = None) -> int
+
+
+   .. method:: wrapping_pow(self, right: int, modulo: Optional[int] = None) -> U256
+
+
+   .. method:: __pow__(self, right: int, modulo: Optional[int] = None) -> U256
+
+      Return pow(self, value, mod).
+
+
+   .. method:: __rpow__(self, left: int, modulo: Optional[int] = None) -> U256
+
+      Return pow(value, self, mod).
+
+
+   .. method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> U256
+
+
+   .. method:: to_be_bytes32(self) -> Bytes32
+
+      Converts this 256-bit unsigned integer into its big endian
+      representation with exactly 32 bytes.
+
+      :returns: **big_endian** -- Big endian (most significant bits first) representation.
+      :rtype: `Bytes32`
+
+
+   .. method:: to_be_bytes(self) -> Bytes
+
+      Converts this 256-bit unsigned integer into its big endian
+      representation, omitting leading zero bytes.
+
+      :returns: **big_endian** -- Big endian (most significant bits first) representation.
+      :rtype: `Bytes`
+
+
+
+.. data:: MAX_VALUE
+   
+
+   
+
 .. data:: Bytes
    
 
@@ -193,11 +366,6 @@ Unsigned positive integer.
    
 
 .. data:: Bytes8
-   
-
-   
-
-.. data:: U256
    
 
    

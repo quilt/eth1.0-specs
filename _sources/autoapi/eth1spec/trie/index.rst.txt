@@ -128,7 +128,7 @@ TRIE
 Computes the root hash of the storage trie.
 
 
-.. function:: TRIE(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.eth_types.Account, eth1spec.base_types.Bytes, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint]]) -> eth1spec.eth_types.Root
+.. function:: TRIE(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.eth_types.Account, eth1spec.base_types.Bytes, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint, eth1spec.base_types.U256]]) -> eth1spec.eth_types.Root
    :noindexentry:
 
 
@@ -136,7 +136,7 @@ Computes the root hash of the storage trie.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 134-150
+   :lines: 134-152
 
 n
 ~
@@ -144,7 +144,7 @@ n
 Node composition function.
 
 
-.. function:: n(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.base_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint]], i: eth1spec.base_types.U256) -> eth1spec.base_types.Bytes
+.. function:: n(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.base_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint, eth1spec.base_types.U256]], i: eth1spec.base_types.U256) -> eth1spec.base_types.Bytes
    :noindexentry:
 
 
@@ -152,7 +152,7 @@ Node composition function.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 153-179
+   :lines: 155-181
 
 c
 ~
@@ -160,7 +160,7 @@ c
 Structural composition function.
 
 
-.. function:: c(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.base_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint]], i: eth1spec.base_types.Uint) -> eth1spec.base_types.Bytes
+.. function:: c(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.base_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint, eth1spec.base_types.U256]], i: eth1spec.base_types.U256) -> eth1spec.base_types.Bytes
    :noindexentry:
 
 
@@ -168,4 +168,4 @@ Structural composition function.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 182-297
+   :lines: 184-299

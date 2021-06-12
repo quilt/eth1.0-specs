@@ -80,12 +80,12 @@ Items external to the virtual machine itself, provided by the environment.
       
 
    .. attribute:: gas_price
-      :annotation: :eth1spec.eth_types.Uint
+      :annotation: :eth1spec.eth_types.U256
 
       
 
    .. attribute:: time
-      :annotation: :eth1spec.eth_types.Uint
+      :annotation: :eth1spec.eth_types.U256
 
       
 
@@ -130,7 +130,7 @@ The internal state of the virtual machine.
       
 
    .. attribute:: gas_left
-      :annotation: :eth1spec.eth_types.Uint
+      :annotation: :eth1spec.eth_types.U256
 
       
 
@@ -150,7 +150,7 @@ The internal state of the virtual machine.
       
 
    .. attribute:: value
-      :annotation: :eth1spec.eth_types.Uint
+      :annotation: :eth1spec.eth_types.U256
 
       
 

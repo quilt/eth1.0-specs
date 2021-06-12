@@ -125,12 +125,12 @@
 <span class="sd">    OutOfGasError</span>
 <span class="sd">        If `evm.gas_left` is less than `20000`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">20000</span><span class="p">))</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">20000</span><span class="p">))</span>
 
     <span class="n">k</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
 
-    <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">storage</span><span class="p">[</span><span class="n">k</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;big&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">storage</span><span class="p">[</span><span class="n">k</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()]</span> <span class="o">=</span> <span class="n">v</span>
 </pre></div>
 </div>
 </section>
