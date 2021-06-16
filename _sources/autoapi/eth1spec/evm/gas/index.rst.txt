@@ -3,7 +3,17 @@
 
 .. py:module:: eth1spec.evm.gas
 
-EVM Gas Constants and Calculators
+Ethereum Virtual Machine (EVM) Gas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+EVM gas constants and calculators.
 
 
 Module Contents
@@ -30,6 +40,10 @@ Attributes
 
 Module Details
 ---------------
+
+GAS_VERY_LOW
+~~~~~~~~~~~~
+
 .. data:: GAS_VERY_LOW
    
 
@@ -38,6 +52,7 @@ Module Details
 
 subtract_gas
 ~~~~~~~~~~~~
+
 
 Subtracts `amount` from `gas_left`.
 
@@ -50,4 +65,4 @@ Subtracts `amount` from `gas_left`.
 
 .. literalinclude:: /../src/eth1spec/evm/gas.py
    :language: python
-   :lines: 10-29
+   :lines: 21-40

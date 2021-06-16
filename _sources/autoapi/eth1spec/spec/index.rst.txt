@@ -4,7 +4,16 @@
 .. py:module:: eth1spec.spec
 
 Ethereum Specification
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Entry point for the Ethereum specification.
 
 
 Module Contents
@@ -47,6 +56,10 @@ Attributes
 
 Module Details
 ---------------
+
+BLOCK_REWARD
+~~~~~~~~~~~~
+
 .. data:: BLOCK_REWARD
    
 
@@ -55,6 +68,7 @@ Module Details
 
 BlockChain
 ~~~~~~~~~~
+
 
 History and current state of the block chain.
 
@@ -76,6 +90,7 @@ History and current state of the block chain.
 state_transition
 ~~~~~~~~~~~~~~~~
 
+
 Attempts to apply a block to an existing block chain.
 
 
@@ -87,10 +102,11 @@ Attempts to apply a block to an existing block chain.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 41-66
+   :lines: 50-75
 
 verify_header
 ~~~~~~~~~~~~~
+
 
 Verifies a block header.
 
@@ -103,10 +119,11 @@ Verifies a block header.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 69-83
+   :lines: 78-92
 
 apply_body
 ~~~~~~~~~~
+
 
 Executes a block.
 
@@ -119,10 +136,11 @@ Executes a block.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 86-169
+   :lines: 95-178
 
 process_transaction
 ~~~~~~~~~~~~~~~~~~~
+
 
 Execute a transaction against the provided environment.
 
@@ -135,10 +153,11 @@ Execute a transaction against the provided environment.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 172-217
+   :lines: 181-226
 
 verify_transaction
 ~~~~~~~~~~~~~~~~~~
+
 
 Verifies a transaction.
 
@@ -151,10 +170,11 @@ Verifies a transaction.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 220-234
+   :lines: 229-243
 
 intrinsic_cost
 ~~~~~~~~~~~~~~
+
 
 Calculates the intrinsic cost of the transaction that is charged before
 
@@ -167,10 +187,11 @@ Calculates the intrinsic cost of the transaction that is charged before
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 237-260
+   :lines: 246-269
 
 recover_sender
 ~~~~~~~~~~~~~~
+
 
 Extracts the sender address from a transaction.
 
@@ -183,10 +204,11 @@ Extracts the sender address from a transaction.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 263-293
+   :lines: 272-302
 
 signing_hash
 ~~~~~~~~~~~~
+
 
 Compute the hash of a transaction used in the signature.
 
@@ -199,10 +221,11 @@ Compute the hash of a transaction used in the signature.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 296-318
+   :lines: 305-327
 
 print_state
 ~~~~~~~~~~~
+
 
 Pretty prints the state.
 
@@ -215,4 +238,4 @@ Pretty prints the state.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 324-345
+   :lines: 333-354

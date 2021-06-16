@@ -39,11 +39,42 @@
 <span id="eth1spec-spec"></span><h1><a class="reference internal" href="#module-eth1spec.spec" title="eth1spec.spec"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.spec</span></code></a><a class="headerlink" href="#module-eth1spec.spec" title="Permalink to this headline">¶</a></h1>
 <section id="ethereum-specification">
 <h2>Ethereum Specification<a class="headerlink" href="#ethereum-specification" title="Permalink to this headline">¶</a></h2>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#classes" id="id3">Classes</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id4">Functions</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id5">Attributes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module-details" id="id6">Module Details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#block-reward" id="id7">BLOCK_REWARD</a></p></li>
+<li><p><a class="reference internal" href="#blockchain" id="id8">BlockChain</a></p></li>
+<li><p><a class="reference internal" href="#state-transition" id="id9">state_transition</a></p></li>
+<li><p><a class="reference internal" href="#verify-header" id="id10">verify_header</a></p></li>
+<li><p><a class="reference internal" href="#apply-body" id="id11">apply_body</a></p></li>
+<li><p><a class="reference internal" href="#process-transaction" id="id12">process_transaction</a></p></li>
+<li><p><a class="reference internal" href="#verify-transaction" id="id13">verify_transaction</a></p></li>
+<li><p><a class="reference internal" href="#intrinsic-cost" id="id14">intrinsic_cost</a></p></li>
+<li><p><a class="reference internal" href="#recover-sender" id="id15">recover_sender</a></p></li>
+<li><p><a class="reference internal" href="#signing-hash" id="id16">signing_hash</a></p></li>
+<li><p><a class="reference internal" href="#print-state" id="id17">print_state</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>Entry point for the Ethereum specification.</p>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<h3>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h3>
 <section id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<h4>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -57,7 +88,7 @@
 </table>
 </section>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<h4>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -95,7 +126,7 @@
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<h4>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -110,14 +141,17 @@
 </section>
 </section>
 <section id="module-details">
-<h2>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h2>
+<h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
+<section id="block-reward">
+<h4>BLOCK_REWARD<a class="headerlink" href="#block-reward" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.spec.BLOCK_REWARD">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">BLOCK_REWARD</span></span><a class="headerlink" href="#eth1spec.spec.BLOCK_REWARD" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
 <section id="blockchain">
-<h3>BlockChain<a class="headerlink" href="#blockchain" title="Permalink to this headline">¶</a></h3>
+<h4>BlockChain<a class="headerlink" href="#blockchain" title="Permalink to this headline">¶</a></h4>
 <p>History and current state of the block chain.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eth1spec.spec.BlockChain">
@@ -136,7 +170,7 @@
 
 </section>
 <section id="state-transition">
-<h3>state_transition<a class="headerlink" href="#state-transition" title="Permalink to this headline">¶</a></h3>
+<h4>state_transition<a class="headerlink" href="#state-transition" title="Permalink to this headline">¶</a></h4>
 <p>Attempts to apply a block to an existing block chain.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.state_transition">
@@ -173,7 +207,7 @@
 </div>
 </section>
 <section id="verify-header">
-<h3>verify_header<a class="headerlink" href="#verify-header" title="Permalink to this headline">¶</a></h3>
+<h4>verify_header<a class="headerlink" href="#verify-header" title="Permalink to this headline">¶</a></h4>
 <p>Verifies a block header.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.verify_header">
@@ -199,7 +233,7 @@
 </div>
 </section>
 <section id="apply-body">
-<h3>apply_body<a class="headerlink" href="#apply-body" title="Permalink to this headline">¶</a></h3>
+<h4>apply_body<a class="headerlink" href="#apply-body" title="Permalink to this headline">¶</a></h4>
 <p>Executes a block.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.apply_body">
@@ -294,7 +328,7 @@
 </div>
 </section>
 <section id="process-transaction">
-<h3>process_transaction<a class="headerlink" href="#process-transaction" title="Permalink to this headline">¶</a></h3>
+<h4>process_transaction<a class="headerlink" href="#process-transaction" title="Permalink to this headline">¶</a></h4>
 <p>Execute a transaction against the provided environment.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.process_transaction">
@@ -351,7 +385,7 @@
 </div>
 </section>
 <section id="verify-transaction">
-<h3>verify_transaction<a class="headerlink" href="#verify-transaction" title="Permalink to this headline">¶</a></h3>
+<h4>verify_transaction<a class="headerlink" href="#verify-transaction" title="Permalink to this headline">¶</a></h4>
 <p>Verifies a transaction.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.verify_transaction">
@@ -377,7 +411,7 @@
 </div>
 </section>
 <section id="intrinsic-cost">
-<h3>intrinsic_cost<a class="headerlink" href="#intrinsic-cost" title="Permalink to this headline">¶</a></h3>
+<h4>intrinsic_cost<a class="headerlink" href="#intrinsic-cost" title="Permalink to this headline">¶</a></h4>
 <p>Calculates the intrinsic cost of the transaction that is charged before</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.intrinsic_cost">
@@ -412,7 +446,7 @@
 </div>
 </section>
 <section id="recover-sender">
-<h3>recover_sender<a class="headerlink" href="#recover-sender" title="Permalink to this headline">¶</a></h3>
+<h4>recover_sender<a class="headerlink" href="#recover-sender" title="Permalink to this headline">¶</a></h4>
 <p>Extracts the sender address from a transaction.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.recover_sender">
@@ -454,7 +488,7 @@
 </div>
 </section>
 <section id="signing-hash">
-<h3>signing_hash<a class="headerlink" href="#signing-hash" title="Permalink to this headline">¶</a></h3>
+<h4>signing_hash<a class="headerlink" href="#signing-hash" title="Permalink to this headline">¶</a></h4>
 <p>Compute the hash of a transaction used in the signature.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.signing_hash">
@@ -488,7 +522,7 @@
 </div>
 </section>
 <section id="print-state">
-<h3>print_state<a class="headerlink" href="#print-state" title="Permalink to this headline">¶</a></h3>
+<h4>print_state<a class="headerlink" href="#print-state" title="Permalink to this headline">¶</a></h4>
 <p>Pretty prints the state.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.print_state">
@@ -522,6 +556,7 @@
 </section>
 </section>
 </section>
+</section>
 
 
           </div>
@@ -544,15 +579,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec</span></code></a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../base_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../crypto/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.crypto</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../eth_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rlp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.rlp</span></code></a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.spec</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trie/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.trie</span></code></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#submodules">Submodules</a></li>
 </ul>
 </li>
 </ul>

@@ -4,7 +4,16 @@
 .. py:module:: eth1spec.base_types
 
 Numeric & Array Types
----------------------
+^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Integer and array types which are used by—but not unique to—Ethereum.
 
 
 Module Contents
@@ -39,6 +48,7 @@ Module Details
 
 Uint
 ~~~~
+
 
 Unsigned positive integer.
 
@@ -176,6 +186,7 @@ Unsigned positive integer.
 
 U256
 ~~~~
+
 
 Unsigned positive integer, which can represent `0` to `2 ** 256 - 1`,
 inclusive.
@@ -340,30 +351,54 @@ inclusive.
 
 
 
+
+MAX_VALUE
+~~~~~~~~~
+
 .. data:: MAX_VALUE
    
 
    
+
+
+Bytes
+~~~~~
 
 .. data:: Bytes
    
 
    
 
+
+Bytes64
+~~~~~~~
+
 .. data:: Bytes64
    
 
    
+
+
+Bytes32
+~~~~~~~
 
 .. data:: Bytes32
    
 
    
 
+
+Bytes20
+~~~~~~~
+
 .. data:: Bytes20
    
 
    
+
+
+Bytes8
+~~~~~~
 
 .. data:: Bytes8
    

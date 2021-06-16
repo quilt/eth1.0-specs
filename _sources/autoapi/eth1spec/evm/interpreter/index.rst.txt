@@ -4,7 +4,14 @@
 .. py:module:: eth1spec.evm.interpreter
 
 Ethereum Virtual Machine (EVM) Interpreter
-------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
 
 A straightforward interpreter that executes EVM code.
 
@@ -29,6 +36,7 @@ Module Details
 process_call
 ~~~~~~~~~~~~
 
+
 Executes a call from the `caller` to the `target` in a new EVM instance.
 
 
@@ -40,4 +48,4 @@ Executes a call from the `caller` to the `target` in a new EVM instance.
 
 .. literalinclude:: /../src/eth1spec/evm/interpreter.py
    :language: python
-   :lines: 16-83
+   :lines: 23-90

@@ -37,14 +37,49 @@
             
   <section id="module-eth1spec.eth_types">
 <span id="eth1spec-eth-types"></span><h1><a class="reference internal" href="#module-eth1spec.eth_types" title="eth1spec.eth_types"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a><a class="headerlink" href="#module-eth1spec.eth_types" title="Permalink to this headline">¶</a></h1>
-<section id="base-types">
-<h2>Base Types<a class="headerlink" href="#base-types" title="Permalink to this headline">¶</a></h2>
-<p>Types re-used throughout the specification.</p>
+<section id="ethereum-types">
+<h2>Ethereum Types<a class="headerlink" href="#ethereum-types" title="Permalink to this headline">¶</a></h2>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#classes" id="id3">Classes</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id4">Attributes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#address" id="id6">Address</a></p></li>
+<li><p><a class="reference internal" href="#root" id="id7">Root</a></p></li>
+<li><p><a class="reference internal" href="#hash32" id="id8">Hash32</a></p></li>
+<li><p><a class="reference internal" href="#hash64" id="id9">Hash64</a></p></li>
+<li><p><a class="reference internal" href="#storage" id="id10">Storage</a></p></li>
+<li><p><a class="reference internal" href="#bloom" id="id11">Bloom</a></p></li>
+<li><p><a class="reference internal" href="#tx-base-cost" id="id12">TX_BASE_COST</a></p></li>
+<li><p><a class="reference internal" href="#tx-data-cost-per-non-zero" id="id13">TX_DATA_COST_PER_NON_ZERO</a></p></li>
+<li><p><a class="reference internal" href="#tx-data-cost-per-zero" id="id14">TX_DATA_COST_PER_ZERO</a></p></li>
+<li><p><a class="reference internal" href="#transaction" id="id15">Transaction</a></p></li>
+<li><p><a class="reference internal" href="#account" id="id16">Account</a></p></li>
+<li><p><a class="reference internal" href="#empty-account" id="id17">EMPTY_ACCOUNT</a></p></li>
+<li><p><a class="reference internal" href="#header" id="id18">Header</a></p></li>
+<li><p><a class="reference internal" href="#block" id="id19">Block</a></p></li>
+<li><p><a class="reference internal" href="#log" id="id20">Log</a></p></li>
+<li><p><a class="reference internal" href="#receipt" id="id21">Receipt</a></p></li>
+<li><p><a class="reference internal" href="#state" id="id22">State</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>Types re-used throughout the specification, which are specific to Ethereum.</p>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<h3>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h3>
 <section id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<h4>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -73,7 +108,7 @@
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<h4>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -118,54 +153,81 @@
 </section>
 </section>
 <section id="module-details">
-<h2>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h2>
+<h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
+<section id="address">
+<h4>Address<a class="headerlink" href="#address" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Address">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">Address</span></span><a class="headerlink" href="#eth1spec.eth_types.Address" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="root">
+<h4>Root<a class="headerlink" href="#root" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Root">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">Root</span></span><a class="headerlink" href="#eth1spec.eth_types.Root" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="hash32">
+<h4>Hash32<a class="headerlink" href="#hash32" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Hash32">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">Hash32</span></span><a class="headerlink" href="#eth1spec.eth_types.Hash32" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="hash64">
+<h4>Hash64<a class="headerlink" href="#hash64" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Hash64">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">Hash64</span></span><a class="headerlink" href="#eth1spec.eth_types.Hash64" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="storage">
+<h4>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Storage">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">Storage</span></span><a class="headerlink" href="#eth1spec.eth_types.Storage" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="bloom">
+<h4>Bloom<a class="headerlink" href="#bloom" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Bloom">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">Bloom</span></span><a class="headerlink" href="#eth1spec.eth_types.Bloom" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="tx-base-cost">
+<h4>TX_BASE_COST<a class="headerlink" href="#tx-base-cost" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.TX_BASE_COST">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">TX_BASE_COST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">21000</span></em><a class="headerlink" href="#eth1spec.eth_types.TX_BASE_COST" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="tx-data-cost-per-non-zero">
+<h4>TX_DATA_COST_PER_NON_ZERO<a class="headerlink" href="#tx-data-cost-per-non-zero" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.TX_DATA_COST_PER_NON_ZERO">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">TX_DATA_COST_PER_NON_ZERO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">68</span></em><a class="headerlink" href="#eth1spec.eth_types.TX_DATA_COST_PER_NON_ZERO" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="tx-data-cost-per-zero">
+<h4>TX_DATA_COST_PER_ZERO<a class="headerlink" href="#tx-data-cost-per-zero" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.TX_DATA_COST_PER_ZERO">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">TX_DATA_COST_PER_ZERO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#eth1spec.eth_types.TX_DATA_COST_PER_ZERO" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
 <section id="transaction">
-<h3>Transaction<a class="headerlink" href="#transaction" title="Permalink to this headline">¶</a></h3>
+<h4>Transaction<a class="headerlink" href="#transaction" title="Permalink to this headline">¶</a></h4>
 <p>Atomic operation performed on the block chain.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Transaction">
@@ -219,7 +281,7 @@
 
 </section>
 <section id="account">
-<h3>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h3>
+<h4>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h4>
 <p>State associated with an address.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Account">
@@ -246,6 +308,9 @@
 
 </dd></dl>
 
+</section>
+<section id="empty-account">
+<h4>EMPTY_ACCOUNT<a class="headerlink" href="#empty-account" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.EMPTY_ACCOUNT">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">EMPTY_ACCOUNT</span></span><a class="headerlink" href="#eth1spec.eth_types.EMPTY_ACCOUNT" title="Permalink to this definition">¶</a></dt>
@@ -253,7 +318,7 @@
 
 </section>
 <section id="header">
-<h3>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
+<h4>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h4>
 <p>Header portion of a block on the chain.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Header">
@@ -337,7 +402,7 @@
 
 </section>
 <section id="block">
-<h3>Block<a class="headerlink" href="#block" title="Permalink to this headline">¶</a></h3>
+<h4>Block<a class="headerlink" href="#block" title="Permalink to this headline">¶</a></h4>
 <p>A complete block.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Block">
@@ -361,7 +426,7 @@
 
 </section>
 <section id="log">
-<h3>Log<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h3>
+<h4>Log<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h4>
 <p>Data record produced during the execution of a transaction.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Log">
@@ -385,7 +450,7 @@
 
 </section>
 <section id="receipt">
-<h3>Receipt<a class="headerlink" href="#receipt" title="Permalink to this headline">¶</a></h3>
+<h4>Receipt<a class="headerlink" href="#receipt" title="Permalink to this headline">¶</a></h4>
 <p>Result of a transaction.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eth1spec.eth_types.Receipt">
@@ -412,11 +477,15 @@
 
 </dd></dl>
 
+</section>
+<section id="state">
+<h4>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.eth_types.State">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.eth_types.</span></span><span class="sig-name descname"><span class="pre">State</span></span><a class="headerlink" href="#eth1spec.eth_types.State" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
 </section>
 </section>
 </section>
@@ -442,15 +511,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec</span></code></a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../base_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../crypto/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.crypto</span></code></a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rlp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.rlp</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../spec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.spec</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trie/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.trie</span></code></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#submodules">Submodules</a></li>
 </ul>
 </li>
 </ul>

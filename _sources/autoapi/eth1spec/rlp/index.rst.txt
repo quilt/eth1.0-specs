@@ -4,7 +4,16 @@
 .. py:module:: eth1spec.rlp
 
 Recursive Length Prefix (RLP) Encoding
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Defines the serialization and deserialization format used throughout Ethereum.
 
 
 Module Contents
@@ -41,15 +50,27 @@ Attributes
 
 Module Details
 ---------------
+
+verbose
+~~~~~~~
+
 .. data:: verbose
    :annotation: = False
 
    
 
+
+debug
+~~~~~
+
 .. data:: debug
    :annotation: = False
 
    
+
+
+RLP
+~~~
 
 .. data:: RLP
    
@@ -59,6 +80,7 @@ Module Details
 
 encode
 ~~~~~~
+
 
 Encodes `x` into a sequence of bytes using RLP.
 
@@ -71,10 +93,11 @@ Encodes `x` into a sequence of bytes using RLP.
 
 .. literalinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 20-43
+   :lines: 29-52
 
 R_b
 ~~~
+
 
 Encodes `x`, a sequence of bytes, using RLP.
 
@@ -87,10 +110,11 @@ Encodes `x`, a sequence of bytes, using RLP.
 
 .. literalinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 47-70
+   :lines: 56-79
 
 R_l
 ~~~
+
 
 Encodes `x`, a list of RLP encodable objects, using RLP.
 
@@ -103,10 +127,11 @@ Encodes `x`, a list of RLP encodable objects, using RLP.
 
 .. literalinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 74-96
+   :lines: 83-105
 
 s
 ~
+
 
 Partially encodes `x`, a list of RLP encodable objects, using RLP,
 
@@ -119,10 +144,11 @@ Partially encodes `x`, a list of RLP encodable objects, using RLP,
 
 .. literalinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 100-120
+   :lines: 109-129
 
 decode
 ~~~~~~
+
 
 Decodes an integer, byte sequence, or list of RLP encodable objects from
 
@@ -135,10 +161,11 @@ Decodes an integer, byte sequence, or list of RLP encodable objects from
 
 .. literalinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 126-148
+   :lines: 135-157
 
 R_b_inverse
 ~~~~~~~~~~~
+
 
 Decodes a byte sequence from the byte sequence `b`, using RLP.
 
@@ -151,10 +178,11 @@ Decodes a byte sequence from the byte sequence `b`, using RLP.
 
 .. literalinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 151-174
+   :lines: 160-183
 
 R_l_inverse
 ~~~~~~~~~~~
+
 
 Decodes `b` into a list of RLP encodable objects, using RLP.
 
@@ -167,10 +195,11 @@ Decodes `b` into a list of RLP encodable objects, using RLP.
 
 .. literalinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 177-202
+   :lines: 186-211
 
 s_inverse
 ~~~~~~~~~
+
 
 Decodes `b`, a partially encoded list of RLP encodable objects, excluding
 
@@ -183,10 +212,11 @@ Decodes `b`, a partially encoded list of RLP encodable objects, excluding
 
 .. literalinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 205-233
+   :lines: 214-242
 
 decode_length
 ~~~~~~~~~~~~~
+
 
 Decodes the length prefix from the byte sequence `b`.
 
@@ -199,4 +229,4 @@ Decodes the length prefix from the byte sequence `b`.
 
 .. literalinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 239-274
+   :lines: 248-283

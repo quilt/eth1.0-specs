@@ -3,10 +3,17 @@
 
 .. py:module:: eth1spec.eth_types
 
-Base Types
-----------
+Ethereum Types
+^^^^^^^^^^^^^^
 
-Types re-used throughout the specification.
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Types re-used throughout the specification, which are specific to Ethereum.
 
 
 Module Contents
@@ -47,45 +54,81 @@ Attributes
 
 Module Details
 ---------------
+
+Address
+~~~~~~~
+
 .. data:: Address
    
 
    
+
+
+Root
+~~~~
 
 .. data:: Root
    
 
    
 
+
+Hash32
+~~~~~~
+
 .. data:: Hash32
    
 
    
+
+
+Hash64
+~~~~~~
 
 .. data:: Hash64
    
 
    
 
+
+Storage
+~~~~~~~
+
 .. data:: Storage
    
 
    
+
+
+Bloom
+~~~~~
 
 .. data:: Bloom
    
 
    
 
+
+TX_BASE_COST
+~~~~~~~~~~~~
+
 .. data:: TX_BASE_COST
    :annotation: = 21000
 
    
 
+
+TX_DATA_COST_PER_NON_ZERO
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. data:: TX_DATA_COST_PER_NON_ZERO
    :annotation: = 68
 
    
+
+
+TX_DATA_COST_PER_ZERO
+~~~~~~~~~~~~~~~~~~~~~
 
 .. data:: TX_DATA_COST_PER_ZERO
    :annotation: = 4
@@ -95,6 +138,7 @@ Module Details
 
 Transaction
 ~~~~~~~~~~~
+
 
 Atomic operation performed on the block chain.
 
@@ -151,6 +195,7 @@ Atomic operation performed on the block chain.
 Account
 ~~~~~~~
 
+
 State associated with an address.
 
 
@@ -177,6 +222,10 @@ State associated with an address.
       
 
 
+
+EMPTY_ACCOUNT
+~~~~~~~~~~~~~
+
 .. data:: EMPTY_ACCOUNT
    
 
@@ -185,6 +234,7 @@ State associated with an address.
 
 Header
 ~~~~~~
+
 
 Header portion of a block on the chain.
 
@@ -271,6 +321,7 @@ Header portion of a block on the chain.
 Block
 ~~~~~
 
+
 A complete block.
 
 
@@ -295,6 +346,7 @@ A complete block.
 
 Log
 ~~~
+
 
 Data record produced during the execution of a transaction.
 
@@ -321,6 +373,7 @@ Data record produced during the execution of a transaction.
 Receipt
 ~~~~~~~
 
+
 Result of a transaction.
 
 
@@ -346,6 +399,10 @@ Result of a transaction.
 
       
 
+
+
+State
+~~~~~
 
 .. data:: State
    

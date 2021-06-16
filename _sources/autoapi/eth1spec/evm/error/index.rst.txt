@@ -3,8 +3,17 @@
 
 .. py:module:: eth1spec.evm.error
 
-EVM Runtime Errors
-------------------
+Ethereum Virtual Machine (EVM) Errors
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Errors which cause the EVM to halt exceptionally.
 
 
 Module Contents
@@ -13,6 +22,7 @@ Module Contents
 
 StackUnderflowError
 ~~~~~~~~~~~~~~~~~~~
+
 
 Occurs when a pop is executed on an empty stack.
 
@@ -27,6 +37,7 @@ Occurs when a pop is executed on an empty stack.
 StackOverflowError
 ~~~~~~~~~~~~~~~~~~
 
+
 Occurs when a push is executed on a stack at max capacity.
 
 
@@ -39,6 +50,7 @@ Occurs when a push is executed on a stack at max capacity.
 
 OutOfGasError
 ~~~~~~~~~~~~~
+
 
 Occurs when an operation costs more than the amount of gas left in the
 frame.

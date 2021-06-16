@@ -4,7 +4,16 @@
 .. py:module:: eth1spec.crypto
 
 Cryptographic Functions
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
+
+..contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Cryptographic primatives used in—but not defined by—the Ethereum specification.
 
 
 Module Contents
@@ -29,6 +38,7 @@ Module Details
 keccak256
 ~~~~~~~~~
 
+
 Computes the keccak256 hash of the input `buffer`.
 
 
@@ -40,10 +50,11 @@ Computes the keccak256 hash of the input `buffer`.
 
 .. literalinclude:: /../src/eth1spec/crypto.py
    :language: python
-   :lines: 13-27
+   :lines: 22-36
 
 keccak512
 ~~~~~~~~~
+
 
 Computes the keccak512 hash of the input `buffer`.
 
@@ -56,10 +67,11 @@ Computes the keccak512 hash of the input `buffer`.
 
 .. literalinclude:: /../src/eth1spec/crypto.py
    :language: python
-   :lines: 30-44
+   :lines: 39-53
 
 secp256k1_recover
 ~~~~~~~~~~~~~~~~~
+
 
 Recovers the public key from a given signature.
 
@@ -72,4 +84,4 @@ Recovers the public key from a given signature.
 
 .. literalinclude:: /../src/eth1spec/crypto.py
    :language: python
-   :lines: 47-78
+   :lines: 56-87

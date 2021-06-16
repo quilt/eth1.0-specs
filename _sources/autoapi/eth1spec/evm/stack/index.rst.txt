@@ -3,8 +3,17 @@
 
 .. py:module:: eth1spec.evm.stack
 
-EVM Stack Operators
-----------------------
+Ethereum Virtual Machine (EVM) Stack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementation of the stack operators for the EVM.
 
 
 Module Contents
@@ -28,6 +37,7 @@ Module Details
 pop
 ~~~
 
+
 Pops the top item off of `stack`.
 
 
@@ -39,10 +49,11 @@ Pops the top item off of `stack`.
 
 .. literalinclude:: /../src/eth1spec/evm/stack.py
    :language: python
-   :lines: 12-34
+   :lines: 21-43
 
 push
 ~~~~
+
 
 Pushes `value` onto `stack`.
 
@@ -55,4 +66,4 @@ Pushes `value` onto `stack`.
 
 .. literalinclude:: /../src/eth1spec/evm/stack.py
    :language: python
-   :lines: 37-57
+   :lines: 46-66

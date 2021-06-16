@@ -39,11 +39,42 @@
 <span id="eth1spec-rlp"></span><h1><a class="reference internal" href="#module-eth1spec.rlp" title="eth1spec.rlp"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.rlp</span></code></a><a class="headerlink" href="#module-eth1spec.rlp" title="Permalink to this headline">¶</a></h1>
 <section id="recursive-length-prefix-rlp-encoding">
 <h2>Recursive Length Prefix (RLP) Encoding<a class="headerlink" href="#recursive-length-prefix-rlp-encoding" title="Permalink to this headline">¶</a></h2>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#functions" id="id3">Functions</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id4">Attributes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#verbose" id="id6">verbose</a></p></li>
+<li><p><a class="reference internal" href="#debug" id="id7">debug</a></p></li>
+<li><p><a class="reference internal" href="#rlp" id="id8">RLP</a></p></li>
+<li><p><a class="reference internal" href="#encode" id="id9">encode</a></p></li>
+<li><p><a class="reference internal" href="#r-b" id="id10">R_b</a></p></li>
+<li><p><a class="reference internal" href="#r-l" id="id11">R_l</a></p></li>
+<li><p><a class="reference internal" href="#s" id="id12">s</a></p></li>
+<li><p><a class="reference internal" href="#decode" id="id13">decode</a></p></li>
+<li><p><a class="reference internal" href="#r-b-inverse" id="id14">R_b_inverse</a></p></li>
+<li><p><a class="reference internal" href="#r-l-inverse" id="id15">R_l_inverse</a></p></li>
+<li><p><a class="reference internal" href="#s-inverse" id="id16">s_inverse</a></p></li>
+<li><p><a class="reference internal" href="#decode-length" id="id17">decode_length</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>Defines the serialization and deserialization format used throughout Ethereum.</p>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<h3>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h3>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<h4>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -81,7 +112,7 @@
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<h4>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -102,24 +133,33 @@
 </section>
 </section>
 <section id="module-details">
-<h2>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h2>
+<h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
+<section id="verbose">
+<h4>verbose<a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.rlp.verbose">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">verbose</span></span><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#eth1spec.rlp.verbose" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="debug">
+<h4>debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.rlp.debug">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#eth1spec.rlp.debug" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="rlp">
+<h4>RLP<a class="headerlink" href="#rlp" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.rlp.RLP">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">RLP</span></span><a class="headerlink" href="#eth1spec.rlp.RLP" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
 <section id="encode">
-<h3>encode<a class="headerlink" href="#encode" title="Permalink to this headline">¶</a></h3>
+<h4>encode<a class="headerlink" href="#encode" title="Permalink to this headline">¶</a></h4>
 <p>Encodes <cite>x</cite> into a sequence of bytes using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.encode">
@@ -154,7 +194,7 @@
 </div>
 </section>
 <section id="r-b">
-<h3>R_b<a class="headerlink" href="#r-b" title="Permalink to this headline">¶</a></h3>
+<h4>R_b<a class="headerlink" href="#r-b" title="Permalink to this headline">¶</a></h4>
 <p>Encodes <cite>x</cite>, a sequence of bytes, using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.R_b">
@@ -189,7 +229,7 @@
 </div>
 </section>
 <section id="r-l">
-<h3>R_l<a class="headerlink" href="#r-l" title="Permalink to this headline">¶</a></h3>
+<h4>R_l<a class="headerlink" href="#r-l" title="Permalink to this headline">¶</a></h4>
 <p>Encodes <cite>x</cite>, a list of RLP encodable objects, using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.R_l">
@@ -223,7 +263,7 @@
 </div>
 </section>
 <section id="s">
-<h3>s<a class="headerlink" href="#s" title="Permalink to this headline">¶</a></h3>
+<h4>s<a class="headerlink" href="#s" title="Permalink to this headline">¶</a></h4>
 <p>Partially encodes <cite>x</cite>, a list of RLP encodable objects, using RLP,</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.s">
@@ -255,7 +295,7 @@
 </div>
 </section>
 <section id="decode">
-<h3>decode<a class="headerlink" href="#decode" title="Permalink to this headline">¶</a></h3>
+<h4>decode<a class="headerlink" href="#decode" title="Permalink to this headline">¶</a></h4>
 <p>Decodes an integer, byte sequence, or list of RLP encodable objects from</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.decode">
@@ -289,7 +329,7 @@
 </div>
 </section>
 <section id="r-b-inverse">
-<h3>R_b_inverse<a class="headerlink" href="#r-b-inverse" title="Permalink to this headline">¶</a></h3>
+<h4>R_b_inverse<a class="headerlink" href="#r-b-inverse" title="Permalink to this headline">¶</a></h4>
 <p>Decodes a byte sequence from the byte sequence <cite>b</cite>, using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.R_b_inverse">
@@ -324,7 +364,7 @@
 </div>
 </section>
 <section id="r-l-inverse">
-<h3>R_l_inverse<a class="headerlink" href="#r-l-inverse" title="Permalink to this headline">¶</a></h3>
+<h4>R_l_inverse<a class="headerlink" href="#r-l-inverse" title="Permalink to this headline">¶</a></h4>
 <p>Decodes <cite>b</cite> into a list of RLP encodable objects, using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.R_l_inverse">
@@ -361,7 +401,7 @@
 </div>
 </section>
 <section id="s-inverse">
-<h3>s_inverse<a class="headerlink" href="#s-inverse" title="Permalink to this headline">¶</a></h3>
+<h4>s_inverse<a class="headerlink" href="#s-inverse" title="Permalink to this headline">¶</a></h4>
 <p>Decodes <cite>b</cite>, a partially encoded list of RLP encodable objects, excluding</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.s_inverse">
@@ -401,7 +441,7 @@
 </div>
 </section>
 <section id="decode-length">
-<h3>decode_length<a class="headerlink" href="#decode-length" title="Permalink to this headline">¶</a></h3>
+<h4>decode_length<a class="headerlink" href="#decode-length" title="Permalink to this headline">¶</a></h4>
 <p>Decodes the length prefix from the byte sequence <cite>b</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.decode_length">
@@ -449,6 +489,7 @@
 </section>
 </section>
 </section>
+</section>
 
 
           </div>
@@ -471,15 +512,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec</span></code></a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../base_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../crypto/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.crypto</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../eth_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.rlp</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../spec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.spec</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trie/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.trie</span></code></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#submodules">Submodules</a></li>
 </ul>
 </li>
 </ul>

@@ -3,8 +3,17 @@
 
 .. py:module:: eth1spec.evm.instructions
 
-EVM Instructions
-----------------------
+Ethereum Virtual Machine (EVM) Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the instructions understood by the EVM.
 
 
 Module Contents
@@ -29,6 +38,7 @@ Module Details
 add
 ~~~
 
+
 Adds the top two elements of the stack together, and pushes the result back
 
 
@@ -40,10 +50,11 @@ Adds the top two elements of the stack together, and pushes the result back
 
 .. literalinclude:: /../src/eth1spec/evm/instructions.py
    :language: python
-   :lines: 13-37
+   :lines: 22-46
 
 sstore
 ~~~~~~
+
 
 Stores a value at a certain key in the current context's storage.
 
@@ -56,10 +67,11 @@ Stores a value at a certain key in the current context's storage.
 
 .. literalinclude:: /../src/eth1spec/evm/instructions.py
    :language: python
-   :lines: 40-61
+   :lines: 49-70
 
 push1
 ~~~~~
+
 
 Pushes a one-byte immediate onto the stack.
 
@@ -72,4 +84,4 @@ Pushes a one-byte immediate onto the stack.
 
 .. literalinclude:: /../src/eth1spec/evm/instructions.py
    :language: python
-   :lines: 64-82
+   :lines: 73-91

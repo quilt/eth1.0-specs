@@ -37,13 +37,29 @@
             
   <section id="module-eth1spec.evm.error">
 <span id="eth1spec-evm-error"></span><h1><a class="reference internal" href="#module-eth1spec.evm.error" title="eth1spec.evm.error"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.evm.error</span></code></a><a class="headerlink" href="#module-eth1spec.evm.error" title="Permalink to this headline">¶</a></h1>
-<section id="evm-runtime-errors">
-<h2>EVM Runtime Errors<a class="headerlink" href="#evm-runtime-errors" title="Permalink to this headline">¶</a></h2>
+<section id="ethereum-virtual-machine-evm-errors">
+<h2>Ethereum Virtual Machine (EVM) Errors<a class="headerlink" href="#ethereum-virtual-machine-evm-errors" title="Permalink to this headline">¶</a></h2>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#stackunderflowerror" id="id3">StackUnderflowError</a></p></li>
+<li><p><a class="reference internal" href="#stackoverflowerror" id="id4">StackOverflowError</a></p></li>
+<li><p><a class="reference internal" href="#outofgaserror" id="id5">OutOfGasError</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>Errors which cause the EVM to halt exceptionally.</p>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<h3>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h3>
 <section id="stackunderflowerror">
-<h3>StackUnderflowError<a class="headerlink" href="#stackunderflowerror" title="Permalink to this headline">¶</a></h3>
+<h4>StackUnderflowError<a class="headerlink" href="#stackunderflowerror" title="Permalink to this headline">¶</a></h4>
 <p>Occurs when a pop is executed on an empty stack.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="eth1spec.evm.error.StackUnderflowError">
@@ -53,7 +69,7 @@
 
 </section>
 <section id="stackoverflowerror">
-<h3>StackOverflowError<a class="headerlink" href="#stackoverflowerror" title="Permalink to this headline">¶</a></h3>
+<h4>StackOverflowError<a class="headerlink" href="#stackoverflowerror" title="Permalink to this headline">¶</a></h4>
 <p>Occurs when a push is executed on a stack at max capacity.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="eth1spec.evm.error.StackOverflowError">
@@ -63,7 +79,7 @@
 
 </section>
 <section id="outofgaserror">
-<h3>OutOfGasError<a class="headerlink" href="#outofgaserror" title="Permalink to this headline">¶</a></h3>
+<h4>OutOfGasError<a class="headerlink" href="#outofgaserror" title="Permalink to this headline">¶</a></h4>
 <p>Occurs when an operation costs more than the amount of gas left in the
 frame.</p>
 <dl class="py exception">
@@ -72,6 +88,7 @@ frame.</p>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Exception</span></code></p>
 </dd></dl>
 
+</section>
 </section>
 </section>
 </section>
@@ -97,12 +114,11 @@ frame.</p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec</span></code></a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../index.html#ethereum-specification">Ethereum Specification</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.evm</span></code></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#ethereum-specification">Ethereum Specification</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
 </ul>
 </li>
 </ul>

@@ -39,11 +39,38 @@
 <span id="eth1spec-base-types"></span><h1><a class="reference internal" href="#module-eth1spec.base_types" title="eth1spec.base_types"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a><a class="headerlink" href="#module-eth1spec.base_types" title="Permalink to this headline">¶</a></h1>
 <section id="numeric-array-types">
 <h2>Numeric &amp; Array Types<a class="headerlink" href="#numeric-array-types" title="Permalink to this headline">¶</a></h2>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#classes" id="id3">Classes</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id4">Attributes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#uint" id="id6">Uint</a></p></li>
+<li><p><a class="reference internal" href="#u256" id="id7">U256</a></p></li>
+<li><p><a class="reference internal" href="#max-value" id="id8">MAX_VALUE</a></p></li>
+<li><p><a class="reference internal" href="#bytes" id="id9">Bytes</a></p></li>
+<li><p><a class="reference internal" href="#bytes64" id="id10">Bytes64</a></p></li>
+<li><p><a class="reference internal" href="#bytes32" id="id11">Bytes32</a></p></li>
+<li><p><a class="reference internal" href="#bytes20" id="id12">Bytes20</a></p></li>
+<li><p><a class="reference internal" href="#bytes8" id="id13">Bytes8</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>Integer and array types which are used by—but not unique to—Ethereum.</p>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<h3>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h3>
 <section id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<h4>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -60,7 +87,7 @@
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<h4>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -90,9 +117,9 @@
 </section>
 </section>
 <section id="module-details">
-<h2>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h2>
+<h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
 <section id="uint">
-<h3>Uint<a class="headerlink" href="#uint" title="Permalink to this headline">¶</a></h3>
+<h4>Uint<a class="headerlink" href="#uint" title="Permalink to this headline">¶</a></h4>
 <p>Unsigned positive integer.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eth1spec.base_types.Uint">
@@ -269,7 +296,7 @@ representation.</p>
 
 </section>
 <section id="u256">
-<h3>U256<a class="headerlink" href="#u256" title="Permalink to this headline">¶</a></h3>
+<h4>U256<a class="headerlink" href="#u256" title="Permalink to this headline">¶</a></h4>
 <p>Unsigned positive integer, which can represent <cite>0</cite> to <cite>2 ** 256 - 1</cite>,
 inclusive.</p>
 <dl class="py class">
@@ -490,36 +517,55 @@ representation, omitting leading zero bytes.</p>
 
 </dd></dl>
 
+</section>
+<section id="max-value">
+<h4>MAX_VALUE<a class="headerlink" href="#max-value" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.base_types.MAX_VALUE">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">MAX_VALUE</span></span><a class="headerlink" href="#eth1spec.base_types.MAX_VALUE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="bytes">
+<h4>Bytes<a class="headerlink" href="#bytes" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.base_types.Bytes">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes</span></span><a class="headerlink" href="#eth1spec.base_types.Bytes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="bytes64">
+<h4>Bytes64<a class="headerlink" href="#bytes64" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.base_types.Bytes64">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes64</span></span><a class="headerlink" href="#eth1spec.base_types.Bytes64" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="bytes32">
+<h4>Bytes32<a class="headerlink" href="#bytes32" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.base_types.Bytes32">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes32</span></span><a class="headerlink" href="#eth1spec.base_types.Bytes32" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="bytes20">
+<h4>Bytes20<a class="headerlink" href="#bytes20" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.base_types.Bytes20">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes20</span></span><a class="headerlink" href="#eth1spec.base_types.Bytes20" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="bytes8">
+<h4>Bytes8<a class="headerlink" href="#bytes8" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.base_types.Bytes8">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes8</span></span><a class="headerlink" href="#eth1spec.base_types.Bytes8" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
 </section>
 </section>
 </section>
@@ -545,15 +591,9 @@ representation, omitting leading zero bytes.</p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec</span></code></a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../crypto/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.crypto</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../eth_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rlp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.rlp</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../spec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.spec</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trie/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.trie</span></code></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#submodules">Submodules</a></li>
 </ul>
 </li>
 </ul>

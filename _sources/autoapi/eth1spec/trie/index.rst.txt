@@ -4,7 +4,14 @@
 .. py:module:: eth1spec.trie
 
 State Trie
-----------
+^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
 
 The state trie is the structure responsible for storing
 `eth1spec.eth_types.Account` objects.
@@ -42,10 +49,18 @@ Attributes
 
 Module Details
 ---------------
+
+debug
+~~~~~
+
 .. data:: debug
    :annotation: = False
 
    
+
+
+verbose
+~~~~~~~
 
 .. data:: verbose
    :annotation: = False
@@ -55,6 +70,7 @@ Module Details
 
 HP
 ~~
+
 
 Hex prefix encoding.
 
@@ -67,10 +83,11 @@ Hex prefix encoding.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 19-49
+   :lines: 26-56
 
 f
 ~
+
 
 Encodes `t` as a bit flag.
 
@@ -83,10 +100,11 @@ Encodes `t` as a bit flag.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 52-69
+   :lines: 59-76
 
 HP_inverse
 ~~~~~~~~~~
+
 
 Hex prefix decoding.
 
@@ -99,7 +117,11 @@ Hex prefix decoding.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 72-95
+   :lines: 79-102
+
+T
+~
+
 .. data:: T
    
 
@@ -108,6 +130,7 @@ Hex prefix decoding.
 
 y
 ~
+
 
 TODO
 
@@ -120,10 +143,11 @@ TODO
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 101-131
+   :lines: 108-138
 
 TRIE
 ~~~~
+
 
 Computes the root hash of the storage trie.
 
@@ -136,10 +160,11 @@ Computes the root hash of the storage trie.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 134-152
+   :lines: 141-159
 
 n
 ~
+
 
 Node composition function.
 
@@ -152,10 +177,11 @@ Node composition function.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 155-181
+   :lines: 162-188
 
 c
 ~
+
 
 Structural composition function.
 
@@ -168,4 +194,4 @@ Structural composition function.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 184-299
+   :lines: 191-306

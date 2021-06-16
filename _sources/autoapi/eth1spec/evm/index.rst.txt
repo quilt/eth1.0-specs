@@ -4,7 +4,14 @@
 .. py:module:: eth1spec.evm
 
 Ethereum Virtual Machine (EVM)
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
 
 The abstract computer which runs the code stored in an
 `eth1spec.eth_types.Account`.
@@ -43,6 +50,7 @@ Package Details
 
 Environment
 ~~~~~~~~~~~
+
 
 Items external to the virtual machine itself, provided by the environment.
 
@@ -103,6 +111,7 @@ Items external to the virtual machine itself, provided by the environment.
 
 Evm
 ~~~
+
 
 The internal state of the virtual machine.
 

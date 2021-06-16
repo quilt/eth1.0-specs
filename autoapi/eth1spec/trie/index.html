@@ -38,13 +38,41 @@
 <span id="eth1spec-trie"></span><h1><a class="reference internal" href="#module-eth1spec.trie" title="eth1spec.trie"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.trie</span></code></a><a class="headerlink" href="#module-eth1spec.trie" title="Permalink to this headline">¶</a></h1>
 <section id="state-trie">
 <h2>State Trie<a class="headerlink" href="#state-trie" title="Permalink to this headline">¶</a></h2>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#functions" id="id3">Functions</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id4">Attributes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#debug" id="id6">debug</a></p></li>
+<li><p><a class="reference internal" href="#verbose" id="id7">verbose</a></p></li>
+<li><p><a class="reference internal" href="#hp" id="id8">HP</a></p></li>
+<li><p><a class="reference internal" href="#f" id="id9">f</a></p></li>
+<li><p><a class="reference internal" href="#hp-inverse" id="id10">HP_inverse</a></p></li>
+<li><p><a class="reference internal" href="#t" id="id11">T</a></p></li>
+<li><p><a class="reference internal" href="#y" id="id12">y</a></p></li>
+<li><p><a class="reference internal" href="#trie" id="id13">TRIE</a></p></li>
+<li><p><a class="reference internal" href="#n" id="id14">n</a></p></li>
+<li><p><a class="reference internal" href="#c" id="id15">c</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
 <p>The state trie is the structure responsible for storing
 <cite>eth1spec.eth_types.Account</cite> objects.</p>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<h3>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h3>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<h4>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -76,7 +104,7 @@
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<h4>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h4>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -97,19 +125,25 @@
 </section>
 </section>
 <section id="module-details">
-<h2>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h2>
+<h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
+<section id="debug">
+<h4>debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.trie.debug">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.trie.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#eth1spec.trie.debug" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
+<section id="verbose">
+<h4>verbose<a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.trie.verbose">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.trie.</span></span><span class="sig-name descname"><span class="pre">verbose</span></span><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#eth1spec.trie.verbose" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
 <section id="hp">
-<h3>HP<a class="headerlink" href="#hp" title="Permalink to this headline">¶</a></h3>
+<h4>HP<a class="headerlink" href="#hp" title="Permalink to this headline">¶</a></h4>
 <p>Hex prefix encoding.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.HP">
@@ -151,7 +185,7 @@
 </div>
 </section>
 <section id="f">
-<h3>f<a class="headerlink" href="#f" title="Permalink to this headline">¶</a></h3>
+<h4>f<a class="headerlink" href="#f" title="Permalink to this headline">¶</a></h4>
 <p>Encodes <cite>t</cite> as a bit flag.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.f">
@@ -180,7 +214,7 @@
 </div>
 </section>
 <section id="hp-inverse">
-<h3>HP_inverse<a class="headerlink" href="#hp-inverse" title="Permalink to this headline">¶</a></h3>
+<h4>HP_inverse<a class="headerlink" href="#hp-inverse" title="Permalink to this headline">¶</a></h4>
 <p>Hex prefix decoding.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.HP_inverse">
@@ -213,6 +247,9 @@
     <span class="k">return</span> <span class="n">nibbles</span><span class="p">,</span> <span class="n">t</span>
 </pre></div>
 </div>
+</section>
+<section id="t">
+<h4>T<a class="headerlink" href="#t" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="eth1spec.trie.T">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.trie.</span></span><span class="sig-name descname"><span class="pre">T</span></span><a class="headerlink" href="#eth1spec.trie.T" title="Permalink to this definition">¶</a></dt>
@@ -220,7 +257,7 @@
 
 </section>
 <section id="y">
-<h3>y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h3>
+<h4>y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h4>
 <p>TODO</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.y">
@@ -262,7 +299,7 @@
 </div>
 </section>
 <section id="trie">
-<h3>TRIE<a class="headerlink" href="#trie" title="Permalink to this headline">¶</a></h3>
+<h4>TRIE<a class="headerlink" href="#trie" title="Permalink to this headline">¶</a></h4>
 <p>Computes the root hash of the storage trie.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.TRIE">
@@ -292,7 +329,7 @@
 </div>
 </section>
 <section id="n">
-<h3>n<a class="headerlink" href="#n" title="Permalink to this headline">¶</a></h3>
+<h4>n<a class="headerlink" href="#n" title="Permalink to this headline">¶</a></h4>
 <p>Node composition function.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.n">
@@ -330,7 +367,7 @@
 </div>
 </section>
 <section id="c">
-<h3>c<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h3>
+<h4>c<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h4>
 <p>Structural composition function.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.c">
@@ -458,6 +495,7 @@
 </section>
 </section>
 </section>
+</section>
 
 
           </div>
@@ -480,15 +518,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec</span></code></a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../base_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.base_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../crypto/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.crypto</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../eth_types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.eth_types</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rlp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.rlp</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../spec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.spec</span></code></a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">eth1spec.trie</span></code></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#ethereum-specification">Ethereum Specification</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#submodules">Submodules</a></li>
 </ul>
 </li>
 </ul>
