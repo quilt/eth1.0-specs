@@ -27,13 +27,11 @@ Functions
 .. autoapisummary::
    :nosignatures:
 
-   eth1spec.trie.HP
-   eth1spec.trie.f
-   eth1spec.trie.HP_inverse
-   eth1spec.trie.y
-   eth1spec.trie.TRIE
-   eth1spec.trie.n
-   eth1spec.trie.c
+   eth1spec.trie.nibble_list_to_compact
+   eth1spec.trie.map_keys
+   eth1spec.trie.root
+   eth1spec.trie.node_cap
+   eth1spec.trie.patricialize
 
 
 
@@ -44,7 +42,7 @@ Attributes
 
    eth1spec.trie.debug
    eth1spec.trie.verbose
-   eth1spec.trie.T
+   eth1spec.trie.Node
 
 
 Module Details
@@ -68,74 +66,23 @@ verbose
    
 
 
-HP
-~~
+Node
+~~~~
 
-
-Hex prefix encoding.
-
-
-.. function:: HP(x: eth1spec.base_types.Bytes, t: Union[bool, int]) -> bytearray
-   :noindexentry:
-
-
-
-
-.. literalinclude:: /../src/eth1spec/trie.py
-   :language: python
-   :lines: 26-56
-
-f
-~
-
-
-Encodes `t` as a bit flag.
-
-
-.. function:: f(t: Union[bool, int]) -> int
-   :noindexentry:
-
-
-
-
-.. literalinclude:: /../src/eth1spec/trie.py
-   :language: python
-   :lines: 59-76
-
-HP_inverse
-~~~~~~~~~~
-
-
-Hex prefix decoding.
-
-
-.. function:: HP_inverse(buffer: eth1spec.base_types.Bytes) -> Tuple[str, bool]
-   :noindexentry:
-
-
-
-
-.. literalinclude:: /../src/eth1spec/trie.py
-   :language: python
-   :lines: 79-102
-
-T
-~
-
-.. data:: T
+.. data:: Node
    
 
    
 
 
-y
-~
+nibble_list_to_compact
+~~~~~~~~~~~~~~~~~~~~~~
 
 
-TODO
+Compresses nibble-list into a standard byte array with a flag.
 
 
-.. function:: y(J: Mapping[eth1spec.base_types.Bytes, T], secured: bool = True) -> Mapping[eth1spec.base_types.Bytes64, T]
+.. function:: nibble_list_to_compact(x: eth1spec.base_types.Bytes, terminal: bool) -> bytearray
    :noindexentry:
 
 
@@ -143,16 +90,33 @@ TODO
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 108-138
+   :lines: 29-75
 
-TRIE
+map_keys
+~~~~~~~~
+
+
+Maps all compact keys to nibble-list format. Optionally hashes the keys.
+
+
+.. function:: map_keys(obj: Mapping[eth1spec.base_types.Bytes, Node], secured: bool = True) -> Mapping[eth1spec.base_types.Bytes, Node]
+   :noindexentry:
+
+
+
+
+.. literalinclude:: /../src/eth1spec/trie.py
+   :language: python
+   :lines: 78-120
+
+root
 ~~~~
 
 
-Computes the root hash of the storage trie.
+Computes the root of a modified merkle patricia trie (MPT).
 
 
-.. function:: TRIE(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.eth_types.Account, eth1spec.base_types.Bytes, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint, eth1spec.base_types.U256]]) -> eth1spec.eth_types.Root
+.. function:: root(obj: Mapping[eth1spec.base_types.Bytes, Node]) -> eth1spec.eth_types.Root
    :noindexentry:
 
 
@@ -160,16 +124,16 @@ Computes the root hash of the storage trie.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 141-159
+   :lines: 123-138
 
-n
-~
-
-
-Node composition function.
+node_cap
+~~~~~~~~
 
 
-.. function:: n(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.base_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint, eth1spec.base_types.U256]], i: eth1spec.base_types.U256) -> eth1spec.base_types.Bytes
+Internal nodes less than 32 bytes in length are represented by themselves
+
+
+.. function:: node_cap(obj: Mapping[eth1spec.base_types.Bytes, Node], i: eth1spec.base_types.Uint) -> eth1spec.rlp.RLP
    :noindexentry:
 
 
@@ -177,16 +141,16 @@ Node composition function.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 162-188
+   :lines: 141-165
 
-c
-~
+patricialize
+~~~~~~~~~~~~
 
 
 Structural composition function.
 
 
-.. function:: c(J: Mapping[eth1spec.base_types.Bytes, Union[eth1spec.base_types.Bytes, eth1spec.eth_types.Account, eth1spec.eth_types.Receipt, eth1spec.base_types.Uint, eth1spec.base_types.U256]], i: eth1spec.base_types.U256) -> eth1spec.base_types.Bytes
+.. function:: patricialize(obj: Mapping[eth1spec.base_types.Bytes, Node], i: eth1spec.base_types.Uint) -> eth1spec.rlp.RLP
    :noindexentry:
 
 
@@ -194,4 +158,4 @@ Structural composition function.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 191-306
+   :lines: 168-279
