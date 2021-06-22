@@ -51,18 +51,16 @@
 </li>
 <li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
 <ul>
-<li><p><a class="reference internal" href="#verbose" id="id6">verbose</a></p></li>
-<li><p><a class="reference internal" href="#debug" id="id7">debug</a></p></li>
-<li><p><a class="reference internal" href="#rlp" id="id8">RLP</a></p></li>
-<li><p><a class="reference internal" href="#encode" id="id9">encode</a></p></li>
-<li><p><a class="reference internal" href="#r-b" id="id10">R_b</a></p></li>
-<li><p><a class="reference internal" href="#r-l" id="id11">R_l</a></p></li>
-<li><p><a class="reference internal" href="#s" id="id12">s</a></p></li>
-<li><p><a class="reference internal" href="#decode" id="id13">decode</a></p></li>
-<li><p><a class="reference internal" href="#r-b-inverse" id="id14">R_b_inverse</a></p></li>
-<li><p><a class="reference internal" href="#r-l-inverse" id="id15">R_l_inverse</a></p></li>
-<li><p><a class="reference internal" href="#s-inverse" id="id16">s_inverse</a></p></li>
-<li><p><a class="reference internal" href="#decode-length" id="id17">decode_length</a></p></li>
+<li><p><a class="reference internal" href="#rlp" id="id6">RLP</a></p></li>
+<li><p><a class="reference internal" href="#encode" id="id7">encode</a></p></li>
+<li><p><a class="reference internal" href="#encode-bytes" id="id8">encode_bytes</a></p></li>
+<li><p><a class="reference internal" href="#encode-sequence" id="id9">encode_sequence</a></p></li>
+<li><p><a class="reference internal" href="#get-joined-encodings" id="id10">get_joined_encodings</a></p></li>
+<li><p><a class="reference internal" href="#decode" id="id11">decode</a></p></li>
+<li><p><a class="reference internal" href="#decode-to-bytes" id="id12">decode_to_bytes</a></p></li>
+<li><p><a class="reference internal" href="#decode-to-sequence" id="id13">decode_to_sequence</a></p></li>
+<li><p><a class="reference internal" href="#decode-joined-encodings" id="id14">decode_joined_encodings</a></p></li>
+<li><p><a class="reference internal" href="#decode-item-length" id="id15">decode_item_length</a></p></li>
 </ul>
 </li>
 </ul>
@@ -82,31 +80,31 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.encode" title="eth1spec.rlp.encode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode</span></code></a></p></td>
-<td><p>Encodes <cite>x</cite> into a sequence of bytes using RLP.</p></td>
+<td><p>Encodes <cite>raw_data</cite> into a sequence of bytes using RLP.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.R_b" title="eth1spec.rlp.R_b"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_b</span></code></a></p></td>
-<td><p>Encodes <cite>x</cite>, a sequence of bytes, using RLP.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.encode_bytes" title="eth1spec.rlp.encode_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_bytes</span></code></a></p></td>
+<td><p>Encodes <cite>raw_bytes</cite>, a sequence of bytes, using RLP.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.R_l" title="eth1spec.rlp.R_l"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_l</span></code></a></p></td>
-<td><p>Encodes <cite>x</cite>, a list of RLP encodable objects, using RLP.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.encode_sequence" title="eth1spec.rlp.encode_sequence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_sequence</span></code></a></p></td>
+<td><p>Encodes a list of RLP encodable objects (<cite>raw_sequence</cite>) using RLP.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.s" title="eth1spec.rlp.s"><code class="xref py py-obj docutils literal notranslate"><span class="pre">s</span></code></a></p></td>
-<td><p>Partially encodes <cite>x</cite>, a list of RLP encodable objects, using RLP,</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.get_joined_encodings" title="eth1spec.rlp.get_joined_encodings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_joined_encodings</span></code></a></p></td>
+<td><p>Obtain concatenation of rlp encoding for each item in the sequence</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.decode" title="eth1spec.rlp.decode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode</span></code></a></p></td>
-<td><p>Decodes an integer, byte sequence, or list of RLP encodable objects from</p></td>
+<td><p>Decodes an integer, byte sequence, or list of RLP encodable objects</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.R_b_inverse" title="eth1spec.rlp.R_b_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_b_inverse</span></code></a></p></td>
-<td><p>Decodes a byte sequence from the byte sequence <cite>b</cite>, using RLP.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.decode_to_bytes" title="eth1spec.rlp.decode_to_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_to_bytes</span></code></a></p></td>
+<td><p>Decodes a rlp encoded byte stream assuming that the decoded data</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.R_l_inverse" title="eth1spec.rlp.R_l_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R_l_inverse</span></code></a></p></td>
-<td><p>Decodes <cite>b</cite> into a list of RLP encodable objects, using RLP.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.decode_to_sequence" title="eth1spec.rlp.decode_to_sequence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_to_sequence</span></code></a></p></td>
+<td><p>Decodes a rlp encoded byte stream assuming that the decoded data</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.s_inverse" title="eth1spec.rlp.s_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">s_inverse</span></code></a></p></td>
-<td><p>Decodes <cite>b</cite>, a partially encoded list of RLP encodable objects, excluding</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.decode_joined_encodings" title="eth1spec.rlp.decode_joined_encodings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_joined_encodings</span></code></a></p></td>
+<td><p>Decodes <cite>joined_encodings</cite>, which is a concatenation of RLP encoded</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.decode_length" title="eth1spec.rlp.decode_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_length</span></code></a></p></td>
-<td><p>Decodes the length prefix from the byte sequence <cite>b</cite>.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.decode_item_length" title="eth1spec.rlp.decode_item_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_item_length</span></code></a></p></td>
+<td><p>Find the length of the rlp encoding for the first object in the</p></td>
 </tr>
 </tbody>
 </table>
@@ -119,12 +117,6 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.verbose" title="eth1spec.rlp.verbose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">verbose</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.debug" title="eth1spec.rlp.debug"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug</span></code></a></p></td>
-<td><p></p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RLP</span></code></a></p></td>
 <td><p></p></td>
 </tr>
@@ -134,22 +126,6 @@
 </section>
 <section id="module-details">
 <h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
-<section id="verbose">
-<h4>verbose<a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="eth1spec.rlp.verbose">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">verbose</span></span><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#eth1spec.rlp.verbose" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="debug">
-<h4>debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="eth1spec.rlp.debug">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#eth1spec.rlp.debug" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
 <section id="rlp">
 <h4>RLP<a class="headerlink" href="#rlp" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
@@ -160,330 +136,400 @@
 </section>
 <section id="encode">
 <h4>encode<a class="headerlink" href="#encode" title="Permalink to this headline">¶</a></h4>
-<p>Encodes <cite>x</cite> into a sequence of bytes using RLP.</p>
+<p>Encodes <cite>raw_data</cite> into a sequence of bytes using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.encode">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.encode" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.encode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">RLP</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">raw_data</span><span class="p">:</span> <span class="n">RLP</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Encodes `x` into a sequence of bytes using RLP.</span>
+<span class="sd">    Encodes `raw_data` into a sequence of bytes using RLP.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x : `RLP`</span>
-<span class="sd">        A `Bytes`, `Uint`, or sequence of `RLP` encodable objects.</span>
+<span class="sd">    raw_data : `RLP`</span>
+<span class="sd">        A `Bytes`, `Uint`, `Uint256` or sequence of `RLP` encodable</span>
+<span class="sd">        objects.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    encoded : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        The RLP encoded bytes representing `x`.</span>
+<span class="sd">        The RLP encoded bytes representing `raw_data`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RLP(&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;type: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">bytearray</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)):</span>
-        <span class="k">return</span> <span class="n">R_b</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">Uint</span><span class="p">,</span> <span class="n">U256</span><span class="p">)):</span>
-        <span class="k">return</span> <span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">())</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">R_l</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">],</span> <span class="n">x</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="p">(</span><span class="nb">bytearray</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">encode_bytes</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="p">(</span><span class="n">Uint</span><span class="p">,</span> <span class="n">U256</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">encode</span><span class="p">(</span><span class="n">raw_data</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">())</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">encode_bytes</span><span class="p">(</span><span class="n">raw_data</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">encode_sequence</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">],</span> <span class="n">raw_data</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s2">&quot;RLP Encoding of type </span><span class="si">{}</span><span class="s2"> is not supported&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">raw_data</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>
-<section id="r-b">
-<h4>R_b<a class="headerlink" href="#r-b" title="Permalink to this headline">¶</a></h4>
-<p>Encodes <cite>x</cite>, a sequence of bytes, using RLP.</p>
+<section id="encode-bytes">
+<h4>encode_bytes<a class="headerlink" href="#encode-bytes" title="Permalink to this headline">¶</a></h4>
+<p>Encodes <cite>raw_bytes</cite>, a sequence of bytes, using RLP.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.rlp.R_b">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_b</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.R_b" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="eth1spec.rlp.encode_bytes">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_bytes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.encode_bytes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">R_b</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_bytes</span><span class="p">(</span><span class="n">raw_bytes</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Encodes `x`, a sequence of bytes, using RLP.</span>
+<span class="sd">    Encodes `raw_bytes`, a sequence of bytes, using RLP.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x : `eth1spec.eth_types.Bytes`</span>
+<span class="sd">    raw_bytes : `eth1spec.eth_types.Bytes`</span>
 <span class="sd">        Bytes to encode with RLP.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    encoded : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        The RLP encoded bytes representing `x`.</span>
+<span class="sd">        The RLP encoded bytes representing `raw_bytes`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R_b(&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="n">len_x</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">len_x</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">128</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">x</span>  <span class="c1"># bytearray([x[0] + 0x80]) # noqa: SC100</span>
-    <span class="k">elif</span> <span class="n">len_x</span> <span class="o">&lt;</span> <span class="mi">56</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">128</span> <span class="o">+</span> <span class="n">len_x</span><span class="p">])</span> <span class="o">+</span> <span class="n">x</span>
+    <span class="n">len_raw_data</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">raw_bytes</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">len_raw_data</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">raw_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">raw_bytes</span>
+    <span class="k">elif</span> <span class="n">len_raw_data</span> <span class="o">&lt;</span> <span class="mh">0x38</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0x80</span> <span class="o">+</span> <span class="n">len_raw_data</span><span class="p">])</span> <span class="o">+</span> <span class="n">raw_bytes</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">big_endian</span> <span class="o">=</span> <span class="n">len_x</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">183</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">big_endian</span><span class="p">)])</span> <span class="o">+</span> <span class="n">big_endian</span> <span class="o">+</span> <span class="n">x</span>
+        <span class="c1"># length of raw data represented as big endian bytes</span>
+        <span class="n">len_raw_data_as_be</span> <span class="o">=</span> <span class="n">len_raw_data</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0xB7</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">len_raw_data_as_be</span><span class="p">)])</span>
+            <span class="o">+</span> <span class="n">len_raw_data_as_be</span>
+            <span class="o">+</span> <span class="n">raw_bytes</span>
 </pre></div>
 </div>
 </section>
-<section id="r-l">
-<h4>R_l<a class="headerlink" href="#r-l" title="Permalink to this headline">¶</a></h4>
-<p>Encodes <cite>x</cite>, a list of RLP encodable objects, using RLP.</p>
+<section id="encode-sequence">
+<h4>encode_sequence<a class="headerlink" href="#encode-sequence" title="Permalink to this headline">¶</a></h4>
+<p>Encodes a list of RLP encodable objects (<cite>raw_sequence</cite>) using RLP.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.rlp.R_l">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_l</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.R_l" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="eth1spec.rlp.encode_sequence">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.encode_sequence" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">R_l</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_sequence</span><span class="p">(</span><span class="n">raw_sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Encodes `x`, a list of RLP encodable objects, using RLP.</span>
+<span class="sd">    Encodes a list of RLP encodable objects (`raw_sequence`) using RLP.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x : `List[RLP]`</span>
-<span class="sd">        List to encode with RLP.</span>
+<span class="sd">    raw_sequence : `Sequence[RLP]`</span>
+<span class="sd">            Sequence of RLP encodable objects.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    encoded : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        The RLP encoded bytes representing `x`.</span>
+<span class="sd">        The RLP encoded bytes representing `raw_sequence`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R_l(&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="n">partial_x</span> <span class="o">=</span> <span class="n">s</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">len_partial_x</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">partial_x</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">len_partial_x</span> <span class="o">&lt;</span> <span class="mi">56</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">192</span> <span class="o">+</span> <span class="n">len_partial_x</span><span class="p">])</span> <span class="o">+</span> <span class="n">partial_x</span>
+    <span class="n">joined_encodings</span> <span class="o">=</span> <span class="n">get_joined_encodings</span><span class="p">(</span><span class="n">raw_sequence</span><span class="p">)</span>
+    <span class="n">len_joined_encodings</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">joined_encodings</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">len_joined_encodings</span> <span class="o">&lt;</span> <span class="mh">0x38</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0xC0</span> <span class="o">+</span> <span class="n">len_joined_encodings</span><span class="p">])</span> <span class="o">+</span> <span class="n">joined_encodings</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">big_endian</span> <span class="o">=</span> <span class="n">len_partial_x</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">247</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">big_endian</span><span class="p">)])</span> <span class="o">+</span> <span class="n">big_endian</span> <span class="o">+</span> <span class="n">partial_x</span>
+        <span class="n">len_joined_encodings_as_be</span> <span class="o">=</span> <span class="n">len_joined_encodings</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0xF7</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">len_joined_encodings_as_be</span><span class="p">)])</span>
+            <span class="o">+</span> <span class="n">len_joined_encodings_as_be</span>
+            <span class="o">+</span> <span class="n">joined_encodings</span>
 </pre></div>
 </div>
 </section>
-<section id="s">
-<h4>s<a class="headerlink" href="#s" title="Permalink to this headline">¶</a></h4>
-<p>Partially encodes <cite>x</cite>, a list of RLP encodable objects, using RLP,</p>
+<section id="get-joined-encodings">
+<h4>get_joined_encodings<a class="headerlink" href="#get-joined-encodings" title="Permalink to this headline">¶</a></h4>
+<p>Obtain concatenation of rlp encoding for each item in the sequence</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.rlp.s">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">s</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.s" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="eth1spec.rlp.get_joined_encodings">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">get_joined_encodings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.get_joined_encodings" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_joined_encodings</span><span class="p">(</span><span class="n">raw_sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Partially encodes `x`, a list of RLP encodable objects, using RLP,</span>
-<span class="sd">    excluding the length prefix.</span>
+<span class="sd">    Obtain concatenation of rlp encoding for each item in the sequence</span>
+<span class="sd">    raw_sequence.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x : `List[RLP]`</span>
-<span class="sd">        List to encode with RLP.</span>
+<span class="sd">    raw_sequence : `Sequence[RLP]`</span>
+<span class="sd">        Sequence to encode with RLP.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    partially_encoded : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        The partially RLP encoded bytes representing `x`.</span>
+<span class="sd">    joined_encodings : `eth1spec.eth_types.Bytes`</span>
+<span class="sd">        The concatenated RLP encoded bytes for each item in sequence</span>
+<span class="sd">        raw_sequence.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s(&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="n">partially_encoded</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">([])</span>
-    <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
-        <span class="n">partially_encoded</span> <span class="o">+=</span> <span class="n">encode</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">partially_encoded</span>
+    <span class="n">joined_encodings</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">raw_sequence</span><span class="p">:</span>
+        <span class="n">joined_encodings</span> <span class="o">+=</span> <span class="n">encode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">joined_encodings</span>
 </pre></div>
 </div>
 </section>
 <section id="decode">
 <h4>decode<a class="headerlink" href="#decode" title="Permalink to this headline">¶</a></h4>
-<p>Decodes an integer, byte sequence, or list of RLP encodable objects from</p>
+<p>Decodes an integer, byte sequence, or list of RLP encodable objects</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.decode">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><a class="headerlink" href="#eth1spec.rlp.decode" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><a class="headerlink" href="#eth1spec.rlp.decode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RLP</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RLP</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decodes an integer, byte sequence, or list of RLP encodable objects from</span>
-<span class="sd">    the byte sequence `b`, using RLP.</span>
+<span class="sd">    Decodes an integer, byte sequence, or list of RLP encodable objects</span>
+<span class="sd">    from the byte sequence `encoded_data`, using RLP.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    b : `eth1spec.eth_types.Bytes`</span>
+<span class="sd">    encoded_data : `eth1spec.eth_types.Bytes`</span>
 <span class="sd">        A sequence of bytes, in RLP form.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    decoded : `RLP`</span>
-<span class="sd">        Object decoded from `b`.</span>
+<span class="sd">    decoded_data : `RLP`</span>
+<span class="sd">        Object decoded from `encoded_data`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RLP_inverse(&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0x80</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mh">0xC0</span><span class="p">:</span>  <span class="c1"># bytes</span>
-        <span class="k">return</span> <span class="n">R_b_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="c1"># Raising error as there can never be empty encoded data for any</span>
+    <span class="c1"># given raw data (including empty raw data)</span>
+    <span class="c1"># RLP Encoding(b&#39;&#39;) -&gt; [0x80]  # noqa: SC100</span>
+    <span class="c1"># RLP Encoding([])  -&gt; [0xc0]  # noqa: SC100</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="k">if</span> <span class="n">encoded_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0xBF</span><span class="p">:</span>
+        <span class="c1"># This means that the raw data is of type bytes</span>
+        <span class="k">return</span> <span class="n">decode_to_bytes</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">R_l_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="c1"># This means that the raw data is of type sequence</span>
+        <span class="k">return</span> <span class="n">decode_to_sequence</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="r-b-inverse">
-<h4>R_b_inverse<a class="headerlink" href="#r-b-inverse" title="Permalink to this headline">¶</a></h4>
-<p>Decodes a byte sequence from the byte sequence <cite>b</cite>, using RLP.</p>
+<section id="decode-to-bytes">
+<h4>decode_to_bytes<a class="headerlink" href="#decode-to-bytes" title="Permalink to this headline">¶</a></h4>
+<p>Decodes a rlp encoded byte stream assuming that the decoded data</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.rlp.R_b_inverse">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_b_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.R_b_inverse" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="eth1spec.rlp.decode_to_bytes">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_to_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_bytes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.decode_to_bytes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">R_b_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_to_bytes</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decodes a byte sequence from the byte sequence `b`, using RLP.</span>
+<span class="sd">    Decodes a rlp encoded byte stream assuming that the decoded data</span>
+<span class="sd">    should be of type `bytes`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    b : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        A sequence of bytes, in RLP form.</span>
+<span class="sd">    encoded_bytes : `eth1spec.eth_types.Bytes`</span>
+<span class="sd">        RLP encoded byte stream.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    decoded : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        Bytes decoded from `b`</span>
+<span class="sd">        RLP decoded Bytes data</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R_b_inverse(&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">b</span>  <span class="c1"># bytearray([b[0]-0x80]) # noqa: SC100</span>
-    <span class="k">elif</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0xB7</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x80</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">encoded_bytes</span>
+    <span class="k">elif</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0xB7</span><span class="p">:</span>
+        <span class="n">len_raw_data</span> <span class="o">=</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x80</span>
+        <span class="k">assert</span> <span class="n">len_raw_data</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">)</span>
+        <span class="n">raw_data</span> <span class="o">=</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_raw_data</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="n">len_raw_data</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">raw_data</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">length_len</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">183</span>
-        <span class="n">len_x</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="n">length_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">b</span><span class="p">[</span><span class="n">length_len</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">length_len</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_x</span><span class="p">]</span>
+        <span class="c1"># This is the index in the encoded data at which decoded data</span>
+        <span class="c1"># starts from.</span>
+        <span class="n">decoded_data_start_idx</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0xB7</span>
+        <span class="k">assert</span> <span class="n">decoded_data_start_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">)</span>
+        <span class="c1"># Expectation is that the big endian bytes shouldn&#39;t start with 0</span>
+        <span class="c1"># while trying to decode using RLP, in which case is an error.</span>
+        <span class="k">assert</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="n">len_decoded_data</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span>
+            <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">decoded_data_start_idx</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">assert</span> <span class="n">len_decoded_data</span> <span class="o">&gt;=</span> <span class="mh">0x38</span>
+        <span class="n">decoded_data_end_idx</span> <span class="o">=</span> <span class="n">decoded_data_start_idx</span> <span class="o">+</span> <span class="n">len_decoded_data</span>
+        <span class="k">assert</span> <span class="n">decoded_data_end_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="n">decoded_data_start_idx</span><span class="p">:</span><span class="n">decoded_data_end_idx</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
-<section id="r-l-inverse">
-<h4>R_l_inverse<a class="headerlink" href="#r-l-inverse" title="Permalink to this headline">¶</a></h4>
-<p>Decodes <cite>b</cite> into a list of RLP encodable objects, using RLP.</p>
+<section id="decode-to-sequence">
+<h4>decode_to_sequence<a class="headerlink" href="#decode-to-sequence" title="Permalink to this headline">¶</a></h4>
+<p>Decodes a rlp encoded byte stream assuming that the decoded data</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.rlp.R_l_inverse">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">R_l_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.R_l_inverse" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="eth1spec.rlp.decode_to_sequence">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_to_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.decode_to_sequence" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">R_l_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RLP</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_to_sequence</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RLP</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decodes `b` into a list of RLP encodable objects, using RLP.</span>
+<span class="sd">    Decodes a rlp encoded byte stream assuming that the decoded data</span>
+<span class="sd">    should be of type `Sequence` of objects.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    b : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        An RLP encoded list.</span>
+<span class="sd">    encoded_sequence : `eth1spec.eth_types.Bytes`</span>
+<span class="sd">        An RLP encoded Sequence.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    decoded : `List[RLP]`</span>
-<span class="sd">        List of objects decoded from `b`.</span>
+<span class="sd">    decoded : `Sequence[RLP]`</span>
+<span class="sd">        Sequence of objects decoded from `encoded_sequence`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R_l_inverse(&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0xF7</span><span class="p">:</span>
-        <span class="n">len_partial_x</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0xC0</span>
-        <span class="n">partial_x</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_partial_x</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0xF7</span><span class="p">:</span>
+        <span class="n">len_joined_encodings</span> <span class="o">=</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0xC0</span>
+        <span class="k">assert</span> <span class="n">len_joined_encodings</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">)</span>
+        <span class="n">joined_encodings</span> <span class="o">=</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_joined_encodings</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">len_len_partial_x</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">247</span>
-        <span class="n">len_partial_x</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_len_partial_x</span><span class="p">])</span>
-        <span class="n">partial_x</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span>
-            <span class="mi">1</span> <span class="o">+</span> <span class="n">len_len_partial_x</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_len_partial_x</span> <span class="o">+</span> <span class="n">len_partial_x</span>
+        <span class="n">joined_encodings_start_idx</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0xF7</span>
+        <span class="k">assert</span> <span class="n">joined_encodings_start_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">)</span>
+        <span class="c1"># Expectation is that the big endian bytes shouldn&#39;t start with 0</span>
+        <span class="c1"># while trying to decode using RLP, in which case is an error.</span>
+        <span class="k">assert</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="n">len_joined_encodings</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span>
+            <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">joined_encodings_start_idx</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">assert</span> <span class="n">len_joined_encodings</span> <span class="o">&gt;=</span> <span class="mh">0x38</span>
+        <span class="n">joined_encodings_end_idx</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">joined_encodings_start_idx</span> <span class="o">+</span> <span class="n">len_joined_encodings</span>
+        <span class="p">)</span>
+        <span class="k">assert</span> <span class="n">joined_encodings_end_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">)</span>
+        <span class="n">joined_encodings</span> <span class="o">=</span> <span class="n">encoded_sequence</span><span class="p">[</span>
+            <span class="n">joined_encodings_start_idx</span><span class="p">:</span><span class="n">joined_encodings_end_idx</span>
         <span class="p">]</span>
-    <span class="k">return</span> <span class="n">s_inverse</span><span class="p">(</span><span class="n">partial_x</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">decode_joined_encodings</span><span class="p">(</span><span class="n">joined_encodings</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="s-inverse">
-<h4>s_inverse<a class="headerlink" href="#s-inverse" title="Permalink to this headline">¶</a></h4>
-<p>Decodes <cite>b</cite>, a partially encoded list of RLP encodable objects, excluding</p>
+<section id="decode-joined-encodings">
+<h4>decode_joined_encodings<a class="headerlink" href="#decode-joined-encodings" title="Permalink to this headline">¶</a></h4>
+<p>Decodes <cite>joined_encodings</cite>, which is a concatenation of RLP encoded</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.rlp.s_inverse">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">s_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.s_inverse" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="eth1spec.rlp.decode_joined_encodings">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_joined_encodings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joined_encodings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.decode_joined_encodings" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">s_inverse</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RLP</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_joined_encodings</span><span class="p">(</span><span class="n">joined_encodings</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RLP</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decodes `b`, a partially encoded list of RLP encodable objects, excluding</span>
-<span class="sd">    the length prefix.</span>
+<span class="sd">    Decodes `joined_encodings`, which is a concatenation of RLP encoded</span>
+<span class="sd">    objects.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    b : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        A list of objects, encoded in RLP, without the length prefix.</span>
+<span class="sd">    joined_encodings : `eth1spec.eth_types.Bytes`</span>
+<span class="sd">        concatenation of RLP encoded objects</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    decoded : `List[RLP]`</span>
-<span class="sd">        A list of objects decoded from `b`.</span>
+<span class="sd">        A list of objects decoded from `joined_encodings`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s_inverse(&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">len_</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len_</span><span class="p">:</span>
-        <span class="n">len_cur</span><span class="p">,</span> <span class="n">len_len_cur</span> <span class="o">=</span> <span class="n">decode_length</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">:])</span>
-        <span class="n">x</span> <span class="o">+=</span> <span class="p">[</span><span class="n">decode</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">len_len_cur</span> <span class="o">+</span> <span class="n">len_cur</span><span class="p">])]</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="n">len_cur</span> <span class="o">+</span> <span class="n">len_len_cur</span>
-        <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  s_inverse() returning&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  s_inverse() returning&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span>
+    <span class="n">decoded_sequence</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">item_start_idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">item_start_idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">joined_encodings</span><span class="p">):</span>
+        <span class="n">encoded_item_length</span> <span class="o">=</span> <span class="n">decode_item_length</span><span class="p">(</span>
+            <span class="n">joined_encodings</span><span class="p">[</span><span class="n">item_start_idx</span><span class="p">:]</span>
+        <span class="p">)</span>
+        <span class="k">assert</span> <span class="n">item_start_idx</span> <span class="o">+</span> <span class="n">encoded_item_length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">joined_encodings</span><span class="p">)</span>
+        <span class="n">encoded_item</span> <span class="o">=</span> <span class="n">joined_encodings</span><span class="p">[</span>
+            <span class="n">item_start_idx</span> <span class="p">:</span> <span class="n">item_start_idx</span> <span class="o">+</span> <span class="n">encoded_item_length</span>
+        <span class="p">]</span>
+        <span class="n">decoded_sequence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decode</span><span class="p">(</span><span class="n">encoded_item</span><span class="p">))</span>
+        <span class="n">item_start_idx</span> <span class="o">+=</span> <span class="n">encoded_item_length</span>
+
+    <span class="k">return</span> <span class="n">decoded_sequence</span>
 </pre></div>
 </div>
 </section>
-<section id="decode-length">
-<h4>decode_length<a class="headerlink" href="#decode-length" title="Permalink to this headline">¶</a></h4>
-<p>Decodes the length prefix from the byte sequence <cite>b</cite>.</p>
+<section id="decode-item-length">
+<h4>decode_item_length<a class="headerlink" href="#decode-item-length" title="Permalink to this headline">¶</a></h4>
+<p>Find the length of the rlp encoding for the first object in the</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.rlp.decode_length">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.decode_length" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="eth1spec.rlp.decode_item_length">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_item_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#eth1spec.rlp.decode_item_length" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_length</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Uint</span><span class="p">,</span> <span class="n">Uint</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_item_length</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decodes the length prefix from the byte sequence `b`.</span>
+<span class="sd">    Find the length of the rlp encoding for the first object in the</span>
+<span class="sd">    encoded sequence.</span>
+<span class="sd">    Here `encoded_data` refers to concatenation of rlp encoding for each</span>
+<span class="sd">    item in a sequence.</span>
+
+<span class="sd">    NOTE - This is a helper function not described in the spec. It was</span>
+<span class="sd">    introduced as the spec doesn&#39;t discuss about decoding the RLP encoded</span>
+<span class="sd">    data.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    b : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        Sequence of RLP bytes.</span>
+<span class="sd">    encoded_data : `eth1spec.eth_types.Bytes`</span>
+<span class="sd">        RLP encoded data for a sequence of objects.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    rlp_length : `eth1spec.base_types.Uint`</span>
-<span class="sd">        TODO</span>
-<span class="sd">    length_length : `eth1spec.base_types.Uint`</span>
-<span class="sd">        TODO</span>
+<span class="sd">    rlp_length : `int`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;length_inverse(&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># TODO: this may be an error</span>
+    <span class="c1"># Can&#39;t decode item length for empty encoding</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="n">first_rlp_byte</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># This is the length of the big endian representation of the length of</span>
+    <span class="c1"># rlp encoded object byte stream.</span>
     <span class="n">length_length</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">first_rlp_byte</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">decoded_data_length</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># This occurs only when the raw_data is a single byte whose value &lt; 128</span>
     <span class="k">if</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">:</span>
-        <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">rlp_length</span><span class="p">,</span> <span class="n">length_length</span>
+        <span class="c1"># We return 1 here, as the end formula</span>
+        <span class="c1"># 1 + length_length + decoded_data_length would be invalid for</span>
+        <span class="c1"># this case.</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="c1"># This occurs only when the raw_data is a byte stream with length &lt; 56</span>
+    <span class="c1"># and doesn&#39;t fall into the above cases</span>
     <span class="k">elif</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;=</span> <span class="mh">0xB7</span><span class="p">:</span>
-        <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0x80</span>
+        <span class="n">decoded_data_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0x80</span>
+    <span class="c1"># This occurs only when the raw_data is a byte stream and doesn&#39;t fall</span>
+    <span class="c1"># into the above cases</span>
     <span class="k">elif</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;=</span> <span class="mh">0xBF</span><span class="p">:</span>
         <span class="n">length_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0xB7</span>
-        <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">])</span>
+        <span class="k">assert</span> <span class="n">length_length</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span>
+        <span class="c1"># Expectation is that the big endian bytes shouldn&#39;t start with 0</span>
+        <span class="c1"># while trying to decode using RLP, in which case is an error.</span>
+        <span class="k">assert</span> <span class="n">encoded_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="n">decoded_data_length</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span>
+            <span class="n">encoded_data</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">]</span>
+        <span class="p">)</span>
+    <span class="c1"># This occurs only when the raw_data is a sequence of objects with</span>
+    <span class="c1"># length(concatenation of encoding of each object) &lt; 56</span>
     <span class="k">elif</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;=</span> <span class="mh">0xF7</span><span class="p">:</span>
-        <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0xC0</span>
-    <span class="k">elif</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;=</span> <span class="mh">0xBF</span><span class="p">:</span>
-        <span class="n">length_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0xB7</span>
-        <span class="n">rlp_length</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">rlp_length</span><span class="p">,</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">)</span>
+        <span class="n">decoded_data_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0xC0</span>
+    <span class="c1"># This occurs only when the raw_data is a sequence of objects and</span>
+    <span class="c1"># doesn&#39;t fall into the above cases.</span>
+    <span class="k">elif</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;=</span> <span class="mh">0xFF</span><span class="p">:</span>
+        <span class="n">length_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0xF7</span>
+        <span class="k">assert</span> <span class="n">length_length</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span>
+        <span class="c1"># Expectation is that the big endian bytes shouldn&#39;t start with 0</span>
+        <span class="c1"># while trying to decode using RLP, in which case is an error.</span>
+        <span class="k">assert</span> <span class="n">encoded_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="n">decoded_data_length</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span>
+            <span class="n">encoded_data</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span> <span class="o">+</span> <span class="n">decoded_data_length</span>
 </pre></div>
 </div>
 </section>
