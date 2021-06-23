@@ -58,8 +58,8 @@
 <li><p><a class="reference internal" href="#verify-header" id="id10">verify_header</a></p></li>
 <li><p><a class="reference internal" href="#apply-body" id="id11">apply_body</a></p></li>
 <li><p><a class="reference internal" href="#process-transaction" id="id12">process_transaction</a></p></li>
-<li><p><a class="reference internal" href="#verify-transaction" id="id13">verify_transaction</a></p></li>
-<li><p><a class="reference internal" href="#intrinsic-cost" id="id14">intrinsic_cost</a></p></li>
+<li><p><a class="reference internal" href="#validate-transaction" id="id13">validate_transaction</a></p></li>
+<li><p><a class="reference internal" href="#calculate-intrinsic-cost" id="id14">calculate_intrinsic_cost</a></p></li>
 <li><p><a class="reference internal" href="#recover-sender" id="id15">recover_sender</a></p></li>
 <li><p><a class="reference internal" href="#signing-hash" id="id16">signing_hash</a></p></li>
 <li><p><a class="reference internal" href="#print-state" id="id17">print_state</a></p></li>
@@ -107,10 +107,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.spec.process_transaction" title="eth1spec.spec.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a></p></td>
 <td><p>Execute a transaction against the provided environment.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.spec.verify_transaction" title="eth1spec.spec.verify_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">verify_transaction</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.spec.validate_transaction" title="eth1spec.spec.validate_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transaction</span></code></a></p></td>
 <td><p>Verifies a transaction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.spec.intrinsic_cost" title="eth1spec.spec.intrinsic_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intrinsic_cost</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.spec.calculate_intrinsic_cost" title="eth1spec.spec.calculate_intrinsic_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_intrinsic_cost</span></code></a></p></td>
 <td><p>Calculates the intrinsic cost of the transaction that is charged before</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.spec.recover_sender" title="eth1spec.spec.recover_sender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recover_sender</span></code></a></p></td>
@@ -319,11 +319,14 @@
 
     <span class="n">state</span><span class="p">[</span><span class="n">coinbase</span><span class="p">]</span><span class="o">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">BLOCK_REWARD</span>
 
+    <span class="n">gas_remaining</span> <span class="o">=</span> <span class="n">block_gas_limit</span> <span class="o">-</span> <span class="n">gas_available</span>
+
     <span class="n">receipts_map</span> <span class="o">=</span> <span class="p">{</span>
         <span class="nb">bytes</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">Uint</span><span class="p">(</span><span class="n">k</span><span class="p">))):</span> <span class="n">v</span> <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">receipts</span><span class="p">)</span>
     <span class="p">}</span>
-    <span class="n">receipts_y</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="n">map_keys</span><span class="p">(</span><span class="n">receipts_map</span><span class="p">,</span> <span class="n">secured</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">block_gas_limit</span> <span class="o">-</span> <span class="n">gas_available</span><span class="p">),</span> <span class="n">trie</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">receipts_y</span><span class="p">),</span> <span class="n">state</span>
+    <span class="n">receipt_root</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">trie</span><span class="o">.</span><span class="n">map_keys</span><span class="p">(</span><span class="n">receipts_map</span><span class="p">,</span> <span class="n">secured</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">gas_remaining</span><span class="p">,</span> <span class="n">receipt_root</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -355,7 +358,7 @@
 <span class="sd">    logs : `List[eth1spec.eth_types.Log]`</span>
 <span class="sd">        Logs generated during execution.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="n">verify_transaction</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">validate_transaction</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
 
     <span class="n">sender_address</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">origin</span>
     <span class="n">sender</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">sender_address</span><span class="p">]</span>
@@ -367,7 +370,7 @@
     <span class="k">assert</span> <span class="n">cost</span> <span class="o">&lt;=</span> <span class="n">sender</span><span class="o">.</span><span class="n">balance</span>
     <span class="n">sender</span><span class="o">.</span><span class="n">balance</span> <span class="o">-=</span> <span class="n">cost</span>
 
-    <span class="n">gas</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas</span> <span class="o">-</span> <span class="n">intrinsic_cost</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+    <span class="n">gas</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas</span> <span class="o">-</span> <span class="n">calculate_intrinsic_cost</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">to</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>  <span class="c1"># TODO</span>
@@ -384,41 +387,41 @@
 </pre></div>
 </div>
 </section>
-<section id="verify-transaction">
-<h4>verify_transaction<a class="headerlink" href="#verify-transaction" title="Permalink to this headline">¶</a></h4>
+<section id="validate-transaction">
+<h4>validate_transaction<a class="headerlink" href="#validate-transaction" title="Permalink to this headline">¶</a></h4>
 <p>Verifies a transaction.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.spec.verify_transaction">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">verify_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#eth1spec.spec.verify_transaction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="eth1spec.spec.validate_transaction">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">validate_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#eth1spec.spec.validate_transaction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify_transaction</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_transaction</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Verifies a transaction.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    tx : `eth1spec.eth_types.Transaction`</span>
-<span class="sd">        Transaction to verify.</span>
+<span class="sd">        Transaction to validate.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    verified : `bool`</span>
 <span class="sd">        True if the transaction can be executed, or False otherwise.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">intrinsic_cost</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas</span>
+    <span class="k">return</span> <span class="n">calculate_intrinsic_cost</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas</span>
 </pre></div>
 </div>
 </section>
-<section id="intrinsic-cost">
-<h4>intrinsic_cost<a class="headerlink" href="#intrinsic-cost" title="Permalink to this headline">¶</a></h4>
+<section id="calculate-intrinsic-cost">
+<h4>calculate_intrinsic_cost<a class="headerlink" href="#calculate-intrinsic-cost" title="Permalink to this headline">¶</a></h4>
 <p>Calculates the intrinsic cost of the transaction that is charged before</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="eth1spec.spec.intrinsic_cost">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">intrinsic_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a><a class="headerlink" href="#eth1spec.spec.intrinsic_cost" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="eth1spec.spec.calculate_intrinsic_cost">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">calculate_intrinsic_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a><a class="headerlink" href="#eth1spec.spec.calculate_intrinsic_cost" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">intrinsic_cost</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Uint</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_intrinsic_cost</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Uint</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the intrinsic cost of the transaction that is charged before</span>
 <span class="sd">    execution is instantiated.</span>

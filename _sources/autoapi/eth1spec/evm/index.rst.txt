@@ -129,7 +129,7 @@ The internal state of the virtual machine.
       
 
    .. attribute:: memory
-      :annotation: :bytes
+      :annotation: :bytearray
 
       
 

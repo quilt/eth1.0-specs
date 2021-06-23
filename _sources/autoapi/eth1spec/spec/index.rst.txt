@@ -38,8 +38,8 @@ Functions
    eth1spec.spec.verify_header
    eth1spec.spec.apply_body
    eth1spec.spec.process_transaction
-   eth1spec.spec.verify_transaction
-   eth1spec.spec.intrinsic_cost
+   eth1spec.spec.validate_transaction
+   eth1spec.spec.calculate_intrinsic_cost
    eth1spec.spec.recover_sender
    eth1spec.spec.signing_hash
    eth1spec.spec.print_state
@@ -136,7 +136,7 @@ Executes a block.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 95-178
+   :lines: 95-181
 
 process_transaction
 ~~~~~~~~~~~~~~~~~~~
@@ -153,16 +153,16 @@ Execute a transaction against the provided environment.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 181-226
+   :lines: 184-229
 
-verify_transaction
-~~~~~~~~~~~~~~~~~~
+validate_transaction
+~~~~~~~~~~~~~~~~~~~~
 
 
 Verifies a transaction.
 
 
-.. function:: verify_transaction(tx: eth1spec.eth_types.Transaction) -> bool
+.. function:: validate_transaction(tx: eth1spec.eth_types.Transaction) -> bool
    :noindexentry:
 
 
@@ -170,16 +170,16 @@ Verifies a transaction.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 229-243
+   :lines: 232-246
 
-intrinsic_cost
-~~~~~~~~~~~~~~
+calculate_intrinsic_cost
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Calculates the intrinsic cost of the transaction that is charged before
 
 
-.. function:: intrinsic_cost(tx: eth1spec.eth_types.Transaction) -> eth1spec.base_types.Uint
+.. function:: calculate_intrinsic_cost(tx: eth1spec.eth_types.Transaction) -> eth1spec.base_types.Uint
    :noindexentry:
 
 
@@ -187,7 +187,7 @@ Calculates the intrinsic cost of the transaction that is charged before
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 246-269
+   :lines: 249-272
 
 recover_sender
 ~~~~~~~~~~~~~~
@@ -204,7 +204,7 @@ Extracts the sender address from a transaction.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 272-302
+   :lines: 275-305
 
 signing_hash
 ~~~~~~~~~~~~
@@ -221,7 +221,7 @@ Compute the hash of a transaction used in the signature.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 305-327
+   :lines: 308-330
 
 print_state
 ~~~~~~~~~~~
@@ -238,4 +238,4 @@ Pretty prints the state.
 
 .. literalinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 333-354
+   :lines: 336-357

@@ -107,7 +107,7 @@ Maps all compact keys to nibble-list format. Optionally hashes the keys.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 78-120
+   :lines: 78-123
 
 root
 ~~~~
@@ -124,7 +124,7 @@ Computes the root of a modified merkle patricia trie (MPT).
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 123-138
+   :lines: 126-141
 
 node_cap
 ~~~~~~~~
@@ -141,7 +141,7 @@ Internal nodes less than 32 bytes in length are represented by themselves
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 141-165
+   :lines: 144-168
 
 patricialize
 ~~~~~~~~~~~~
@@ -158,4 +158,4 @@ Structural composition function.
 
 .. literalinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 168-279
+   :lines: 171-282
