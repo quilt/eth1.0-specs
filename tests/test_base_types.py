@@ -1,6 +1,6 @@
 import pytest
 
-from ethereum.base_types import U256, Uint
+from ethereum.base_types import U256, U256_MAX_VALUE, Uint
 
 
 def test_uint_new() -> None:
@@ -857,8 +857,14 @@ def test_u256_rmod() -> None:
 
 
 def test_u256_rmod_negative() -> None:
-    with pytest.raises(ValueError):
-        (-4) % U256(5)
+    value = (-4) % U256(5)
+    assert value == 1
+
+
+def test_u256_rmod_left_more_than_max_u256() -> None:
+    value = (2 ** 257) % U256(U256_MAX_VALUE)
+    assert isinstance(value, U256)
+    assert value == 2
 
 
 def test_u256_rmod_float() -> None:
@@ -989,9 +995,15 @@ def test_u256_pow_modulo() -> None:
     assert value == 1
 
 
+def test_u256_pow_max_modulo() -> None:
+    value = pow(U256(U256_MAX_VALUE), U256_MAX_VALUE, 2 ** 256)
+    assert isinstance(value, U256)
+    assert value == U256_MAX_VALUE
+
+
 def test_u256_pow_modulo_overflow() -> None:
     with pytest.raises(ValueError):
-        pow(U256(4), 2, 2 ** 256)
+        pow(U256(4), 2, 2 ** 257)
 
 
 def test_u256_pow_modulo_negative() -> None:
@@ -1021,9 +1033,15 @@ def test_u256_rpow_modulo() -> None:
     assert value == 1
 
 
+def test_u256_rpow_max_modulo() -> None:
+    value = U256.__rpow__(U256(U256_MAX_VALUE), U256_MAX_VALUE, 2 ** 256)
+    assert isinstance(value, U256)
+    assert value == U256_MAX_VALUE
+
+
 def test_u256_rpow_modulo_overflow() -> None:
     with pytest.raises(ValueError):
-        U256.__rpow__(U256(2), 4, 2 ** 256)
+        U256.__rpow__(U256(2), 4, 2 ** 256 + 1)
 
 
 def test_u256_rpow_modulo_negative() -> None:
@@ -1061,9 +1079,15 @@ def test_u256_ipow_modulo_negative() -> None:
         U256(4).__ipow__(2, -3)
 
 
+def test_u256_ipow_max_modulo() -> None:
+    value = U256(U256_MAX_VALUE).__ipow__(U256_MAX_VALUE, 2 ** 256)
+    assert isinstance(value, U256)
+    assert value == U256_MAX_VALUE
+
+
 def test_u256_ipow_modulo_overflow() -> None:
     with pytest.raises(ValueError):
-        U256(4).__ipow__(2, 2 ** 256)
+        U256(4).__ipow__(2, 2 ** 256 + 1)
 
 
 def test_u256_wrapping_pow() -> None:
@@ -1089,9 +1113,15 @@ def test_u256_wrapping_pow_modulo() -> None:
     assert value == 1
 
 
+def test_u256_wrapping_pow_max_modulo() -> None:
+    value = U256(U256_MAX_VALUE).wrapping_pow(U256_MAX_VALUE, 2 ** 256)
+    assert isinstance(value, U256)
+    assert value == U256_MAX_VALUE
+
+
 def test_u256_wrapping_pow_modulo_overflow() -> None:
     with pytest.raises(ValueError):
-        U256(4).wrapping_pow(2, 2 ** 256)
+        U256(4).wrapping_pow(2, 2 ** 256 + 1)
 
 
 def test_u256_wrapping_pow_modulo_negative() -> None:
