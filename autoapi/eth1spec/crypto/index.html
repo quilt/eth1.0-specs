@@ -80,84 +80,77 @@
 <h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
 <section id="keccak256">
 <h4>keccak256<a class="headerlink" href="#keccak256" title="Permalink to this headline">¶</a></h4>
-<p>Computes the keccak256 hash of the input <cite>buffer</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.crypto.keccak256">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.crypto.</span></span><span class="sig-name descname"><span class="pre">keccak256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash32" title="eth1spec.eth_types.Hash32"><span class="pre">eth1spec.eth_types.Hash32</span></a><a class="headerlink" href="#eth1spec.crypto.keccak256" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Computes the keccak256 hash of the input <cite>buffer</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer</strong> – Input for the hashing function.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>hash</strong> – Output of the hash function.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.eth_types.Hash32</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">keccak256</span><span class="p">(</span><span class="n">buffer</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash32</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes the keccak256 hash of the input `buffer`.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    buffer : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        Input for the hashing function.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    hash : `eth1spec.eth_types.Hash32`</span>
-<span class="sd">        Output of the hash function.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">sha3</span><span class="o">.</span><span class="n">keccak_256</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="keccak512">
 <h4>keccak512<a class="headerlink" href="#keccak512" title="Permalink to this headline">¶</a></h4>
-<p>Computes the keccak512 hash of the input <cite>buffer</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.crypto.keccak512">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.crypto.</span></span><span class="sig-name descname"><span class="pre">keccak512</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash64" title="eth1spec.eth_types.Hash64"><span class="pre">eth1spec.eth_types.Hash64</span></a><a class="headerlink" href="#eth1spec.crypto.keccak512" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Computes the keccak512 hash of the input <cite>buffer</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer</strong> – Input for the hashing function.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>hash</strong> – Output of the hash function.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.eth_types.Hash32</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">keccak512</span><span class="p">(</span><span class="n">buffer</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash64</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes the keccak512 hash of the input `buffer`.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    buffer : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        Input for the hashing function.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    hash : `eth1spec.eth_types.Hash32`</span>
-<span class="sd">        Output of the hash function.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">sha3</span><span class="o">.</span><span class="n">keccak_512</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="secp256k1-recover">
 <h4>secp256k1_recover<a class="headerlink" href="#secp256k1-recover" title="Permalink to this headline">¶</a></h4>
-<p>Recovers the public key from a given signature.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.crypto.secp256k1_recover">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.crypto.</span></span><span class="sig-name descname"><span class="pre">secp256k1_recover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_hash</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash32" title="eth1spec.eth_types.Hash32"><span class="pre">eth1spec.eth_types.Hash32</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.crypto.secp256k1_recover" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Recovers the public key from a given signature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – TODO</p></li>
+<li><p><strong>s</strong> – TODO</p></li>
+<li><p><strong>v</strong> – TODO</p></li>
+<li><p><strong>msg_hash</strong> – Hash of the message being recovered.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>public_key</strong> – Recovered public key.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.base_types.Bytes</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">secp256k1_recover</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="n">U256</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="n">U256</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">U256</span><span class="p">,</span> <span class="n">msg_hash</span><span class="p">:</span> <span class="n">Hash32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Recovers the public key from a given signature.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    r : `eth1spec.base_types.Uint`</span>
-<span class="sd">        TODO</span>
-<span class="sd">    s : `eth1spec.base_types.Uint`</span>
-<span class="sd">        TODO</span>
-<span class="sd">    v : `eth1spec.base_types.Uint`</span>
-<span class="sd">        TODO</span>
-<span class="sd">    msg_hash : `eth1spec.eth_types.Hash32`</span>
-<span class="sd">        Hash of the message being recovered.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    public_key : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        Recovered public key.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">r_bytes</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
     <span class="n">s_bytes</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
 

@@ -136,27 +136,25 @@
 </section>
 <section id="encode">
 <h4>encode<a class="headerlink" href="#encode" title="Permalink to this headline">¶</a></h4>
-<p>Encodes <cite>raw_data</cite> into a sequence of bytes using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.encode">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes <cite>raw_data</cite> into a sequence of bytes using RLP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw_data</strong> – A <cite>Bytes</cite>, <cite>Uint</cite>, <cite>Uint256</cite> or sequence of <cite>RLP</cite> encodable
+objects.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>encoded</strong> – The RLP encoded bytes representing <cite>raw_data</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.base_types.Bytes</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">raw_data</span><span class="p">:</span> <span class="n">RLP</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Encodes `raw_data` into a sequence of bytes using RLP.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    raw_data : `RLP`</span>
-<span class="sd">        A `Bytes`, `Uint`, `Uint256` or sequence of `RLP` encodable</span>
-<span class="sd">        objects.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    encoded : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        The RLP encoded bytes representing `raw_data`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="p">(</span><span class="nb">bytearray</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)):</span>
         <span class="k">return</span> <span class="n">encode_bytes</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="p">(</span><span class="n">Uint</span><span class="p">,</span> <span class="n">U256</span><span class="p">)):</span>
@@ -173,26 +171,24 @@
 </section>
 <section id="encode-bytes">
 <h4>encode_bytes<a class="headerlink" href="#encode-bytes" title="Permalink to this headline">¶</a></h4>
-<p>Encodes <cite>raw_bytes</cite>, a sequence of bytes, using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.encode_bytes">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_bytes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.encode_bytes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_bytes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.encode_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes <cite>raw_bytes</cite>, a sequence of bytes, using RLP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw_bytes</strong> – Bytes to encode with RLP.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>encoded</strong> – The RLP encoded bytes representing <cite>raw_bytes</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.base_types.Bytes</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_bytes</span><span class="p">(</span><span class="n">raw_bytes</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Encodes `raw_bytes`, a sequence of bytes, using RLP.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    raw_bytes : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        Bytes to encode with RLP.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    encoded : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        The RLP encoded bytes representing `raw_bytes`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">len_raw_data</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">raw_bytes</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">len_raw_data</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">raw_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">:</span>
@@ -211,26 +207,24 @@
 </section>
 <section id="encode-sequence">
 <h4>encode_sequence<a class="headerlink" href="#encode-sequence" title="Permalink to this headline">¶</a></h4>
-<p>Encodes a list of RLP encodable objects (<cite>raw_sequence</cite>) using RLP.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.encode_sequence">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.encode_sequence" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.encode_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes a list of RLP encodable objects (<cite>raw_sequence</cite>) using RLP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw_sequence</strong> – Sequence of RLP encodable objects.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>encoded</strong> – The RLP encoded bytes representing <cite>raw_sequence</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.base_types.Bytes</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_sequence</span><span class="p">(</span><span class="n">raw_sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Encodes a list of RLP encodable objects (`raw_sequence`) using RLP.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    raw_sequence : `Sequence[RLP]`</span>
-<span class="sd">            Sequence of RLP encodable objects.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    encoded : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        The RLP encoded bytes representing `raw_sequence`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">joined_encodings</span> <span class="o">=</span> <span class="n">get_joined_encodings</span><span class="p">(</span><span class="n">raw_sequence</span><span class="p">)</span>
     <span class="n">len_joined_encodings</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">joined_encodings</span><span class="p">))</span>
 
@@ -247,28 +241,26 @@
 </section>
 <section id="get-joined-encodings">
 <h4>get_joined_encodings<a class="headerlink" href="#get-joined-encodings" title="Permalink to this headline">¶</a></h4>
-<p>Obtain concatenation of rlp encoding for each item in the sequence</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.get_joined_encodings">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">get_joined_encodings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.get_joined_encodings" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">get_joined_encodings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.get_joined_encodings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain concatenation of rlp encoding for each item in the sequence
+raw_sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw_sequence</strong> – Sequence to encode with RLP.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>joined_encodings</strong> – The concatenated RLP encoded bytes for each item in sequence
+raw_sequence.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.base_types.Bytes</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_joined_encodings</span><span class="p">(</span><span class="n">raw_sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Obtain concatenation of rlp encoding for each item in the sequence</span>
-<span class="sd">    raw_sequence.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    raw_sequence : `Sequence[RLP]`</span>
-<span class="sd">        Sequence to encode with RLP.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    joined_encodings : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        The concatenated RLP encoded bytes for each item in sequence</span>
-<span class="sd">        raw_sequence.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">joined_encodings</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">raw_sequence</span><span class="p">:</span>
         <span class="n">joined_encodings</span> <span class="o">+=</span> <span class="n">encode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
@@ -279,27 +271,25 @@
 </section>
 <section id="decode">
 <h4>decode<a class="headerlink" href="#decode" title="Permalink to this headline">¶</a></h4>
-<p>Decodes an integer, byte sequence, or list of RLP encodable objects</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.decode">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><a class="headerlink" href="#eth1spec.rlp.decode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><a class="headerlink" href="#eth1spec.rlp.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes an integer, byte sequence, or list of RLP encodable objects
+from the byte sequence <cite>encoded_data</cite>, using RLP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>encoded_data</strong> – A sequence of bytes, in RLP form.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>decoded_data</strong> – Object decoded from <cite>encoded_data</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>RLP</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RLP</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decodes an integer, byte sequence, or list of RLP encodable objects</span>
-<span class="sd">    from the byte sequence `encoded_data`, using RLP.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    encoded_data : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        A sequence of bytes, in RLP form.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    decoded_data : `RLP`</span>
-<span class="sd">        Object decoded from `encoded_data`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Raising error as there can never be empty encoded data for any</span>
     <span class="c1"># given raw data (including empty raw data)</span>
     <span class="c1"># RLP Encoding(b&#39;&#39;) -&gt; [0x80]  # noqa: SC100</span>
@@ -317,27 +307,25 @@
 </section>
 <section id="decode-to-bytes">
 <h4>decode_to_bytes<a class="headerlink" href="#decode-to-bytes" title="Permalink to this headline">¶</a></h4>
-<p>Decodes a rlp encoded byte stream assuming that the decoded data</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.decode_to_bytes">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_to_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_bytes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.Bytes</span><a class="headerlink" href="#eth1spec.rlp.decode_to_bytes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_to_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_bytes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.decode_to_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes a rlp encoded byte stream assuming that the decoded data
+should be of type <cite>bytes</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>encoded_bytes</strong> – RLP encoded byte stream.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>decoded</strong> – RLP decoded Bytes data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.base_types.Bytes</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_to_bytes</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decodes a rlp encoded byte stream assuming that the decoded data</span>
-<span class="sd">    should be of type `bytes`.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    encoded_bytes : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        RLP encoded byte stream.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    decoded : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        RLP decoded Bytes data</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">encoded_bytes</span>
     <span class="k">elif</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0xB7</span><span class="p">:</span>
@@ -366,27 +354,25 @@
 </section>
 <section id="decode-to-sequence">
 <h4>decode_to_sequence<a class="headerlink" href="#decode-to-sequence" title="Permalink to this headline">¶</a></h4>
-<p>Decodes a rlp encoded byte stream assuming that the decoded data</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.decode_to_sequence">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_to_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.decode_to_sequence" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_to_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.decode_to_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes a rlp encoded byte stream assuming that the decoded data
+should be of type <cite>Sequence</cite> of objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>encoded_sequence</strong> – An RLP encoded Sequence.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>decoded</strong> – Sequence of objects decoded from <cite>encoded_sequence</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Sequence[RLP]</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_to_sequence</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RLP</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decodes a rlp encoded byte stream assuming that the decoded data</span>
-<span class="sd">    should be of type `Sequence` of objects.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    encoded_sequence : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        An RLP encoded Sequence.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    decoded : `Sequence[RLP]`</span>
-<span class="sd">        Sequence of objects decoded from `encoded_sequence`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0xF7</span><span class="p">:</span>
         <span class="n">len_joined_encodings</span> <span class="o">=</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0xC0</span>
         <span class="k">assert</span> <span class="n">len_joined_encodings</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">)</span>
@@ -415,27 +401,25 @@
 </section>
 <section id="decode-joined-encodings">
 <h4>decode_joined_encodings<a class="headerlink" href="#decode-joined-encodings" title="Permalink to this headline">¶</a></h4>
-<p>Decodes <cite>joined_encodings</cite>, which is a concatenation of RLP encoded</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.decode_joined_encodings">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_joined_encodings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joined_encodings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.decode_joined_encodings" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_joined_encodings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joined_encodings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">RLP</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.rlp.decode_joined_encodings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes <cite>joined_encodings</cite>, which is a concatenation of RLP encoded
+objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joined_encodings</strong> – concatenation of RLP encoded objects</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>decoded</strong> – A list of objects decoded from <cite>joined_encodings</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>List[RLP]</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_joined_encodings</span><span class="p">(</span><span class="n">joined_encodings</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RLP</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decodes `joined_encodings`, which is a concatenation of RLP encoded</span>
-<span class="sd">    objects.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    joined_encodings : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        concatenation of RLP encoded objects</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    decoded : `List[RLP]`</span>
-<span class="sd">        A list of objects decoded from `joined_encodings`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">decoded_sequence</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="n">item_start_idx</span> <span class="o">=</span> <span class="mi">0</span>
@@ -456,32 +440,30 @@
 </section>
 <section id="decode-item-length">
 <h4>decode_item_length<a class="headerlink" href="#decode-item-length" title="Permalink to this headline">¶</a></h4>
-<p>Find the length of the rlp encoding for the first object in the</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.rlp.decode_item_length">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_item_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.Bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#eth1spec.rlp.decode_item_length" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_item_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#eth1spec.rlp.decode_item_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the length of the rlp encoding for the first object in the
+encoded sequence.
+Here <cite>encoded_data</cite> refers to concatenation of rlp encoding for each
+item in a sequence.</p>
+<p>NOTE - This is a helper function not described in the spec. It was
+introduced as the spec doesn’t discuss about decoding the RLP encoded
+data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>encoded_data</strong> – RLP encoded data for a sequence of objects.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>rlp_length</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>int</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_item_length</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Find the length of the rlp encoding for the first object in the</span>
-<span class="sd">    encoded sequence.</span>
-<span class="sd">    Here `encoded_data` refers to concatenation of rlp encoding for each</span>
-<span class="sd">    item in a sequence.</span>
-
-<span class="sd">    NOTE - This is a helper function not described in the spec. It was</span>
-<span class="sd">    introduced as the spec doesn&#39;t discuss about decoding the RLP encoded</span>
-<span class="sd">    data.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    encoded_data : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        RLP encoded data for a sequence of objects.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    rlp_length : `int`</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Can&#39;t decode item length for empty encoding</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 

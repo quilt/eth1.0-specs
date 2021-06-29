@@ -88,29 +88,25 @@
 <h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
 <section id="add">
 <h4>add<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h4>
-<p>Adds the top two elements of the stack together, and pushes the result back</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.evm.instructions.add">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.evm.instructions.</span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#eth1spec.evm.Evm" title="eth1spec.evm.Evm"><span class="pre">eth1spec.evm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#eth1spec.evm.instructions.add" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds the top two elements of the stack together, and pushes the result back
+on the stack.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../error/index.html#eth1spec.evm.error.StackUnderflowError" title="eth1spec.evm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../error/index.html#eth1spec.evm.error.OutOfGasError" title="eth1spec.evm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>GAS_VERY_LOW</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">evm</span><span class="p">:</span> <span class="n">Evm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Adds the top two elements of the stack together, and pushes the result back</span>
-<span class="sd">    on the stack.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    evm : `Evm`</span>
-<span class="sd">        The current EVM frame.</span>
-
-<span class="sd">    Raises</span>
-<span class="sd">    ------</span>
-<span class="sd">    StackUnderflowError</span>
-<span class="sd">        If `len(stack)` is less than `2`.</span>
-<span class="sd">    OutOfGasError</span>
-<span class="sd">        If `evm.gas_left` is less than `GAS_VERY_LOW`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">GAS_VERY_LOW</span><span class="p">)</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
@@ -124,28 +120,24 @@
 </section>
 <section id="sstore">
 <h4>sstore<a class="headerlink" href="#sstore" title="Permalink to this headline">¶</a></h4>
-<p>Stores a value at a certain key in the current context’s storage.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.evm.instructions.sstore">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.evm.instructions.</span></span><span class="sig-name descname"><span class="pre">sstore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#eth1spec.evm.Evm" title="eth1spec.evm.Evm"><span class="pre">eth1spec.evm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#eth1spec.evm.instructions.sstore" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Stores a value at a certain key in the current context’s storage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../error/index.html#eth1spec.evm.error.StackUnderflowError" title="eth1spec.evm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../error/index.html#eth1spec.evm.error.OutOfGasError" title="eth1spec.evm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>20000</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sstore</span><span class="p">(</span><span class="n">evm</span><span class="p">:</span> <span class="n">Evm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Stores a value at a certain key in the current context&#39;s storage.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    evm : `Evm`</span>
-<span class="sd">        The current EVM frame.</span>
-
-<span class="sd">    Raises</span>
-<span class="sd">    ------</span>
-<span class="sd">    StackUnderflowError</span>
-<span class="sd">        If `len(stack)` is less than `2`.</span>
-<span class="sd">    OutOfGasError</span>
-<span class="sd">        If `evm.gas_left` is less than `20000`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">20000</span><span class="p">))</span>
 
     <span class="n">k</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
@@ -157,28 +149,24 @@
 </section>
 <section id="push1">
 <h4>push1<a class="headerlink" href="#push1" title="Permalink to this headline">¶</a></h4>
-<p>Pushes a one-byte immediate onto the stack.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.evm.instructions.push1">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.evm.instructions.</span></span><span class="sig-name descname"><span class="pre">push1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#eth1spec.evm.Evm" title="eth1spec.evm.Evm"><span class="pre">eth1spec.evm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#eth1spec.evm.instructions.push1" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Pushes a one-byte immediate onto the stack.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../error/index.html#eth1spec.evm.error.StackOverflowError" title="eth1spec.evm.error.StackOverflowError"><strong>StackOverflowError</strong></a> – If <cite>len(stack)</cite> is equals <cite>1024</cite>.</p></li>
+<li><p><a class="reference internal" href="../error/index.html#eth1spec.evm.error.OutOfGasError" title="eth1spec.evm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>GAS_VERY_LOW</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">push1</span><span class="p">(</span><span class="n">evm</span><span class="p">:</span> <span class="n">Evm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Pushes a one-byte immediate onto the stack.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    evm : `Evm`</span>
-<span class="sd">        The current EVM frame.</span>
-
-<span class="sd">    Raises</span>
-<span class="sd">    ------</span>
-<span class="sd">    StackOverflowError</span>
-<span class="sd">        If `len(stack)` is equals `1024`.</span>
-<span class="sd">    OutOfGasError</span>
-<span class="sd">        If `evm.gas_left` is less than `GAS_VERY_LOW`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">GAS_VERY_LOW</span><span class="p">)</span>
     <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>

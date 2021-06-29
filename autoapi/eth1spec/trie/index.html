@@ -144,47 +144,41 @@
 </section>
 <section id="nibble-list-to-compact">
 <h4>nibble_list_to_compact<a class="headerlink" href="#nibble-list-to-compact" title="Permalink to this headline">¶</a></h4>
-<p>Compresses nibble-list into a standard byte array with a flag.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.nibble_list_to_compact">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.trie.</span></span><span class="sig-name descname"><span class="pre">nibble_list_to_compact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">terminal</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytearray</span><a class="headerlink" href="#eth1spec.trie.nibble_list_to_compact" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Compresses nibble-list into a standard byte array with a flag.</p>
+<p>A nibble-list is a list of byte values no greater than <cite>15</cite>. The flag is
+encoded in high nibble of the highest byte. The flag nibble can be broken
+down into two two-bit flags.</p>
+<p>Highest nibble:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+---+---+----------+--------+</span>
+<span class="o">|</span> <span class="n">_</span> <span class="o">|</span> <span class="n">_</span> <span class="o">|</span> <span class="n">terminal</span> <span class="o">|</span> <span class="n">parity</span> <span class="o">|</span>
+<span class="o">+---+---+----------+--------+</span>
+  <span class="mi">3</span>   <span class="mi">2</span>      <span class="mi">1</span>         <span class="mi">0</span>
+</pre></div>
+</div>
+<p>The lowest bit of the nibble encodes the parity of the length of the
+remaining nibbles – <cite>0</cite> when even and <cite>1</cite> when odd. The second lowest bit
+encodes whether the key maps to a terminal node. The other two bits are not
+used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – Array of nibbles.</p></li>
+<li><p><strong>terminal</strong> – Flag denoting if the key points to a terminal (leaf) node.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>compressed</strong> – Compact byte array.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>bytearray</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nibble_list_to_compact</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">terminal</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytearray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compresses nibble-list into a standard byte array with a flag.</span>
-
-<span class="sd">    A nibble-list is a list of byte values no greater than `15`. The flag is</span>
-<span class="sd">    encoded in high nibble of the highest byte. The flag nibble can be broken</span>
-<span class="sd">    down into two two-bit flags.</span>
-
-<span class="sd">    Highest nibble:</span>
-
-<span class="sd">    ```</span>
-<span class="sd">    +---+---+----------+--------+</span>
-<span class="sd">    | _ | _ | terminal | parity |</span>
-<span class="sd">    +---+---+----------+--------+</span>
-<span class="sd">      3   2      1         0</span>
-
-<span class="sd">    ```</span>
-
-<span class="sd">    The lowest bit of the nibble encodes the parity of the length of the</span>
-<span class="sd">    remaining nibbles -- `0` when even and `1` when odd. The second lowest bit</span>
-<span class="sd">    encodes whether the key maps to a terminal node. The other two bits are not</span>
-<span class="sd">    used.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    x : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        Array of nibbles.</span>
-<span class="sd">    terminal : `bool`</span>
-<span class="sd">        Flag denoting if the key points to a terminal (leaf) node.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    compressed : `bytearray`</span>
-<span class="sd">        Compact byte array.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">compact</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># ie even length</span>
@@ -202,30 +196,29 @@
 </section>
 <section id="map-keys">
 <h4>map_keys<a class="headerlink" href="#map-keys" title="Permalink to this headline">¶</a></h4>
-<p>Maps all compact keys to nibble-list format. Optionally hashes the keys.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.map_keys">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.trie.</span></span><span class="sig-name descname"><span class="pre">map_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#eth1spec.trie.Node" title="eth1spec.trie.Node"><span class="pre">Node</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secured</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#eth1spec.trie.Node" title="eth1spec.trie.Node"><span class="pre">Node</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.trie.map_keys" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Maps all compact keys to nibble-list format. Optionally hashes the keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – Underlying trie key-value pairs.</p></li>
+<li><p><strong>secured</strong> – Denotes whether the keys should be hashed. Defaults to <cite>true</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> – Object with keys mapped to nibble-byte form.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Mapping[eth1spec.base_types.Bytes, Node]</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">map_keys</span><span class="p">(</span>
     <span class="n">obj</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="n">Bytes</span><span class="p">,</span> <span class="n">Node</span><span class="p">],</span> <span class="n">secured</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="n">Bytes</span><span class="p">,</span> <span class="n">Node</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Maps all compact keys to nibble-list format. Optionally hashes the keys.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    obj : `Dict[Bytes, T]`</span>
-<span class="sd">        Underlying trie key-value pairs.</span>
-<span class="sd">    secured : `bool`</span>
-<span class="sd">        Denotes whether the keys should be hashed. Defaults to `true`.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    out : `Mapping[Bytes, T]`</span>
-<span class="sd">        Object with keys mapped to nibble-byte form.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">mapped</span><span class="p">:</span> <span class="n">MutableMapping</span><span class="p">[</span><span class="n">Bytes</span><span class="p">,</span> <span class="n">Node</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="c1"># skip empty values, these are defined to be omitted from the trie</span>
@@ -259,26 +252,24 @@
 </section>
 <section id="root">
 <h4>root<a class="headerlink" href="#root" title="Permalink to this headline">¶</a></h4>
-<p>Computes the root of a modified merkle patricia trie (MPT).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.root">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.trie.</span></span><span class="sig-name descname"><span class="pre">root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#eth1spec.trie.Node" title="eth1spec.trie.Node"><span class="pre">Node</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Root" title="eth1spec.eth_types.Root"><span class="pre">eth1spec.eth_types.Root</span></a><a class="headerlink" href="#eth1spec.trie.root" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Computes the root of a modified merkle patricia trie (MPT).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> – Underlying trie key-value pairs.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>root</strong> – MPT root of the underlying key-value pairs.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.eth_types.Root</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">root</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="n">Bytes</span><span class="p">,</span> <span class="n">Node</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Root</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes the root of a modified merkle patricia trie (MPT).</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    obj : `Mapping[Bytes, Union[Bytes, Account, Receipt, Uint, U256]]`</span>
-<span class="sd">        Underlying trie key-value pairs.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    root : `eth1spec.eth_types.Root`</span>
-<span class="sd">        MPT root of the underlying key-value pairs.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">root_node</span> <span class="o">=</span> <span class="n">patricialize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">root_node</span><span class="p">))</span>
 </pre></div>
@@ -286,29 +277,28 @@
 </section>
 <section id="node-cap">
 <h4>node_cap<a class="headerlink" href="#node-cap" title="Permalink to this headline">¶</a></h4>
-<p>Internal nodes less than 32 bytes in length are represented by themselves</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.node_cap">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.trie.</span></span><span class="sig-name descname"><span class="pre">node_cap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#eth1spec.trie.Node" title="eth1spec.trie.Node"><span class="pre">Node</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../rlp/index.html#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">eth1spec.rlp.RLP</span></a><a class="headerlink" href="#eth1spec.trie.node_cap" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Internal nodes less than 32 bytes in length are represented by themselves
+directly. Larger nodes are hashed once to cap their size to 32 bytes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – Underlying trie key-value pairs.</p></li>
+<li><p><strong>i</strong> – Current trie level.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>hash</strong> – Internal node commitment.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.eth_types.Hash32</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">node_cap</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="n">Bytes</span><span class="p">,</span> <span class="n">Node</span><span class="p">],</span> <span class="n">i</span><span class="p">:</span> <span class="n">Uint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rlp</span><span class="o">.</span><span class="n">RLP</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Internal nodes less than 32 bytes in length are represented by themselves</span>
-<span class="sd">    directly. Larger nodes are hashed once to cap their size to 32 bytes.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    obj : `Mapping[Bytes, Union[Bytes, Account, Receipt, Uint, U256]]`</span>
-<span class="sd">        Underlying trie key-value pairs.</span>
-<span class="sd">    i : `eth1spec.eth_types.U256`</span>
-<span class="sd">        Current trie level.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    hash : `eth1spec.eth_types.Hash32`</span>
-<span class="sd">        Internal node commitment.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
     <span class="n">node</span> <span class="o">=</span> <span class="n">patricialize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
@@ -322,31 +312,29 @@
 </section>
 <section id="patricialize">
 <h4>patricialize<a class="headerlink" href="#patricialize" title="Permalink to this headline">¶</a></h4>
-<p>Structural composition function.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.trie.patricialize">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.trie.</span></span><span class="sig-name descname"><span class="pre">patricialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#eth1spec.trie.Node" title="eth1spec.trie.Node"><span class="pre">Node</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../rlp/index.html#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">eth1spec.rlp.RLP</span></a><a class="headerlink" href="#eth1spec.trie.patricialize" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Structural composition function.</p>
+<p>Used to recursively patricialize and merkleize a dictionary. Includes
+memoization of the tree structure and hashes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – Underlying trie key-value pairs.</p></li>
+<li><p><strong>i</strong> – Current trie level.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node</strong> – Root node of <cite>obj</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.base_types.Bytes</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">patricialize</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="n">Bytes</span><span class="p">,</span> <span class="n">Node</span><span class="p">],</span> <span class="n">i</span><span class="p">:</span> <span class="n">Uint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rlp</span><span class="o">.</span><span class="n">RLP</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Structural composition function.</span>
-
-<span class="sd">    Used to recursively patricialize and merkleize a dictionary. Includes</span>
-<span class="sd">    memoization of the tree structure and hashes.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    obj : `Mapping[Bytes, Union[Bytes, Account, Receipt, Uint, U256]]`</span>
-<span class="sd">        Underlying trie key-value pairs.</span>
-<span class="sd">    i : `eth1spec.eth_types.Uint`</span>
-<span class="sd">        Current trie level.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    node : `eth1spec.eth_types.Bytes`</span>
-<span class="sd">        Root node of `obj`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># note: empty storage tree has merkle root:</span>
         <span class="c1">#</span>

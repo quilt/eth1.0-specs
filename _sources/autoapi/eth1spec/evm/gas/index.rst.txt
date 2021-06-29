@@ -54,15 +54,19 @@ subtract_gas
 ~~~~~~~~~~~~
 
 
-Subtracts `amount` from `gas_left`.
-
-
 .. function:: subtract_gas(gas_left: eth1spec.base_types.U256, amount: eth1spec.base_types.U256) -> eth1spec.base_types.U256
    :noindexentry:
 
+   Subtracts `amount` from `gas_left`.
+
+   :param gas_left: The amount of gas left in the current frame.
+   :param amount: The amount of gas the current operation requires.
+
+   :raises OutOfGasError: If `gas_left` is less than `amount`.
 
 
 
-.. literalinclude:: /../src/eth1spec/evm/gas.py
+
+.. undocinclude:: /../src/eth1spec/evm/gas.py
    :language: python
    :lines: 21-40

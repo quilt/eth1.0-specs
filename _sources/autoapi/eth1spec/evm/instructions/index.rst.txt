@@ -39,16 +39,21 @@ add
 ~~~
 
 
-Adds the top two elements of the stack together, and pushes the result back
-
-
 .. function:: add(evm: eth1spec.evm.Evm) -> None
    :noindexentry:
 
+   Adds the top two elements of the stack together, and pushes the result back
+   on the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `2`.
+   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_VERY_LOW`.
 
 
 
-.. literalinclude:: /../src/eth1spec/evm/instructions.py
+
+.. undocinclude:: /../src/eth1spec/evm/instructions.py
    :language: python
    :lines: 22-46
 
@@ -56,16 +61,20 @@ sstore
 ~~~~~~
 
 
-Stores a value at a certain key in the current context's storage.
-
-
 .. function:: sstore(evm: eth1spec.evm.Evm) -> None
    :noindexentry:
 
+   Stores a value at a certain key in the current context's storage.
+
+   :param evm: The current EVM frame.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `2`.
+   :raises OutOfGasError: If `evm.gas_left` is less than `20000`.
 
 
 
-.. literalinclude:: /../src/eth1spec/evm/instructions.py
+
+.. undocinclude:: /../src/eth1spec/evm/instructions.py
    :language: python
    :lines: 49-70
 
@@ -73,15 +82,19 @@ push1
 ~~~~~
 
 
-Pushes a one-byte immediate onto the stack.
-
-
 .. function:: push1(evm: eth1spec.evm.Evm) -> None
    :noindexentry:
 
+   Pushes a one-byte immediate onto the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises StackOverflowError: If `len(stack)` is equals `1024`.
+   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_VERY_LOW`.
 
 
 
-.. literalinclude:: /../src/eth1spec/evm/instructions.py
+
+.. undocinclude:: /../src/eth1spec/evm/instructions.py
    :language: python
    :lines: 73-91

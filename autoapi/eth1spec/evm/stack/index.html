@@ -84,31 +84,27 @@
 <h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
 <section id="pop">
 <h4>pop<a class="headerlink" href="#pop" title="Permalink to this headline">¶</a></h4>
-<p>Pops the top item off of <cite>stack</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.evm.stack.pop">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.evm.stack.</span></span><span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">eth1spec.eth_types.U256</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">eth1spec.eth_types.U256</span><a class="headerlink" href="#eth1spec.evm.stack.pop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.evm.stack.</span></span><span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a><a class="headerlink" href="#eth1spec.evm.stack.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pops the top item off of <cite>stack</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stack</strong> – EVM stack.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>value</strong> – The top element on the stack.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>U256</cite></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="../error/index.html#eth1spec.evm.error.StackUnderflowError" title="eth1spec.evm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>stack</cite> is empty.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="n">stack</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">U256</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">U256</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Pops the top item off of `stack`.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    stack : `List[U256]`</span>
-<span class="sd">        EVM stack.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    value : `U256`</span>
-<span class="sd">        The top element on the stack.</span>
-
-<span class="sd">    Raises</span>
-<span class="sd">    ------</span>
-<span class="sd">    StackUnderflowError</span>
-<span class="sd">        If `stack` is empty.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">StackUnderflowError</span>
 
@@ -118,29 +114,24 @@
 </section>
 <section id="push">
 <h4>push<a class="headerlink" href="#push" title="Permalink to this headline">¶</a></h4>
-<p>Pushes <cite>value</cite> onto <cite>stack</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.evm.stack.push">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.evm.stack.</span></span><span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">eth1spec.eth_types.U256</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">eth1spec.eth_types.U256</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#eth1spec.evm.stack.push" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.evm.stack.</span></span><span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#eth1spec.evm.stack.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pushes <cite>value</cite> onto <cite>stack</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stack</strong> – EVM stack.</p></li>
+<li><p><strong>value</strong> – Item to be pushed onto <cite>stack</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="../error/index.html#eth1spec.evm.error.StackOverflowError" title="eth1spec.evm.error.StackOverflowError"><strong>StackOverflowError</strong></a> – If <cite>len(stack)</cite> is <cite>1024</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="n">stack</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">U256</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">U256</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Pushes `value` onto `stack`.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    stack : `List[U256]`</span>
-<span class="sd">        EVM stack.</span>
-
-<span class="sd">    value : `U256`</span>
-<span class="sd">        Item to be pushed onto `stack`.</span>
-
-<span class="sd">    Raises</span>
-<span class="sd">    ------</span>
-<span class="sd">    StackOverflowError</span>
-<span class="sd">        If `len(stack)` is `1024`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1024</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">StackOverflowError</span>
 

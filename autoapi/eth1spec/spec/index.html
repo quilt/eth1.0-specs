@@ -171,23 +171,21 @@
 </section>
 <section id="state-transition">
 <h4>state_transition<a class="headerlink" href="#state-transition" title="Permalink to this headline">¶</a></h4>
-<p>Attempts to apply a block to an existing block chain.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.state_transition">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">state_transition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#eth1spec.spec.BlockChain" title="eth1spec.spec.BlockChain"><span class="pre">BlockChain</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Block" title="eth1spec.eth_types.Block"><span class="pre">eth1spec.eth_types.Block</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#eth1spec.spec.state_transition" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Attempts to apply a block to an existing block chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chain</strong> – History and current state.</p></li>
+<li><p><strong>block</strong> – Block to apply to <cite>chain</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">state_transition</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span> <span class="n">BlockChain</span><span class="p">,</span> <span class="n">block</span><span class="p">:</span> <span class="n">Block</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Attempts to apply a block to an existing block chain.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    chain : `eth1spec.eth_types.BlockChain`</span>
-<span class="sd">        History and current state.</span>
-<span class="sd">    block : `eth1spec.eth_types.Block`</span>
-<span class="sd">        Block to apply to `chain`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">#  assert verify_header(block.header)</span>
     <span class="n">gas_used</span><span class="p">,</span> <span class="n">receipt_root</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">apply_body</span><span class="p">(</span>
         <span class="n">chain</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
@@ -208,37 +206,58 @@
 </section>
 <section id="verify-header">
 <h4>verify_header<a class="headerlink" href="#verify-header" title="Permalink to this headline">¶</a></h4>
-<p>Verifies a block header.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.verify_header">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">verify_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Header" title="eth1spec.eth_types.Header"><span class="pre">eth1spec.eth_types.Header</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#eth1spec.spec.verify_header" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Verifies a block header.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>header</strong> – Header to check for correctness.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>verified</strong> – True if the header is correct, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>bool</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify_header</span><span class="p">(</span><span class="n">header</span><span class="p">:</span> <span class="n">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Verifies a block header.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    header : `eth1spec.eth_types.Header`</span>
-<span class="sd">        Header to check for correctness.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    verified : `bool`</span>
-<span class="sd">        True if the header is correct, False otherwise.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>  <span class="c1"># TODO</span>
 </pre></div>
 </div>
 </section>
 <section id="apply-body">
 <h4>apply_body<a class="headerlink" href="#apply-body" title="Permalink to this headline">¶</a></h4>
-<p>Executes a block.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.apply_body">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">apply_body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.State" title="eth1spec.eth_types.State"><span class="pre">eth1spec.eth_types.State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">coinbase</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Address" title="eth1spec.eth_types.Address"><span class="pre">eth1spec.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_gas_limit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_difficulty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">transactions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ommers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Header" title="eth1spec.eth_types.Header"><span class="pre">eth1spec.eth_types.Header</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Root" title="eth1spec.eth_types.Root"><span class="pre">eth1spec.eth_types.Root</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.State" title="eth1spec.eth_types.State"><span class="pre">eth1spec.eth_types.State</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.spec.apply_body" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Executes a block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – Current account state.</p></li>
+<li><p><strong>coinbase</strong> – Address of account which receives block reward and transaction fees.</p></li>
+<li><p><strong>block_number</strong> – Position of the block within the chain.</p></li>
+<li><p><strong>block_gas_limit</strong> – Initial amount of gas available for execution in this block.</p></li>
+<li><p><strong>block_time</strong> – Time the block was produced, measured in seconds since the epoch.</p></li>
+<li><p><strong>block_difficulty</strong> – Difficulty of the block.</p></li>
+<li><p><strong>transactions</strong> – Transactions included in the block.</p></li>
+<li><p><strong>ommers</strong> – Headers of ancestor blocks which are not direct parents (formerly
+uncles.)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>gas_available</strong> (<cite>eth1spec.base_types.Uint</cite>) – Remaining gas after all transactions have been executed.</p></li>
+<li><p><strong>root</strong> (<cite>eth1spec.eth_types.Root</cite>) – State root after all transactions have been executed.</p></li>
+<li><p><strong>state</strong> (<cite>eth1spec.eth_types.State</cite>) – State after all transactions have been executed.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_body</span><span class="p">(</span>
     <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span>
@@ -250,38 +269,6 @@
     <span class="n">transactions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Transaction</span><span class="p">],</span>
     <span class="n">ommers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Header</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Uint</span><span class="p">,</span> <span class="n">Root</span><span class="p">,</span> <span class="n">State</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Executes a block.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    state : `eth1spec.eth_types.State`</span>
-<span class="sd">        Current account state.</span>
-<span class="sd">    coinbase : `eth1spec.eth_types.Address`</span>
-<span class="sd">        Address of account which receives block reward and transaction fees.</span>
-<span class="sd">    block_number : `eth1spec.base_types.Uint`</span>
-<span class="sd">        Position of the block within the chain.</span>
-<span class="sd">    block_gas_limit : `eth1spec.base_types.Uint`</span>
-<span class="sd">        Initial amount of gas available for execution in this block.</span>
-<span class="sd">    block_time : `eth1spec.base_types.U256`</span>
-<span class="sd">        Time the block was produced, measured in seconds since the epoch.</span>
-<span class="sd">    block_difficulty : `eth1spec.base_types.Uint`</span>
-<span class="sd">        Difficulty of the block.</span>
-<span class="sd">    transactions : `List[eth1spec.eth_types.Transaction]`</span>
-<span class="sd">        Transactions included in the block.</span>
-<span class="sd">    ommers : `List[eth1spec.eth_types.Header]`</span>
-<span class="sd">        Headers of ancestor blocks which are not direct parents (formerly</span>
-<span class="sd">        uncles.)</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    gas_available : `eth1spec.base_types.Uint`</span>
-<span class="sd">        Remaining gas after all transactions have been executed.</span>
-<span class="sd">    root : `eth1spec.eth_types.Root`</span>
-<span class="sd">        State root after all transactions have been executed.</span>
-<span class="sd">    state : `eth1spec.eth_types.State`</span>
-<span class="sd">        State after all transactions have been executed.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">gas_available</span> <span class="o">=</span> <span class="n">block_gas_limit</span>
     <span class="n">receipts</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -332,32 +319,30 @@
 </section>
 <section id="process-transaction">
 <h4>process_transaction<a class="headerlink" href="#process-transaction" title="Permalink to this headline">¶</a></h4>
-<p>Execute a transaction against the provided environment.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.process_transaction">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">process_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../evm/index.html#eth1spec.evm.Environment" title="eth1spec.evm.Environment"><span class="pre">eth1spec.evm.Environment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Log" title="eth1spec.eth_types.Log"><span class="pre">eth1spec.eth_types.Log</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.spec.process_transaction" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Execute a transaction against the provided environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>env</strong> – Environment for the Ethereum Virtual Machine.</p></li>
+<li><p><strong>tx</strong> – Transaction to execute.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>gas_left</strong> (<cite>eth1spec.base_types.U256</cite>) – Remaining gas after execution.</p></li>
+<li><p><strong>logs</strong> (<cite>List[eth1spec.eth_types.Log]</cite>) – Logs generated during execution.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_transaction</span><span class="p">(</span>
     <span class="n">env</span><span class="p">:</span> <span class="n">evm</span><span class="o">.</span><span class="n">Environment</span><span class="p">,</span> <span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">U256</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Log</span><span class="p">]]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Execute a transaction against the provided environment.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    env : `eth1spec.evm.Environment`</span>
-<span class="sd">        Environment for the Ethereum Virtual Machine.</span>
-<span class="sd">    tx : `eth1spec.eth_types.Transaction`</span>
-<span class="sd">        Transaction to execute.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    gas_left : `eth1spec.base_types.U256`</span>
-<span class="sd">        Remaining gas after execution.</span>
-<span class="sd">    logs : `List[eth1spec.eth_types.Log]`</span>
-<span class="sd">        Logs generated during execution.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="n">validate_transaction</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
 
     <span class="n">sender_address</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">origin</span>
@@ -389,53 +374,49 @@
 </section>
 <section id="validate-transaction">
 <h4>validate_transaction<a class="headerlink" href="#validate-transaction" title="Permalink to this headline">¶</a></h4>
-<p>Verifies a transaction.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.validate_transaction">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">validate_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#eth1spec.spec.validate_transaction" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Verifies a transaction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tx</strong> – Transaction to validate.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>verified</strong> – True if the transaction can be executed, or False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>bool</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_transaction</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Verifies a transaction.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    tx : `eth1spec.eth_types.Transaction`</span>
-<span class="sd">        Transaction to validate.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    verified : `bool`</span>
-<span class="sd">        True if the transaction can be executed, or False otherwise.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">calculate_intrinsic_cost</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas</span>
 </pre></div>
 </div>
 </section>
 <section id="calculate-intrinsic-cost">
 <h4>calculate_intrinsic_cost<a class="headerlink" href="#calculate-intrinsic-cost" title="Permalink to this headline">¶</a></h4>
-<p>Calculates the intrinsic cost of the transaction that is charged before</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.calculate_intrinsic_cost">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">calculate_intrinsic_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a><a class="headerlink" href="#eth1spec.spec.calculate_intrinsic_cost" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Calculates the intrinsic cost of the transaction that is charged before
+execution is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tx</strong> – Transaction to compute the intrinsic cost of.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>verified</strong> – The intrinsic cost of the transaction.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.base_types.Uint</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_intrinsic_cost</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Uint</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calculates the intrinsic cost of the transaction that is charged before</span>
-<span class="sd">    execution is instantiated.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    tx : `eth1spec.eth_types.Transaction`</span>
-<span class="sd">        Transaction to compute the intrinsic cost of.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    verified : `eth1spec.base_types.Uint`</span>
-<span class="sd">        The intrinsic cost of the transaction.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">data_cost</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">for</span> <span class="n">byte</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
@@ -450,26 +431,24 @@
 </section>
 <section id="recover-sender">
 <h4>recover_sender<a class="headerlink" href="#recover-sender" title="Permalink to this headline">¶</a></h4>
-<p>Extracts the sender address from a transaction.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.recover_sender">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">recover_sender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Address" title="eth1spec.eth_types.Address"><span class="pre">eth1spec.eth_types.Address</span></a><a class="headerlink" href="#eth1spec.spec.recover_sender" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Extracts the sender address from a transaction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tx</strong> – Transaction of interest.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>sender</strong> – The address of the account that signed the transaction.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.eth_types.Address</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recover_sender</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Address</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Extracts the sender address from a transaction.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    tx : `eth1spec.eth_types.Transaction`</span>
-<span class="sd">        Transaction of interest.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    sender : `eth1spec.eth_types.Address`</span>
-<span class="sd">        The address of the account that signed the transaction.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">v</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">s</span>
 
     <span class="c1">#  if v &gt; 28:</span>
@@ -492,26 +471,24 @@
 </section>
 <section id="signing-hash">
 <h4>signing_hash<a class="headerlink" href="#signing-hash" title="Permalink to this headline">¶</a></h4>
-<p>Compute the hash of a transaction used in the signature.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.signing_hash">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">signing_hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash32" title="eth1spec.eth_types.Hash32"><span class="pre">eth1spec.eth_types.Hash32</span></a><a class="headerlink" href="#eth1spec.spec.signing_hash" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Compute the hash of a transaction used in the signature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tx</strong> – Transaction of interest.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>hash</strong> – Hash of the transaction.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>eth1spec.eth_types.Hash32</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">signing_hash</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash32</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compute the hash of a transaction used in the signature.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    tx : `eth1spec.eth_types.Transaction`</span>
-<span class="sd">        Transaction of interest.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    hash : `eth1spec.eth_types.Hash32`</span>
-<span class="sd">        Hash of the transaction.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span>
         <span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
             <span class="p">(</span>
@@ -526,21 +503,18 @@
 </section>
 <section id="print-state">
 <h4>print_state<a class="headerlink" href="#print-state" title="Permalink to this headline">¶</a></h4>
-<p>Pretty prints the state.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.print_state">
 <span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">print_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.State" title="eth1spec.eth_types.State"><span class="pre">eth1spec.eth_types.State</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#eth1spec.spec.print_state" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Pretty prints the state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> – Ethereum state.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_state</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Pretty prints the state.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    state : `eth1spec.eth_types.State`</span>
-<span class="sd">        Ethereum state.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">nice</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">account</span><span class="p">)</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">nice</span><span class="p">[</span><span class="n">address</span><span class="o">.</span><span class="n">hex</span><span class="p">()]</span> <span class="o">=</span> <span class="p">{</span>

@@ -70,7 +70,6 @@ Unsigned positive integer.
       from its big endian representation.
 
       :param buffer: Bytes to decode.
-      :type buffer: `Bytes`
 
       :returns: **self** -- Unsigned integer decoded from `buffer`.
       :rtype: `Uint`
@@ -214,7 +213,6 @@ inclusive.
       from its big endian representation.
 
       :param buffer: Bytes to decode.
-      :type buffer: `Bytes`
 
       :returns: **self** -- Unsigned integer decoded from `buffer`.
       :rtype: `U256`

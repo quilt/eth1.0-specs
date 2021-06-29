@@ -38,16 +38,22 @@ pop
 ~~~
 
 
-Pops the top item off of `stack`.
-
-
-.. function:: pop(stack: List[eth1spec.eth_types.U256]) -> eth1spec.eth_types.U256
+.. function:: pop(stack: List[eth1spec.base_types.U256]) -> eth1spec.base_types.U256
    :noindexentry:
 
+   Pops the top item off of `stack`.
+
+   :param stack: EVM stack.
+
+   :returns: **value** -- The top element on the stack.
+   :rtype: `U256`
+
+   :raises StackUnderflowError: If `stack` is empty.
 
 
 
-.. literalinclude:: /../src/eth1spec/evm/stack.py
+
+.. undocinclude:: /../src/eth1spec/evm/stack.py
    :language: python
    :lines: 21-43
 
@@ -55,15 +61,19 @@ push
 ~~~~
 
 
-Pushes `value` onto `stack`.
-
-
-.. function:: push(stack: List[eth1spec.eth_types.U256], value: eth1spec.eth_types.U256) -> None
+.. function:: push(stack: List[eth1spec.base_types.U256], value: eth1spec.base_types.U256) -> None
    :noindexentry:
 
+   Pushes `value` onto `stack`.
+
+   :param stack: EVM stack.
+   :param value: Item to be pushed onto `stack`.
+
+   :raises StackOverflowError: If `len(stack)` is `1024`.
 
 
 
-.. literalinclude:: /../src/eth1spec/evm/stack.py
+
+.. undocinclude:: /../src/eth1spec/evm/stack.py
    :language: python
    :lines: 46-66
