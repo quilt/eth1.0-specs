@@ -29,5 +29,5 @@
 {% set module = obj.app.env.autoapi_objects[module_name] %}
 
 .. undocinclude:: /../src/{{ module.obj.relative_path }}
-   :language: {{ module.language }}
+   :anguage: {{ module.language }}
    :lines: {{ obj.obj.from_line_no }}-{{ obj.obj.to_line_no }}
