@@ -35,6 +35,12 @@ Functions
    eth1spec.rlp.decode_to_sequence
    eth1spec.rlp.decode_joined_encodings
    eth1spec.rlp.decode_item_length
+   eth1spec.rlp.encode_block
+   eth1spec.rlp.encode_header
+   eth1spec.rlp.encode_account
+   eth1spec.rlp.encode_transaction
+   eth1spec.rlp.encode_receipt
+   eth1spec.rlp.encode_log
 
 
 
@@ -78,7 +84,7 @@ encode
 
 .. undocinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 29-54
+   :lines: 42-79
 
 encode_bytes
 ~~~~~~~~~~~~
@@ -99,7 +105,7 @@ encode_bytes
 
 .. undocinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 58-84
+   :lines: 83-109
 
 encode_sequence
 ~~~~~~~~~~~~~~~
@@ -120,7 +126,7 @@ encode_sequence
 
 .. undocinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 88-112
+   :lines: 113-137
 
 get_joined_encodings
 ~~~~~~~~~~~~~~~~~~~~
@@ -143,7 +149,7 @@ get_joined_encodings
 
 .. undocinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 116-136
+   :lines: 141-161
 
 decode
 ~~~~~~
@@ -165,7 +171,7 @@ decode
 
 .. undocinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 144-170
+   :lines: 169-195
 
 decode_to_bytes
 ~~~~~~~~~~~~~~~
@@ -187,7 +193,7 @@ decode_to_bytes
 
 .. undocinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 173-210
+   :lines: 198-235
 
 decode_to_sequence
 ~~~~~~~~~~~~~~~~~~
@@ -209,7 +215,7 @@ decode_to_sequence
 
 .. undocinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 213-250
+   :lines: 238-275
 
 decode_joined_encodings
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -231,7 +237,7 @@ decode_joined_encodings
 
 .. undocinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 253-282
+   :lines: 278-307
 
 decode_item_length
 ~~~~~~~~~~~~~~~~~~
@@ -259,4 +265,100 @@ decode_item_length
 
 .. undocinclude:: /../src/eth1spec/rlp.py
    :language: python
-   :lines: 285-352
+   :lines: 310-377
+
+encode_block
+~~~~~~~~~~~~
+
+
+.. function:: encode_block(raw_block_data: eth1spec.eth_types.Block) -> eth1spec.base_types.Bytes
+   :noindexentry:
+
+   Encode `Block` dataclass
+
+
+
+
+.. undocinclude:: /../src/eth1spec/rlp.py
+   :language: python
+   :lines: 386-394
+
+encode_header
+~~~~~~~~~~~~~
+
+
+.. function:: encode_header(raw_header_data: eth1spec.eth_types.Header) -> eth1spec.base_types.Bytes
+   :noindexentry:
+
+   Encode `Header` dataclass
+
+
+
+
+.. undocinclude:: /../src/eth1spec/rlp.py
+   :language: python
+   :lines: 399-419
+
+encode_account
+~~~~~~~~~~~~~~
+
+
+.. function:: encode_account(raw_account_data: eth1spec.eth_types.Account) -> eth1spec.base_types.Bytes
+   :noindexentry:
+
+   Encode `Account` dataclass
+
+
+
+
+.. undocinclude:: /../src/eth1spec/rlp.py
+   :language: python
+   :lines: 424-439
+
+encode_transaction
+~~~~~~~~~~~~~~~~~~
+
+
+.. function:: encode_transaction(raw_tx_data: eth1spec.eth_types.Transaction) -> eth1spec.base_types.Bytes
+   :noindexentry:
+
+   Encode `Transaction` dataclass
+
+
+
+
+.. undocinclude:: /../src/eth1spec/rlp.py
+   :language: python
+   :lines: 444-458
+
+encode_receipt
+~~~~~~~~~~~~~~
+
+
+.. function:: encode_receipt(raw_receipt_data: eth1spec.eth_types.Receipt) -> eth1spec.base_types.Bytes
+   :noindexentry:
+
+   Encode `Receipt` dataclass
+
+
+
+
+.. undocinclude:: /../src/eth1spec/rlp.py
+   :language: python
+   :lines: 463-472
+
+encode_log
+~~~~~~~~~~
+
+
+.. function:: encode_log(raw_log_data: eth1spec.eth_types.Log) -> eth1spec.base_types.Bytes
+   :noindexentry:
+
+   Encode `Log` dataclass
+
+
+
+
+.. undocinclude:: /../src/eth1spec/rlp.py
+   :language: python
+   :lines: 477-485

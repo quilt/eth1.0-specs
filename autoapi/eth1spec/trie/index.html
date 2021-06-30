@@ -55,9 +55,10 @@
 <li><p><a class="reference internal" href="#node" id="id8">Node</a></p></li>
 <li><p><a class="reference internal" href="#nibble-list-to-compact" id="id9">nibble_list_to_compact</a></p></li>
 <li><p><a class="reference internal" href="#map-keys" id="id10">map_keys</a></p></li>
-<li><p><a class="reference internal" href="#root" id="id11">root</a></p></li>
-<li><p><a class="reference internal" href="#node-cap" id="id12">node_cap</a></p></li>
-<li><p><a class="reference internal" href="#patricialize" id="id13">patricialize</a></p></li>
+<li><p><a class="reference internal" href="#encode-leaf" id="id11">encode_leaf</a></p></li>
+<li><p><a class="reference internal" href="#root" id="id12">root</a></p></li>
+<li><p><a class="reference internal" href="#node-cap" id="id13">node_cap</a></p></li>
+<li><p><a class="reference internal" href="#patricialize" id="id14">patricialize</a></p></li>
 </ul>
 </li>
 </ul>
@@ -83,13 +84,16 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.trie.map_keys" title="eth1spec.trie.map_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_keys</span></code></a></p></td>
 <td><p>Maps all compact keys to nibble-list format. Optionally hashes the keys.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.trie.root" title="eth1spec.trie.root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">root</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.trie.encode_leaf" title="eth1spec.trie.encode_leaf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_leaf</span></code></a></p></td>
+<td><p>RLP encode leaf nodes of the Trie.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.trie.root" title="eth1spec.trie.root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">root</span></code></a></p></td>
 <td><p>Computes the root of a modified merkle patricia trie (MPT).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.trie.node_cap" title="eth1spec.trie.node_cap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_cap</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.trie.node_cap" title="eth1spec.trie.node_cap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_cap</span></code></a></p></td>
 <td><p>Internal nodes less than 32 bytes in length are represented by themselves</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.trie.patricialize" title="eth1spec.trie.patricialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">patricialize</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.trie.patricialize" title="eth1spec.trie.patricialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">patricialize</span></code></a></p></td>
 <td><p>Structural composition function.</p></td>
 </tr>
 </tbody>
@@ -250,6 +254,24 @@ used.</p>
 </pre></div>
 </div>
 </section>
+<section id="encode-leaf">
+<h4>encode_leaf<a class="headerlink" href="#encode-leaf" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="eth1spec.trie.encode_leaf">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.trie.</span></span><span class="sig-name descname"><span class="pre">encode_leaf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leaf</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#eth1spec.trie.Node" title="eth1spec.trie.Node"><span class="pre">Node</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../rlp/index.html#eth1spec.rlp.RLP" title="eth1spec.rlp.RLP"><span class="pre">eth1spec.rlp.RLP</span></a><a class="headerlink" href="#eth1spec.trie.encode_leaf" title="Permalink to this definition">¶</a></dt>
+<dd><p>RLP encode leaf nodes of the Trie.
+Currently leaf nodes can be <cite>Account</cite>, <cite>Transaction</cite>, <cite>Receipt</cite>
+dataclasses.</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_leaf</span><span class="p">(</span><span class="n">leaf</span><span class="p">:</span> <span class="n">Node</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rlp</span><span class="o">.</span><span class="n">RLP</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">leaf</span><span class="p">,</span> <span class="p">(</span><span class="n">Account</span><span class="p">,</span> <span class="n">Transaction</span><span class="p">,</span> <span class="n">Receipt</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">RLP</span><span class="p">,</span> <span class="n">leaf</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">leaf</span>
+</pre></div>
+</div>
+</section>
 <section id="root">
 <h4>root<a class="headerlink" href="#root" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
@@ -357,29 +379,7 @@ memoization of the tree structure and hashes.</p>
     <span class="c1"># if leaf node</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">leaf</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-        <span class="n">node</span><span class="p">:</span> <span class="n">rlp</span><span class="o">.</span><span class="n">RLP</span>
-
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">leaf</span><span class="p">,</span> <span class="n">Account</span><span class="p">):</span>
-            <span class="n">node</span> <span class="o">=</span> <span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-                <span class="p">(</span>
-                    <span class="n">leaf</span><span class="o">.</span><span class="n">nonce</span><span class="p">,</span>
-                    <span class="n">leaf</span><span class="o">.</span><span class="n">balance</span><span class="p">,</span>
-                    <span class="n">root</span><span class="p">(</span><span class="n">map_keys</span><span class="p">(</span><span class="n">leaf</span><span class="o">.</span><span class="n">storage</span><span class="p">)),</span>
-                    <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span><span class="n">leaf</span><span class="o">.</span><span class="n">code</span><span class="p">),</span>
-                <span class="p">)</span>
-            <span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">leaf</span><span class="p">,</span> <span class="n">Receipt</span><span class="p">):</span>
-            <span class="n">node</span> <span class="o">=</span> <span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-                <span class="p">(</span>
-                    <span class="n">leaf</span><span class="o">.</span><span class="n">post_state</span><span class="p">,</span>
-                    <span class="n">leaf</span><span class="o">.</span><span class="n">cumulative_gas_used</span><span class="p">,</span>
-                    <span class="n">leaf</span><span class="o">.</span><span class="n">bloom</span><span class="p">,</span>
-                    <span class="n">leaf</span><span class="o">.</span><span class="n">logs</span><span class="p">,</span>
-                <span class="p">)</span>
-            <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">node</span> <span class="o">=</span> <span class="n">leaf</span>
-
+        <span class="n">node</span><span class="p">:</span> <span class="n">rlp</span><span class="o">.</span><span class="n">RLP</span> <span class="o">=</span> <span class="n">encode_leaf</span><span class="p">(</span><span class="n">leaf</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">nibble_list_to_compact</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">:],</span> <span class="kc">True</span><span class="p">),</span> <span class="n">node</span><span class="p">)</span>
 
     <span class="c1"># prepare for extension node check by finding max j such that all keys in</span>

@@ -57,12 +57,13 @@
 <li><p><a class="reference internal" href="#state-transition" id="id9">state_transition</a></p></li>
 <li><p><a class="reference internal" href="#verify-header" id="id10">verify_header</a></p></li>
 <li><p><a class="reference internal" href="#apply-body" id="id11">apply_body</a></p></li>
-<li><p><a class="reference internal" href="#process-transaction" id="id12">process_transaction</a></p></li>
-<li><p><a class="reference internal" href="#validate-transaction" id="id13">validate_transaction</a></p></li>
-<li><p><a class="reference internal" href="#calculate-intrinsic-cost" id="id14">calculate_intrinsic_cost</a></p></li>
-<li><p><a class="reference internal" href="#recover-sender" id="id15">recover_sender</a></p></li>
-<li><p><a class="reference internal" href="#signing-hash" id="id16">signing_hash</a></p></li>
-<li><p><a class="reference internal" href="#print-state" id="id17">print_state</a></p></li>
+<li><p><a class="reference internal" href="#compute-ommers-hash" id="id12">compute_ommers_hash</a></p></li>
+<li><p><a class="reference internal" href="#process-transaction" id="id13">process_transaction</a></p></li>
+<li><p><a class="reference internal" href="#validate-transaction" id="id14">validate_transaction</a></p></li>
+<li><p><a class="reference internal" href="#calculate-intrinsic-cost" id="id15">calculate_intrinsic_cost</a></p></li>
+<li><p><a class="reference internal" href="#recover-sender" id="id16">recover_sender</a></p></li>
+<li><p><a class="reference internal" href="#signing-hash" id="id17">signing_hash</a></p></li>
+<li><p><a class="reference internal" href="#print-state" id="id18">print_state</a></p></li>
 </ul>
 </li>
 </ul>
@@ -104,22 +105,25 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.spec.apply_body" title="eth1spec.spec.apply_body"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_body</span></code></a></p></td>
 <td><p>Executes a block.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.spec.process_transaction" title="eth1spec.spec.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.spec.compute_ommers_hash" title="eth1spec.spec.compute_ommers_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_ommers_hash</span></code></a></p></td>
+<td><p>Compute hash of ommers list for a block</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.spec.process_transaction" title="eth1spec.spec.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a></p></td>
 <td><p>Execute a transaction against the provided environment.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.spec.validate_transaction" title="eth1spec.spec.validate_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transaction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.spec.validate_transaction" title="eth1spec.spec.validate_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transaction</span></code></a></p></td>
 <td><p>Verifies a transaction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.spec.calculate_intrinsic_cost" title="eth1spec.spec.calculate_intrinsic_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_intrinsic_cost</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.spec.calculate_intrinsic_cost" title="eth1spec.spec.calculate_intrinsic_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_intrinsic_cost</span></code></a></p></td>
 <td><p>Calculates the intrinsic cost of the transaction that is charged before</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.spec.recover_sender" title="eth1spec.spec.recover_sender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recover_sender</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.spec.recover_sender" title="eth1spec.spec.recover_sender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recover_sender</span></code></a></p></td>
 <td><p>Extracts the sender address from a transaction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.spec.signing_hash" title="eth1spec.spec.signing_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.spec.signing_hash" title="eth1spec.spec.signing_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash</span></code></a></p></td>
 <td><p>Compute the hash of a transaction used in the signature.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.spec.print_state" title="eth1spec.spec.print_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_state</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.spec.print_state" title="eth1spec.spec.print_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_state</span></code></a></p></td>
 <td><p>Pretty prints the state.</p></td>
 </tr>
 </tbody>
@@ -187,7 +191,7 @@
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">state_transition</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span> <span class="n">BlockChain</span><span class="p">,</span> <span class="n">block</span><span class="p">:</span> <span class="n">Block</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1">#  assert verify_header(block.header)</span>
-    <span class="n">gas_used</span><span class="p">,</span> <span class="n">receipt_root</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">apply_body</span><span class="p">(</span>
+    <span class="n">gas_used</span><span class="p">,</span> <span class="n">transactions_root</span><span class="p">,</span> <span class="n">receipt_root</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">apply_body</span><span class="p">(</span>
         <span class="n">chain</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
         <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">coinbase</span><span class="p">,</span>
         <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
@@ -199,8 +203,14 @@
     <span class="p">)</span>
 
     <span class="k">assert</span> <span class="n">gas_used</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">gas_used</span>
+    <span class="k">assert</span> <span class="n">compute_ommers_hash</span><span class="p">(</span><span class="n">block</span><span class="p">)</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">ommers</span>
+    <span class="c1"># TODO: Also need to verify that these ommers are indeed valid as per the</span>
+    <span class="c1"># Nth generation</span>
+    <span class="k">assert</span> <span class="n">transactions_root</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">transactions_root</span>
     <span class="k">assert</span> <span class="n">receipt_root</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">receipt_root</span>
     <span class="k">assert</span> <span class="n">trie</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">trie</span><span class="o">.</span><span class="n">map_keys</span><span class="p">(</span><span class="n">state</span><span class="p">))</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">state_root</span>
+
+    <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -232,7 +242,7 @@
 <h4>apply_body<a class="headerlink" href="#apply-body" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="eth1spec.spec.apply_body">
-<span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">apply_body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.State" title="eth1spec.eth_types.State"><span class="pre">eth1spec.eth_types.State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">coinbase</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Address" title="eth1spec.eth_types.Address"><span class="pre">eth1spec.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_gas_limit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_difficulty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">transactions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ommers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Header" title="eth1spec.eth_types.Header"><span class="pre">eth1spec.eth_types.Header</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Root" title="eth1spec.eth_types.Root"><span class="pre">eth1spec.eth_types.Root</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.State" title="eth1spec.eth_types.State"><span class="pre">eth1spec.eth_types.State</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.spec.apply_body" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">apply_body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.State" title="eth1spec.eth_types.State"><span class="pre">eth1spec.eth_types.State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">coinbase</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Address" title="eth1spec.eth_types.Address"><span class="pre">eth1spec.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_gas_limit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.U256" title="eth1spec.base_types.U256"><span class="pre">eth1spec.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_difficulty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">transactions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ommers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Header" title="eth1spec.eth_types.Header"><span class="pre">eth1spec.eth_types.Header</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Uint" title="eth1spec.base_types.Uint"><span class="pre">eth1spec.base_types.Uint</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Root" title="eth1spec.eth_types.Root"><span class="pre">eth1spec.eth_types.Root</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Root" title="eth1spec.eth_types.Root"><span class="pre">eth1spec.eth_types.Root</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.State" title="eth1spec.eth_types.State"><span class="pre">eth1spec.eth_types.State</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#eth1spec.spec.apply_body" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes a block.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -268,7 +278,7 @@ uncles.)</p></li>
     <span class="n">block_difficulty</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
     <span class="n">transactions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Transaction</span><span class="p">],</span>
     <span class="n">ommers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Header</span><span class="p">],</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Uint</span><span class="p">,</span> <span class="n">Root</span><span class="p">,</span> <span class="n">State</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Uint</span><span class="p">,</span> <span class="n">Root</span><span class="p">,</span> <span class="n">Root</span><span class="p">,</span> <span class="n">State</span><span class="p">]:</span>
     <span class="n">gas_available</span> <span class="o">=</span> <span class="n">block_gas_limit</span>
     <span class="n">receipts</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -300,7 +310,7 @@ uncles.)</p></li>
                 <span class="n">post_state</span><span class="o">=</span><span class="n">Root</span><span class="p">(</span><span class="n">trie</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">trie</span><span class="o">.</span><span class="n">map_keys</span><span class="p">(</span><span class="n">state</span><span class="p">))),</span>
                 <span class="n">cumulative_gas_used</span><span class="o">=</span><span class="p">(</span><span class="n">block_gas_limit</span> <span class="o">-</span> <span class="n">gas_available</span><span class="p">),</span>
                 <span class="n">bloom</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">256</span><span class="p">,</span>
-                <span class="n">logs</span><span class="o">=</span><span class="p">[],</span>
+                <span class="n">logs</span><span class="o">=</span><span class="n">logs</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="p">)</span>
 
@@ -313,7 +323,28 @@ uncles.)</p></li>
     <span class="p">}</span>
     <span class="n">receipt_root</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">trie</span><span class="o">.</span><span class="n">map_keys</span><span class="p">(</span><span class="n">receipts_map</span><span class="p">,</span> <span class="n">secured</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 
-    <span class="k">return</span> <span class="p">(</span><span class="n">gas_remaining</span><span class="p">,</span> <span class="n">receipt_root</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="n">transactions_map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nb">bytes</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">Uint</span><span class="p">(</span><span class="n">idx</span><span class="p">))):</span> <span class="n">tx</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">tx</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">transactions</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">transactions_root</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="n">root</span><span class="p">(</span>
+        <span class="n">trie</span><span class="o">.</span><span class="n">map_keys</span><span class="p">(</span><span class="n">transactions_map</span><span class="p">,</span> <span class="n">secured</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">gas_remaining</span><span class="p">,</span> <span class="n">transactions_root</span><span class="p">,</span> <span class="n">receipt_root</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="compute-ommers-hash">
+<h4>compute_ommers_hash<a class="headerlink" href="#compute-ommers-hash" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="eth1spec.spec.compute_ommers_hash">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.spec.</span></span><span class="sig-name descname"><span class="pre">compute_ommers_hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Block" title="eth1spec.eth_types.Block"><span class="pre">eth1spec.eth_types.Block</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Hash32" title="eth1spec.eth_types.Hash32"><span class="pre">eth1spec.eth_types.Hash32</span></a><a class="headerlink" href="#eth1spec.spec.compute_ommers_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute hash of ommers list for a block</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_ommers_hash</span><span class="p">(</span><span class="n">block</span><span class="p">:</span> <span class="n">Block</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash32</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">ommers</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>
@@ -525,7 +556,7 @@ execution is instantiated.</p>
         <span class="p">}</span>
 
         <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">account</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">nice</span><span class="p">[</span><span class="n">address</span><span class="o">.</span><span class="n">hex</span><span class="p">()][</span><span class="s2">&quot;storage&quot;</span><span class="p">][</span><span class="n">k</span><span class="o">.</span><span class="n">hex</span><span class="p">()]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+            <span class="n">nice</span><span class="p">[</span><span class="n">address</span><span class="o">.</span><span class="n">hex</span><span class="p">()][</span><span class="s2">&quot;storage&quot;</span><span class="p">][</span><span class="n">k</span><span class="o">.</span><span class="n">hex</span><span class="p">()]</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="n">nice</span><span class="p">)</span>
 </pre></div>

@@ -29,6 +29,7 @@ Functions
 
    eth1spec.trie.nibble_list_to_compact
    eth1spec.trie.map_keys
+   eth1spec.trie.encode_leaf
    eth1spec.trie.root
    eth1spec.trie.node_cap
    eth1spec.trie.patricialize
@@ -136,6 +137,24 @@ map_keys
    :language: python
    :lines: 76-121
 
+encode_leaf
+~~~~~~~~~~~
+
+
+.. function:: encode_leaf(leaf: Node) -> eth1spec.rlp.RLP
+   :noindexentry:
+
+   RLP encode leaf nodes of the Trie.
+   Currently leaf nodes can be `Account`, `Transaction`, `Receipt`
+   dataclasses.
+
+
+
+
+.. undocinclude:: /../src/eth1spec/trie.py
+   :language: python
+   :lines: 124-133
+
 root
 ~~~~
 
@@ -155,7 +174,7 @@ root
 
 .. undocinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 124-139
+   :lines: 136-151
 
 node_cap
 ~~~~~~~~
@@ -178,7 +197,7 @@ node_cap
 
 .. undocinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 142-166
+   :lines: 154-178
 
 patricialize
 ~~~~~~~~~~~~
@@ -203,4 +222,4 @@ patricialize
 
 .. undocinclude:: /../src/eth1spec/trie.py
    :language: python
-   :lines: 169-280
+   :lines: 181-270

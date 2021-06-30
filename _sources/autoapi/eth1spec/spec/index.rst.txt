@@ -37,6 +37,7 @@ Functions
    eth1spec.spec.state_transition
    eth1spec.spec.verify_header
    eth1spec.spec.apply_body
+   eth1spec.spec.compute_ommers_hash
    eth1spec.spec.process_transaction
    eth1spec.spec.validate_transaction
    eth1spec.spec.calculate_intrinsic_cost
@@ -104,7 +105,7 @@ state_transition
 
 .. undocinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 50-75
+   :lines: 50-81
 
 verify_header
 ~~~~~~~~~~~~~
@@ -125,13 +126,13 @@ verify_header
 
 .. undocinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 78-92
+   :lines: 84-98
 
 apply_body
 ~~~~~~~~~~
 
 
-.. function:: apply_body(state: eth1spec.eth_types.State, coinbase: eth1spec.eth_types.Address, block_number: eth1spec.base_types.Uint, block_gas_limit: eth1spec.base_types.Uint, block_time: eth1spec.base_types.U256, block_difficulty: eth1spec.base_types.Uint, transactions: List[eth1spec.eth_types.Transaction], ommers: List[eth1spec.eth_types.Header]) -> Tuple[eth1spec.base_types.Uint, eth1spec.eth_types.Root, eth1spec.eth_types.State]
+.. function:: apply_body(state: eth1spec.eth_types.State, coinbase: eth1spec.eth_types.Address, block_number: eth1spec.base_types.Uint, block_gas_limit: eth1spec.base_types.Uint, block_time: eth1spec.base_types.U256, block_difficulty: eth1spec.base_types.Uint, transactions: List[eth1spec.eth_types.Transaction], ommers: List[eth1spec.eth_types.Header]) -> Tuple[eth1spec.base_types.Uint, eth1spec.eth_types.Root, eth1spec.eth_types.Root, eth1spec.eth_types.State]
    :noindexentry:
 
    Executes a block.
@@ -155,7 +156,23 @@ apply_body
 
 .. undocinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 95-181
+   :lines: 101-195
+
+compute_ommers_hash
+~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: compute_ommers_hash(block: eth1spec.eth_types.Block) -> eth1spec.eth_types.Hash32
+   :noindexentry:
+
+   Compute hash of ommers list for a block
+
+
+
+
+.. undocinclude:: /../src/eth1spec/spec.py
+   :language: python
+   :lines: 198-202
 
 process_transaction
 ~~~~~~~~~~~~~~~~~~~
@@ -177,7 +194,7 @@ process_transaction
 
 .. undocinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 184-229
+   :lines: 205-250
 
 validate_transaction
 ~~~~~~~~~~~~~~~~~~~~
@@ -198,7 +215,7 @@ validate_transaction
 
 .. undocinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 232-246
+   :lines: 253-267
 
 calculate_intrinsic_cost
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -220,7 +237,7 @@ calculate_intrinsic_cost
 
 .. undocinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 249-272
+   :lines: 270-293
 
 recover_sender
 ~~~~~~~~~~~~~~
@@ -241,7 +258,7 @@ recover_sender
 
 .. undocinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 275-305
+   :lines: 296-326
 
 signing_hash
 ~~~~~~~~~~~~
@@ -262,7 +279,7 @@ signing_hash
 
 .. undocinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 308-330
+   :lines: 329-351
 
 print_state
 ~~~~~~~~~~~
@@ -280,4 +297,4 @@ print_state
 
 .. undocinclude:: /../src/eth1spec/spec.py
    :language: python
-   :lines: 336-357
+   :lines: 357-378

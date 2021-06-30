@@ -61,6 +61,12 @@
 <li><p><a class="reference internal" href="#decode-to-sequence" id="id13">decode_to_sequence</a></p></li>
 <li><p><a class="reference internal" href="#decode-joined-encodings" id="id14">decode_joined_encodings</a></p></li>
 <li><p><a class="reference internal" href="#decode-item-length" id="id15">decode_item_length</a></p></li>
+<li><p><a class="reference internal" href="#encode-block" id="id16">encode_block</a></p></li>
+<li><p><a class="reference internal" href="#encode-header" id="id17">encode_header</a></p></li>
+<li><p><a class="reference internal" href="#encode-account" id="id18">encode_account</a></p></li>
+<li><p><a class="reference internal" href="#encode-transaction" id="id19">encode_transaction</a></p></li>
+<li><p><a class="reference internal" href="#encode-receipt" id="id20">encode_receipt</a></p></li>
+<li><p><a class="reference internal" href="#encode-log" id="id21">encode_log</a></p></li>
 </ul>
 </li>
 </ul>
@@ -105,6 +111,24 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.decode_item_length" title="eth1spec.rlp.decode_item_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_item_length</span></code></a></p></td>
 <td><p>Find the length of the rlp encoding for the first object in the</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.encode_block" title="eth1spec.rlp.encode_block"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_block</span></code></a></p></td>
+<td><p>Encode <cite>Block</cite> dataclass</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.encode_header" title="eth1spec.rlp.encode_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_header</span></code></a></p></td>
+<td><p>Encode <cite>Header</cite> dataclass</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.encode_account" title="eth1spec.rlp.encode_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_account</span></code></a></p></td>
+<td><p>Encode <cite>Account</cite> dataclass</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.encode_transaction" title="eth1spec.rlp.encode_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_transaction</span></code></a></p></td>
+<td><p>Encode <cite>Transaction</cite> dataclass</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#eth1spec.rlp.encode_receipt" title="eth1spec.rlp.encode_receipt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_receipt</span></code></a></p></td>
+<td><p>Encode <cite>Receipt</cite> dataclass</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#eth1spec.rlp.encode_log" title="eth1spec.rlp.encode_log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_log</span></code></a></p></td>
+<td><p>Encode <cite>Log</cite> dataclass</p></td>
 </tr>
 </tbody>
 </table>
@@ -163,6 +187,18 @@ objects.</p>
         <span class="k">return</span> <span class="n">encode_bytes</span><span class="p">(</span><span class="n">raw_data</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">encode_sequence</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">],</span> <span class="n">raw_data</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Block</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">encode_block</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Header</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">encode_header</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Account</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">encode_account</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Transaction</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">encode_transaction</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Receipt</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">encode_receipt</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Log</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">encode_log</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
             <span class="s2">&quot;RLP Encoding of type </span><span class="si">{}</span><span class="s2"> is not supported&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">raw_data</span><span class="p">))</span>
@@ -512,6 +548,134 @@ data.</p>
         <span class="p">)</span>
 
     <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span> <span class="o">+</span> <span class="n">decoded_data_length</span>
+</pre></div>
+</div>
+</section>
+<section id="encode-block">
+<h4>encode_block<a class="headerlink" href="#encode-block" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="eth1spec.rlp.encode_block">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_block_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Block" title="eth1spec.eth_types.Block"><span class="pre">eth1spec.eth_types.Block</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.encode_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode <cite>Block</cite> dataclass</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_block</span><span class="p">(</span><span class="n">raw_block_data</span><span class="p">:</span> <span class="n">Block</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">encode</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">raw_block_data</span><span class="o">.</span><span class="n">header</span><span class="p">,</span>
+            <span class="n">raw_block_data</span><span class="o">.</span><span class="n">transactions</span><span class="p">,</span>
+            <span class="n">raw_block_data</span><span class="o">.</span><span class="n">ommers</span><span class="p">,</span>
+</pre></div>
+</div>
+</section>
+<section id="encode-header">
+<h4>encode_header<a class="headerlink" href="#encode-header" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="eth1spec.rlp.encode_header">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_header_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Header" title="eth1spec.eth_types.Header"><span class="pre">eth1spec.eth_types.Header</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.encode_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode <cite>Header</cite> dataclass</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_header</span><span class="p">(</span><span class="n">raw_header_data</span><span class="p">:</span> <span class="n">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">encode</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">ommers</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">coinbase</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">state_root</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">transactions_root</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">receipt_root</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">bloom</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">difficulty</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">gas_used</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">time</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">extra</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">mix_digest</span><span class="p">,</span>
+            <span class="n">raw_header_data</span><span class="o">.</span><span class="n">nonce</span><span class="p">,</span>
+</pre></div>
+</div>
+</section>
+<section id="encode-account">
+<h4>encode_account<a class="headerlink" href="#encode-account" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="eth1spec.rlp.encode_account">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_account_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Account" title="eth1spec.eth_types.Account"><span class="pre">eth1spec.eth_types.Account</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.encode_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode <cite>Account</cite> dataclass</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_account</span><span class="p">(</span><span class="n">raw_account_data</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+    <span class="c1"># TODO: This function should be split into 2 functions. One to</span>
+    <span class="c1"># patricialize the storage root and hashing code. Another for rlp</span>
+    <span class="c1"># encoding the previously obtained data.</span>
+    <span class="c1"># Imported here to prevent circular dependency</span>
+    <span class="kn">from</span> <span class="nn">.trie</span> <span class="kn">import</span> <span class="n">map_keys</span><span class="p">,</span> <span class="n">root</span>
+
+    <span class="k">return</span> <span class="n">encode</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">raw_account_data</span><span class="o">.</span><span class="n">nonce</span><span class="p">,</span>
+            <span class="n">raw_account_data</span><span class="o">.</span><span class="n">balance</span><span class="p">,</span>
+            <span class="n">root</span><span class="p">(</span><span class="n">map_keys</span><span class="p">(</span><span class="n">raw_account_data</span><span class="o">.</span><span class="n">storage</span><span class="p">)),</span>
+            <span class="n">keccak256</span><span class="p">(</span><span class="n">raw_account_data</span><span class="o">.</span><span class="n">code</span><span class="p">),</span>
+</pre></div>
+</div>
+</section>
+<section id="encode-transaction">
+<h4>encode_transaction<a class="headerlink" href="#encode-transaction" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="eth1spec.rlp.encode_transaction">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_tx_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Transaction" title="eth1spec.eth_types.Transaction"><span class="pre">eth1spec.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.encode_transaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode <cite>Transaction</cite> dataclass</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_transaction</span><span class="p">(</span><span class="n">raw_tx_data</span><span class="p">:</span> <span class="n">Transaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">encode</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">raw_tx_data</span><span class="o">.</span><span class="n">nonce</span><span class="p">,</span>
+            <span class="n">raw_tx_data</span><span class="o">.</span><span class="n">gas_price</span><span class="p">,</span>
+            <span class="n">raw_tx_data</span><span class="o">.</span><span class="n">gas</span><span class="p">,</span>
+            <span class="n">raw_tx_data</span><span class="o">.</span><span class="n">to</span><span class="p">,</span>
+            <span class="n">raw_tx_data</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">raw_tx_data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">raw_tx_data</span><span class="o">.</span><span class="n">v</span><span class="p">,</span>
+            <span class="n">raw_tx_data</span><span class="o">.</span><span class="n">r</span><span class="p">,</span>
+            <span class="n">raw_tx_data</span><span class="o">.</span><span class="n">s</span><span class="p">,</span>
+</pre></div>
+</div>
+</section>
+<section id="encode-receipt">
+<h4>encode_receipt<a class="headerlink" href="#encode-receipt" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="eth1spec.rlp.encode_receipt">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_receipt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_receipt_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Receipt" title="eth1spec.eth_types.Receipt"><span class="pre">eth1spec.eth_types.Receipt</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.encode_receipt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode <cite>Receipt</cite> dataclass</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_receipt</span><span class="p">(</span><span class="n">raw_receipt_data</span><span class="p">:</span> <span class="n">Receipt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">encode</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">raw_receipt_data</span><span class="o">.</span><span class="n">post_state</span><span class="p">,</span>
+            <span class="n">raw_receipt_data</span><span class="o">.</span><span class="n">cumulative_gas_used</span><span class="p">,</span>
+            <span class="n">raw_receipt_data</span><span class="o">.</span><span class="n">bloom</span><span class="p">,</span>
+            <span class="n">raw_receipt_data</span><span class="o">.</span><span class="n">logs</span><span class="p">,</span>
+</pre></div>
+</div>
+</section>
+<section id="encode-log">
+<h4>encode_log<a class="headerlink" href="#encode-log" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="eth1spec.rlp.encode_log">
+<span class="sig-prename descclassname"><span class="pre">eth1spec.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_log_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#eth1spec.eth_types.Log" title="eth1spec.eth_types.Log"><span class="pre">eth1spec.eth_types.Log</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#eth1spec.base_types.Bytes" title="eth1spec.base_types.Bytes"><span class="pre">eth1spec.base_types.Bytes</span></a><a class="headerlink" href="#eth1spec.rlp.encode_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode <cite>Log</cite> dataclass</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_log</span><span class="p">(</span><span class="n">raw_log_data</span><span class="p">:</span> <span class="n">Log</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">encode</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">raw_log_data</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+            <span class="n">raw_log_data</span><span class="o">.</span><span class="n">topics</span><span class="p">,</span>
+            <span class="n">raw_log_data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
 </pre></div>
 </div>
 </section>
