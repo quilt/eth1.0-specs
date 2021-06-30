@@ -138,12 +138,29 @@ on the stack.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sstore</span><span class="p">(</span><span class="n">evm</span><span class="p">:</span> <span class="n">Evm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">20000</span><span class="p">))</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
+    <span class="n">new_value</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
+    <span class="n">current_value</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 
-    <span class="n">k</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
+    <span class="c1"># TODO: SSTORE gas usage hasn&#39;t been tested yet. Testing this needs</span>
+    <span class="c1"># other opcodes to be implemented.</span>
+    <span class="c1"># Calculating the gas needed for the storage</span>
+    <span class="k">if</span> <span class="n">new_value</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">current_value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">gas_cost</span> <span class="o">=</span> <span class="n">GAS_STORAGE_SET</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">gas_cost</span> <span class="o">=</span> <span class="n">GAS_STORAGE_UPDATE</span>
 
-    <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">storage</span><span class="p">[</span><span class="n">k</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()]</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">gas_cost</span><span class="p">)</span>
+
+    <span class="c1"># TODO: Refund counter hasn&#39;t been tested yet. Testing this needs other</span>
+    <span class="c1"># Opcodes to be implemented</span>
+    <span class="k">if</span> <span class="n">new_value</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">current_value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span> <span class="o">+=</span> <span class="n">GAS_STORAGE_CLEAR_REFUND</span>
+
+    <span class="k">if</span> <span class="n">new_value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">storage</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">storage</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_value</span>
 </pre></div>
 </div>
 </section>

@@ -55,7 +55,7 @@ add
 
 .. undocinclude:: /../src/eth1spec/evm/instructions.py
    :language: python
-   :lines: 22-46
+   :lines: 28-52
 
 sstore
 ~~~~~~
@@ -76,7 +76,7 @@ sstore
 
 .. undocinclude:: /../src/eth1spec/evm/instructions.py
    :language: python
-   :lines: 49-70
+   :lines: 55-93
 
 push1
 ~~~~~
@@ -97,4 +97,4 @@ push1
 
 .. undocinclude:: /../src/eth1spec/evm/instructions.py
    :language: python
-   :lines: 73-91
+   :lines: 96-114

@@ -36,6 +36,9 @@ Attributes
 .. autoapisummary::
 
    eth1spec.evm.gas.GAS_VERY_LOW
+   eth1spec.evm.gas.GAS_STORAGE_SET
+   eth1spec.evm.gas.GAS_STORAGE_UPDATE
+   eth1spec.evm.gas.GAS_STORAGE_CLEAR_REFUND
 
 
 Module Details
@@ -45,6 +48,33 @@ GAS_VERY_LOW
 ~~~~~~~~~~~~
 
 .. data:: GAS_VERY_LOW
+   
+
+   
+
+
+GAS_STORAGE_SET
+~~~~~~~~~~~~~~~
+
+.. data:: GAS_STORAGE_SET
+   
+
+   
+
+
+GAS_STORAGE_UPDATE
+~~~~~~~~~~~~~~~~~~
+
+.. data:: GAS_STORAGE_UPDATE
+   
+
+   
+
+
+GAS_STORAGE_CLEAR_REFUND
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. data:: GAS_STORAGE_CLEAR_REFUND
    
 
    
@@ -69,4 +99,4 @@ subtract_gas
 
 .. undocinclude:: /../src/eth1spec/evm/gas.py
    :language: python
-   :lines: 21-40
+   :lines: 24-43

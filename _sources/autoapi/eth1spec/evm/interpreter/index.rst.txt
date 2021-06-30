@@ -60,4 +60,4 @@ process_call
 
 .. undocinclude:: /../src/eth1spec/evm/interpreter.py
    :language: python
-   :lines: 23-90
+   :lines: 23-94
