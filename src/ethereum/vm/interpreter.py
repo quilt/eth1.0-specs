@@ -17,7 +17,7 @@ from typing import List, Tuple
 from ..base_types import U256, Uint
 from ..eth_types import Address, Log
 from . import Environment, Evm
-from .ops import op_implementation
+from .instructions import Ops, op_implementation
 
 
 def process_call(
@@ -75,6 +75,7 @@ def process_call(
         depth=depth,
         env=env,
         refund_counter=Uint(0),
+        running=True,
     )
 
     logs: List[Log] = []
@@ -83,10 +84,13 @@ def process_call(
         evm.env.state[evm.caller].balance -= evm.value
         evm.env.state[evm.current].balance += evm.value
 
-    while evm.pc < len(evm.code):
-        op = evm.code[evm.pc]
+    while evm.running:
+        op = Ops(evm.code[evm.pc])
         op_implementation[op](evm)
         evm.pc += 1
+
+        if evm.pc >= len(evm.code):
+            evm.running = False
 
     gas_used = gas - evm.gas_left
     refund = min(gas_used // 2, evm.refund_counter)

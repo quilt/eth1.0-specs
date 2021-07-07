@@ -1,6 +1,6 @@
 """
-Ethereum Virtual Machine (EVM) Instructions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Ethereum Virtual Machine (EVM) Storage Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. contents:: Table of Contents
     :backlinks: none
@@ -9,47 +9,18 @@ Ethereum Virtual Machine (EVM) Instructions
 Introduction
 ------------
 
-Implementations of the instructions understood by the EVM.
+Implementations of the EVM storage related instructions.
 """
 
-
-from ..base_types import U256
-from . import Evm
-from .gas import (
+from ...base_types import U256
+from .. import Evm
+from ..gas import (
     GAS_STORAGE_CLEAR_REFUND,
     GAS_STORAGE_SET,
     GAS_STORAGE_UPDATE,
-    GAS_VERY_LOW,
     subtract_gas,
 )
-from .stack import pop, push
-
-
-def add(evm: Evm) -> None:
-    """
-    Adds the top two elements of the stack together, and pushes the result back
-    on the stack.
-
-    Parameters
-    ----------
-    evm :
-        The current EVM frame.
-
-    Raises
-    ------
-    StackUnderflowError
-        If `len(stack)` is less than `2`.
-    OutOfGasError
-        If `evm.gas_left` is less than `GAS_VERY_LOW`.
-    """
-    evm.gas_left = subtract_gas(evm.gas_left, GAS_VERY_LOW)
-
-    x = pop(evm.stack)
-    y = pop(evm.stack)
-
-    val = x.wrapping_add(y)
-
-    push(evm.stack, val)
+from ..stack import pop
 
 
 def sstore(evm: Evm) -> None:
@@ -88,27 +59,7 @@ def sstore(evm: Evm) -> None:
         evm.refund_counter += GAS_STORAGE_CLEAR_REFUND
 
     if new_value == 0:
-        del evm.env.state[evm.current].storage[key]
+        # Deletes a k-v pair from dict if key is present, else does nothing
+        evm.env.state[evm.current].storage.pop(key, None)
     else:
         evm.env.state[evm.current].storage[key] = new_value
-
-
-def push1(evm: Evm) -> None:
-    """
-    Pushes a one-byte immediate onto the stack.
-
-    Parameters
-    ----------
-    evm :
-        The current EVM frame.
-
-    Raises
-    ------
-    StackOverflowError
-        If `len(stack)` is equals `1024`.
-    OutOfGasError
-        If `evm.gas_left` is less than `GAS_VERY_LOW`.
-    """
-    evm.gas_left = subtract_gas(evm.gas_left, GAS_VERY_LOW)
-    push(evm.stack, U256(evm.code[evm.pc + 1]))
-    evm.pc += 1
